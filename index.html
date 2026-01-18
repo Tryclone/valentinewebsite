@@ -49,7 +49,7 @@
         .nav-links { display: flex; gap: 30px; }
         .nav-links a:hover { color: var(--accent); transform: translateY(-2px); }
 
-        /* --- HERO SECTION (B2B FOCUS) --- */
+        /* --- HERO SECTION --- */
         .hero {
             height: 90vh;
             display: flex;
@@ -200,13 +200,22 @@
             text-decoration: underline;
             margin-top: 10px;
             display: inline-block;
+            cursor: pointer;
         }
         .youtube-link {
             color: var(--text-muted);
             font-size: 2rem;
             transition: 0.3s;
         }
-        .youtube-link:hover { color: #FF0000; } /* YouTube Red on Hover */
+        .youtube-link:hover { color: #FF0000; } 
+
+        /* --- VAPI STICKY BUTTON OVERRIDE (Fixes the movement issue) --- */
+        #vapi-support-btn, .vapi-btn-container {
+            position: fixed !important;
+            bottom: 30px !important;
+            right: 30px !important;
+            z-index: 9999 !important;
+        }
 
         /* --- RESPONSIVE --- */
         @media (max-width: 768px) {
@@ -338,10 +347,7 @@
               apiKey: apiKey,
               assistant: assistant,
               config: {
-                position: "bottom-right", // This sets the sticky position
-                offset: "40px", // Adds padding from the corner
-                width: "50px", // Ensures consistency
-                height: "50px",
+                position: "bottom-right",
                 idleParams: {
                     type: "text", 
                     text: "Need help with automation?", 
