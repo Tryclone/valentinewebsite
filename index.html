@@ -201,6 +201,12 @@
             margin-top: 10px;
             display: inline-block;
         }
+        .youtube-link {
+            color: var(--text-muted);
+            font-size: 2rem;
+            transition: 0.3s;
+        }
+        .youtube-link:hover { color: #FF0000; } /* YouTube Red on Hover */
 
         /* --- RESPONSIVE --- */
         @media (max-width: 768px) {
@@ -282,7 +288,7 @@
                 <br>
                 <a href="https://www.amazon.com/stores/B-Valentine/author/B0CLKCV3SZ?ref=ap_rdr&shoppingPortalEnabled=true&ccs_id=b96b2c4c-1582-4f04-b09a-5fda7c71252c" target="_blank" class="btn-outline">Amazon</a>
                 
-                <a href="#" class="btn-outline" style="margin-left: 10px;">Digital Bookstore</a>
+                <a href="https://www.storez.me/hz9wxp" target="_blank" class="btn-outline" style="margin-left: 10px;">Digital Bookstore</a>
             </div>
         </div>
     </section>
@@ -299,16 +305,16 @@
             </p>
             <br><br>
             <p id="contact">Ready to discuss a project?</p>
-            <a href="mailto:your-email@example.com" class="contact-btn">Email Me Directly</a>
+            <a href="mailto:brandonwebsites100@gmail.com" class="contact-btn">Email Me Directly</a>
         </div>
     </section>
 
     <footer>
         <p>&copy; 2026 Valentine's Services. All Rights Reserved.</p>
-        <div style="margin-top: 10px; font-size: 1.5rem;">
-            <i class="fa-brands fa-twitter" style="margin: 0 10px;"></i>
-            <i class="fa-brands fa-instagram" style="margin: 0 10px;"></i>
-            <i class="fa-brands fa-linkedin" style="margin: 0 10px;"></i>
+        <div style="margin-top: 20px;">
+            <a href="https://www.youtube.com/@ValentinesServices" target="_blank" class="youtube-link">
+                <i class="fa-brands fa-youtube"></i>
+            </a>
         </div>
     </footer>
 
@@ -332,7 +338,10 @@
               apiKey: apiKey,
               assistant: assistant,
               config: {
-                position: "bottom-right",
+                position: "bottom-right", // This sets the sticky position
+                offset: "40px", // Adds padding from the corner
+                width: "50px", // Ensures consistency
+                height: "50px",
                 idleParams: {
                     type: "text", 
                     text: "Need help with automation?", 
