@@ -64,4 +64,285 @@
             font-size: 4rem;
             font-weight: 800;
             margin-bottom: 20px;
-            background: -webkit-linear-
+            background: -webkit-linear-gradient(#fff, #666);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin-bottom: 40px;
+        }
+        .btn {
+            padding: 15px 40px;
+            background: var(--accent);
+            color: var(--bg-dark);
+            font-weight: 700;
+            border-radius: 50px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: 2px solid var(--accent);
+        }
+        .btn:hover {
+            background: transparent;
+            color: var(--accent);
+        }
+
+        /* --- SERVICES GRID --- */
+        .section { padding: 80px 10%; }
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+            font-weight: 300;
+        }
+        .section-title span { font-weight: 700; border-bottom: 2px solid var(--accent); }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        .service-card {
+            background: var(--bg-card);
+            padding: 40px;
+            border: 1px solid var(--accent-gray);
+            border-radius: 12px;
+            transition: 0.4s;
+        }
+        .service-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-10px);
+            background: #1a1a1a;
+        }
+        .icon { font-size: 2.5rem; margin-bottom: 20px; color: var(--text-main); }
+        .service-card h3 { margin-bottom: 15px; font-size: 1.4rem; }
+        .service-card p { color: var(--text-muted); font-size: 0.95rem; }
+
+        /* --- THE CREATIVE DIVIDER --- */
+        .divider {
+            height: 200px;
+            background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=2000');
+            background-attachment: fixed;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        .overlay {
+            background: rgba(0,0,0,0.7);
+            position: absolute; width: 100%; height: 100%;
+        }
+        .divider-text {
+            position: relative; z-index: 2;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 2rem;
+        }
+
+        /* --- SHOP & BOOKS --- */
+        .creative-section { background: #0f0f0f; }
+        
+        .product-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+        
+        .product-card {
+            background: var(--bg-card);
+            padding: 40px;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid var(--accent-gray);
+        }
+        .product-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            margin-bottom: 20px;
+            opacity: 0.8;
+            border-radius: 8px;
+        }
+        .btn-outline {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 30px;
+            border: 1px solid var(--text-muted);
+            color: var(--text-main);
+            border-radius: 30px;
+            font-size: 0.9rem;
+        }
+        .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+        /* --- ABOUT --- */
+        .about-text {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 1.1rem;
+            color: var(--text-muted);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            padding: 40px 10%;
+            border-top: 1px solid var(--accent-gray);
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+        .contact-btn {
+            font-size: 1.2rem;
+            color: var(--accent);
+            text-decoration: underline;
+            margin-top: 10px;
+            display: inline-block;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .nav-links { display: none; } 
+            .product-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Valentine's <span>Services</span></div>
+        <div class="nav-links">
+            <a href="#services">Services</a>
+            <a href="#creative">Shop</a>
+            <a href="#books">Books</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <h1>Making Business Easier.<br>So You Can Create More.</h1>
+        <p>Advanced digital solutions for local business growth. From AI automation to custom software.</p>
+        <a href="#services" class="btn">Explore Solutions</a>
+    </header>
+
+    <section id="services" class="section">
+        <h2 class="section-title"><span>Professional Solutions</span></h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="icon"><i class="fa-solid fa-headset"></i></div>
+                <h3>AI Voice Agents</h3>
+                <p>24/7 intelligent receptionists that handle intake, scheduling, and customer support so you never miss a lead.</p>
+            </div>
+            <div class="service-card">
+                <div class="icon"><i class="fa-solid fa-laptop-code"></i></div>
+                <h3>Websites & Apps</h3>
+                <p>High-performance custom websites and mobile applications tailored to streamline your specific operations.</p>
+            </div>
+            <div class="service-card">
+                <div class="icon"><i class="fa-solid fa-video"></i></div>
+                <h3>Video Ad Creation</h3>
+                <p>Professional video advertisements designed to showcase your products and services across social media.</p>
+            </div>
+            <div class="service-card">
+                <div class="icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                <h3>Business Automation</h3>
+                <p>Connecting your tools (Email, CRM, SMS) to run on autopilot, saving you hours of manual work every week.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider">
+        <div class="overlay"></div>
+        <div class="divider-text">"Technology powers the Art."</div>
+    </div>
+
+    <section id="creative" class="section creative-section">
+        <h2 class="section-title"><span>The Creative Studio</span></h2>
+        
+        <div class="product-grid">
+            <div class="product-card">
+                <i class="fa-solid fa-shirt icon" style="font-size: 2rem; margin-bottom: 10px;"></i>
+                <h3>Valentine's Products</h3>
+                <p>Exclusive designed apparel and merchandise.</p>
+                <br>
+                <img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?auto=format&fit=crop&q=80&w=600" alt="Apparel" class="product-image">
+                <br>
+                <a href="https://valentine.printful.me/" target="_blank" class="btn-outline">Visit Store &rarr;</a>
+            </div>
+
+            <div id="books" class="product-card">
+                <i class="fa-solid fa-book-open icon" style="font-size: 2rem; margin-bottom: 10px;"></i>
+                <h3>Published Works</h3>
+                <p>Fiction and non-fiction books by Brandon Valentine.</p>
+                <br>
+                <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&q=80&w=600" alt="Books" class="product-image">
+                <br>
+                <a href="https://www.amazon.com/stores/B-Valentine/author/B0CLKCV3SZ?ref=ap_rdr&shoppingPortalEnabled=true&ccs_id=b96b2c4c-1582-4f04-b09a-5fda7c71252c" target="_blank" class="btn-outline">Amazon</a>
+                
+                <a href="#" class="btn-outline" style="margin-left: 10px;">Digital Bookstore</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="background-color: var(--bg-dark);">
+        <h2 class="section-title"><span>About the Developer</span></h2>
+        <div class="about-text">
+            <p>
+                I am a developer and creator based in Rock Hill, SC. 
+                <br><br>
+                My approach is unique: I blend the logical precision of software engineering with the creative eye of an author and designer. 
+                Whether I am building an AI agent to save your business time, or designing a product line, my goal is always the same: 
+                <b>To create things that work beautifully.</b>
+            </p>
+            <br><br>
+            <p id="contact">Ready to discuss a project?</p>
+            <a href="mailto:your-email@example.com" class="contact-btn">Email Me Directly</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Valentine's Services. All Rights Reserved.</p>
+        <div style="margin-top: 10px; font-size: 1.5rem;">
+            <i class="fa-brands fa-twitter" style="margin: 0 10px;"></i>
+            <i class="fa-brands fa-instagram" style="margin: 0 10px;"></i>
+            <i class="fa-brands fa-linkedin" style="margin: 0 10px;"></i>
+        </div>
+    </footer>
+
+    <script>
+        var vapiInstance = null;
+        
+        // --- IDS ARE NOW SET ---
+        const assistant = "6ac7a447-64bc-4eb6-a38b-1d1ec67bd4ce"; 
+        const apiKey = "2d50143b-0c3b-4a09-aa1a-faaf09714bc5"; 
+
+        (function(d, t){
+          var g = document.createElement(t);
+          var s = d.getElementsByTagName(t)[0];
+          g.src = "https://cdn.jsdelivr.net/gh/VapiAI/html-script-tag@latest/dist/assets/index.js";
+          g.defer = true;
+          g.async = true;
+          s.parentNode.insertBefore(g, s);
+      
+          g.onload = function(){
+            vapiInstance = window.vapiSDK.run({
+              apiKey: apiKey,
+              assistant: assistant,
+              config: {
+                position: "bottom-right",
+                idleParams: {
+                    type: "text", 
+                    text: "Need help with automation?", 
+                    color: "#ffffff"
+                }
+              }
+            });
+          };
+        })(document, "script");
+      </script>
+
+</body>
+</html>
