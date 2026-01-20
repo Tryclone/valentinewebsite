@@ -1,166 +1,248 @@
+Here is the **"Best of Both Worlds" Code**.
+
+It keeps the aggressive, high-converting "Sales Pitch" at the top (Hero, Pricing, Features) so you land B2B clients, but I have re-added the **Creative Section** at the bottom so your books and apparel are still visible.
+
+**What is new in this version:**
+
+1. **Hybrid Navigation:** The menu now has links for "Pricing" (for clients) and "Creative Shop" (for fans).
+2. **The "Pivot" Divider:** I added the visual divider back in so the website transitions smoothly from "Business" to "Art."
+3. **Full Pricing Grid:** The $99/$199/$299 pricing table is included.
+
+### 📋 Copy & Paste This Code into GitHub
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI Voice Agents for Businesses | Valentine’s Services</title>
+<title>Valentine's Services | AI Automation & Design</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:ital,wght@1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <style>
+/* --- CORE VARIABLES --- */
 :root {
-  --bg-dark:#0a0a0a;
-  --bg-card:#141414;
-  --text-main:#e0e0e0;
-  --text-muted:#a0a0a0;
-  --accent:#ffffff;
-  --accent-gray:#333;
+  --bg-dark: #0a0a0a;
+  --bg-card: #141414;
+  --text-main: #e0e0e0;
+  --text-muted: #a0a0a0;
+  --accent: #ffffff;
+  --accent-gray: #333333;
 }
 
-*{margin:0;padding:0;box-sizing:border-box}
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
-body{
-  background:var(--bg-dark);
-  color:var(--text-main);
-  font-family:'Inter',sans-serif;
-  line-height:1.6;
-  overflow-x:hidden;
-}
-
-a{text-decoration:none;color:inherit}
-
-/* NAV */
-nav{
-  position:sticky;
-  top:0;
-  z-index:1000;
-  background:rgba(10,10,10,.95);
-  padding:20px 5%;
-  display:flex;
-  justify-content:space-between;
-  border-bottom:1px solid var(--accent-gray);
-}
-.logo{font-size:1.5rem;font-weight:800}
-.logo span{font-weight:300;color:var(--text-muted)}
-
-/* HERO */
-.hero{
-  min-height:90vh;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-  padding:0 20px;
-  background:radial-gradient(circle,#1a1a1a,#000);
-}
-.hero h1{
-  font-size:3.5rem;
-  font-weight:800;
-  margin-bottom:20px;
-  background:-webkit-linear-gradient(#fff,#777);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-}
-.hero p{
-  max-width:700px;
-  color:var(--text-muted);
-  margin-bottom:40px;
-  font-size:1.2rem;
-}
-.btn{
-  padding:15px 45px;
-  border-radius:50px;
-  background:var(--accent);
-  color:#000;
-  font-weight:700;
-  border:2px solid var(--accent);
-}
-.btn:hover{background:transparent;color:var(--accent)}
-
-/* SECTIONS */
-.section{padding:80px 10%}
-.section-title{
-  text-align:center;
-  font-size:2.4rem;
-  font-weight:300;
-  margin-bottom:50px;
-}
-.section-title span{
-  font-weight:700;
-  border-bottom:2px solid var(--accent);
+body {
+  background: var(--bg-dark);
+  color: var(--text-main);
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
-/* SERVICES */
-.services-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:30px;
-}
-.service-card{
-  background:var(--bg-card);
-  padding:40px;
-  border-radius:12px;
-  border:1px solid var(--accent-gray);
-  transition:.3s;
-}
-.service-card:hover{
-  transform:translateY(-8px);
-  border-color:var(--accent);
-}
-.icon{font-size:2.3rem;margin-bottom:15px}
+a { text-decoration: none; color: inherit; transition: 0.3s; }
 
-/* PRICING */
-.pricing-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:30px;
+/* --- NAVIGATION --- */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(10, 10, 10, 0.95);
+  padding: 20px 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--accent-gray);
+  backdrop-filter: blur(10px);
 }
-.price-card{
-  background:var(--bg-card);
-  border:1px solid var(--accent-gray);
-  padding:40px;
-  border-radius:12px;
-  text-align:center;
-}
-.price-card h3{margin-bottom:10px}
-.price{
-  font-size:2.2rem;
-  font-weight:800;
-  margin:20px 0;
-}
-.price small{font-size:.9rem;color:var(--text-muted)}
+.logo { font-size: 1.5rem; font-weight: 800; letter-spacing: -1px; }
+.logo span { font-weight: 300; color: var(--text-muted); }
+.nav-links { display: flex; gap: 25px; font-size: 0.95rem; }
+.nav-links a:hover { color: var(--accent); transform: translateY(-2px); }
 
-/* FAQ */
-.faq{
-  max-width:900px;
-  margin:0 auto;
+/* --- HERO SECTION (SALES FOCUS) --- */
+.hero {
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 20px;
+  background: radial-gradient(circle at center, #1a1a1a 0%, #000000 100%);
 }
-.faq p{color:var(--text-muted);margin-bottom:20px}
+.hero h1 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+  background: -webkit-linear-gradient(#fff, #777);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.hero p {
+  max-width: 700px;
+  color: var(--text-muted);
+  margin-bottom: 40px;
+  font-size: 1.2rem;
+}
+.btn {
+  padding: 15px 45px;
+  border-radius: 50px;
+  background: var(--accent);
+  color: #000;
+  font-weight: 700;
+  border: 2px solid var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.btn:hover { background: transparent; color: var(--accent); }
 
-/* FOOTER */
-footer{
-  padding:40px 10%;
-  text-align:center;
-  border-top:1px solid var(--accent-gray);
-  color:var(--text-muted);
+/* --- SECTIONS GENERAL --- */
+.section { padding: 80px 10%; }
+.section-title {
+  text-align: center;
+  font-size: 2.4rem;
+  font-weight: 300;
+  margin-bottom: 60px;
+}
+.section-title span { font-weight: 700; border-bottom: 2px solid var(--accent); }
+
+/* --- FEATURES GRID --- */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+.service-card {
+  background: var(--bg-card);
+  padding: 40px;
+  border-radius: 12px;
+  border: 1px solid var(--accent-gray);
+  transition: 0.3s;
+}
+.service-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--accent);
+  background: #1a1a1a;
+}
+.icon { font-size: 2.3rem; margin-bottom: 15px; color: var(--text-main); }
+.service-card h3 { margin-bottom: 10px; font-size: 1.3rem; }
+.service-card p { color: var(--text-muted); font-size: 0.95rem; }
+
+/* --- PRICING GRID --- */
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+}
+.price-card {
+  background: var(--bg-card);
+  border: 1px solid var(--accent-gray);
+  padding: 40px;
+  border-radius: 12px;
+  text-align: center;
+  transition: 0.3s;
+}
+.price-card:hover { border-color: var(--accent); transform: scale(1.02); }
+.price-card h3 { margin-bottom: 10px; font-size: 1.4rem; }
+.price { font-size: 2.5rem; font-weight: 800; margin: 20px 0; }
+.price small { font-size: 1rem; color: var(--text-muted); font-weight: 400; }
+.price-card p { color: var(--text-muted); font-size: 0.9rem; line-height: 1.8; }
+
+/* --- DIVIDER (Transition to Creative) --- */
+.divider {
+  height: 200px;
+  background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=2000');
+  background-attachment: fixed;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.overlay { background: rgba(0,0,0,0.7); position: absolute; width: 100%; height: 100%; }
+.divider-text {
+  position: relative; z-index: 2;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 2rem;
 }
 
-/* 🔒 FORCE VAPI STICKY */
-#vapi-support-btn,
-.vapi-btn-container,
-.vapi-widget,
-[data-vapi]{
-  position:fixed !important;
-  bottom:28px !important;
-  right:28px !important;
-  z-index:99999 !important;
+/* --- CREATIVE SECTION (Shop & Books) --- */
+.creative-section { background: #0f0f0f; }
+.product-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+}
+.product-card {
+  background: var(--bg-card);
+  padding: 40px;
+  border-radius: 12px;
+  text-align: center;
+  border: 1px solid var(--accent-gray);
+}
+.product-image {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  margin-bottom: 20px;
+  opacity: 0.8;
+  border-radius: 8px;
+}
+.btn-outline {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 30px;
+  border: 1px solid var(--text-muted);
+  color: var(--text-main);
+  border-radius: 30px;
+  font-size: 0.9rem;
+}
+.btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+/* --- FAQ & ABOUT --- */
+.faq { max-width: 800px; margin: 0 auto; }
+.faq p { color: var(--text-muted); margin-bottom: 25px; border-bottom: 1px solid #222; padding-bottom: 20px; }
+.contact-btn {
+  font-size: 1.2rem;
+  color: var(--accent);
+  text-decoration: underline;
+  cursor: pointer;
 }
 
-/* MOBILE */
-@media(max-width:768px){
-  .hero h1{font-size:2.4rem}
+/* --- FOOTER --- */
+footer {
+  padding: 50px 10%;
+  text-align: center;
+  border-top: 1px solid var(--accent-gray);
+  color: var(--text-muted);
+}
+.youtube-link {
+  color: var(--text-muted);
+  font-size: 2rem;
+  transition: 0.3s;
+  display: inline-block;
+  margin-top: 15px;
+}
+.youtube-link:hover { color: #FF0000; }
+
+/* --- FORCE VAPI STICKY --- */
+#vapi-support-btn, .vapi-btn-container, .vapi-widget {
+  position: fixed !important;
+  bottom: 30px !important;
+  right: 30px !important;
+  z-index: 99999 !important;
+}
+
+/* --- MOBILE RESPONSIVE --- */
+@media (max-width: 768px) {
+  .hero h1 { font-size: 2.5rem; }
+  .nav-links { display: none; } /* Hide nav text on mobile for simplicity */
+  .product-grid { grid-template-columns: 1fr; }
 }
 </style>
 </head>
@@ -169,55 +251,93 @@ footer{
 
 <nav>
   <div class="logo">Valentine’s <span>Services</span></div>
+  <div class="nav-links">
+    <a href="#features">Features</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#creative">Creative Shop</a>
+    <a href="#contact">Contact</a>
+  </div>
 </nav>
 
 <header class="hero">
   <h1>Never Miss Another Call.</h1>
   <p>
-    This AI voice assistant answers your calls 24/7, qualifies leads, and books appointments automatically.
-    Try it live — it’s the same system installed for businesses.
+    The 24/7 AI Voice Assistant that qualifies leads, books appointments, and saves you money.
+    Real automation for real business growth.
   </p>
-  <a href="#" class="btn">Try the AI Assistant Now</a>
+  <a href="#pricing" class="btn">View Plans</a>
 </header>
 
-<section class="section">
+<section id="features" class="section">
   <h2 class="section-title"><span>What It Does</span></h2>
   <div class="services-grid">
     <div class="service-card">
       <div class="icon"><i class="fa-solid fa-phone"></i></div>
       <h3>Answers Every Call</h3>
-      <p>No voicemail. No missed leads. Your AI receptionist works 24/7.</p>
+      <p>No more voicemail tag. Your AI receptionist handles calls instantly, day or night.</p>
     </div>
     <div class="service-card">
       <div class="icon"><i class="fa-solid fa-calendar-check"></i></div>
       <h3>Books Appointments</h3>
-      <p>Schedules calls and captures customer details automatically.</p>
+      <p>Intelligent scheduling that integrates with your calendar to lock in clients automatically.</p>
     </div>
     <div class="service-card">
-      <div class="icon"><i class="fa-solid fa-message"></i></div>
-      <h3>Sends You Summaries</h3>
-      <p>Instant SMS or email summaries after every interaction.</p>
+      <div class="icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+      <h3>Web & Video</h3>
+      <p>We also offer custom website development and AI-generated video ads for your products.</p>
     </div>
   </div>
 </section>
 
-<section class="section">
+<section id="pricing" class="section">
   <h2 class="section-title"><span>Simple Pricing</span></h2>
   <div class="pricing-grid">
     <div class="price-card">
       <h3>Starter</h3>
       <div class="price">$99<small>/mo</small></div>
-      <p>Voicemail replacement<br>Lead capture</p>
+      <p>Voicemail Replacement<br>Basic Q&A<br>Email Summaries</p>
     </div>
-    <div class="price-card">
+    <div class="price-card" style="border-color: var(--accent); background: #1a1a1a;">
       <h3>Business</h3>
       <div class="price">$199<small>/mo</small></div>
-      <p>Call answering<br>Scheduling<br>SMS summaries</p>
+      <p><b>Everything in Starter +</b><br>Appointment Booking<br>SMS Texting<br>Call Transfers</p>
     </div>
     <div class="price-card">
       <h3>Pro</h3>
       <div class="price">$299<small>/mo</small></div>
-      <p>CRM integration<br>Custom scripts<br>Priority support</p>
+      <p><b>Everything in Business +</b><br>CRM Integration<br>Custom Workflows<br>Priority Support</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider">
+  <div class="overlay"></div>
+  <div class="divider-text">"Technology powers the Art."</div>
+</div>
+
+<section id="creative" class="section creative-section">
+  <h2 class="section-title"><span>The Creative Studio</span></h2>
+  
+  <div class="product-grid">
+    <div class="product-card">
+      <i class="fa-solid fa-shirt icon"></i>
+      <h3>Valentine's Products</h3>
+      <p>Exclusive designed apparel and merchandise.</p>
+      <br>
+      <img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?auto=format&fit=crop&q=80&w=600" alt="Apparel" class="product-image">
+      <br>
+      <a href="https://valentine.printful.me/" target="_blank" class="btn-outline">Visit Store &rarr;</a>
+    </div>
+
+    <div class="product-card">
+      <i class="fa-solid fa-book-open icon"></i>
+      <h3>Published Works</h3>
+      <p>Fiction and non-fiction books by Brandon Valentine.</p>
+      <br>
+      <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&q=80&w=600" alt="Books" class="product-image">
+      <br>
+      <a href="https://www.amazon.com/stores/B-Valentine/author/B0CLKCV3SZ?ref=ap_rdr&shoppingPortalEnabled=true&ccs_id=b96b2c4c-1582-4f04-b09a-5fda7c71252c" target="_blank" class="btn-outline">Amazon</a>
+      <a href="https://www.storez.me/hz9wxp" target="_blank" class="btn-outline" style="margin-left: 10px;">Digital Bookstore</a>
     </div>
   </div>
 </section>
@@ -225,41 +345,59 @@ footer{
 <section class="section">
   <h2 class="section-title"><span>FAQ</span></h2>
   <div class="faq">
-    <p><b>Does this replace my receptionist?</b><br>
-    It can fully replace voicemail or act as a backup when calls are missed.</p>
-
-    <p><b>Can it work on my website or phone line?</b><br>
-    Yes — website widget, call forwarding, or both.</p>
-
-    <p><b>Do I need a website?</b><br>
-    No. A landing page can be provided if needed.</p>
+    <p><b>Does this replace my receptionist?</b><br>It can fully replace voicemail or act as a backup when calls are missed. It works 24/7 without breaks.</p>
+    <p><b>Can it work on my website or phone line?</b><br>Yes — we provide a website widget (like the one on this screen) and a phone number for call forwarding.</p>
+    <p id="contact"><b>How do I get started?</b><br>Email me directly below for a consultation.</p>
+    
+    <div style="text-align: center; margin-top: 40px;">
+        <a href="mailto:brandonwebsites100@gmail.com" class="contact-btn" style="font-size: 1.5rem;">Email Me Directly</a>
+    </div>
   </div>
 </section>
 
 <footer>
-  <p>&copy; 2026 Valentine’s Services</p>
+  <p>&copy; 2026 Valentine’s Services. All Rights Reserved.</p>
+  <div style="margin-top: 20px;">
+      <a href="https://www.youtube.com/@ValentinesServices" target="_blank" class="youtube-link">
+          <i class="fa-brands fa-youtube"></i>
+      </a>
+  </div>
 </footer>
 
 <script>
-var vapiInstance=null;
-const assistant="6ac7a447-64bc-4eb6-a38b-1d1ec67bd4ce";
-const apiKey="2d50143b-0c3b-4a09-aa1a-faaf09714bc5";
+var vapiInstance = null;
+const assistant = "6ac7a447-64bc-4eb6-a38b-1d1ec67bd4ce";
+const apiKey = "2d50143b-0c3b-4a09-aa1a-faaf09714bc5";
 
-(function(d,t){
-  var g=d.createElement(t);
-  var s=d.getElementsByTagName(t)[0];
-  g.src="https://cdn.jsdelivr.net/gh/VapiAI/html-script-tag@latest/dist/assets/index.js";
-  g.async=true;
-  s.parentNode.insertBefore(g,s);
-  g.onload=function(){
-    vapiInstance=window.vapiSDK.run({
-      apiKey:apiKey,
-      assistant:assistant,
-      config:{position:"bottom-right"}
+(function(d, t){
+  var g = document.createElement(t);
+  var s = d.getElementsByTagName(t)[0];
+  g.src = "https://cdn.jsdelivr.net/gh/VapiAI/html-script-tag@latest/dist/assets/index.js";
+  g.defer = true;
+  g.async = true;
+  s.parentNode.insertBefore(g, s);
+
+  g.onload = function(){
+    vapiInstance = window.vapiSDK.run({
+      apiKey: apiKey,
+      assistant: assistant,
+      config: {
+        position: "bottom-right",
+        offset: "30px",
+        width: "50px",
+        height: "50px",
+        idleParams: {
+          type: "text", 
+          text: "Have a question?", 
+          color: "#ffffff"
+        }
+      }
     });
   };
-})(document,"script");
+})(document, "script");
 </script>
 
 </body>
 </html>
+
+```
