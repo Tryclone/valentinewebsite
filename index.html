@@ -30,16 +30,30 @@ body{
 
 a{text-decoration:none;color:inherit}
 
-/* NAV */
+/* NAV & LOGO */
 nav{
   position:sticky;
   top:0;
   z-index:1000;
   background:rgba(10,10,10,.95);
-  padding:20px 5%;
+  padding:15px 5%; /* Slightly reduced padding for tighter fit */
   border-bottom:1px solid var(--accent-gray);
+  display: flex;
+  align-items: center;
 }
-.logo{font-size:1.5rem;font-weight:800}
+.logo{
+    font-size:1.5rem;
+    font-weight:800;
+    display: flex;
+    align-items: center;
+}
+/* CSS Magic to make the dark logo white */
+.logo-img {
+    height: 45px; /* Adjusts size to fit navbar nicely */
+    width: auto;
+    margin-right: 12px;
+    filter: invert(1); /* Turns black pixels white */
+}
 .logo span{font-weight:300;color:var(--text-muted)}
 
 /* HERO */
@@ -160,7 +174,7 @@ nav{
   text-transform:uppercase;
 }
 
-/* FAQ */
+/* FAQ & CONTACT BTN */
 .faq{
   max-width:850px;
   margin:0 auto;
@@ -171,6 +185,23 @@ nav{
   padding-bottom:20px;
   border-bottom:1px solid #222;
 }
+.email-btn {
+    display: inline-block;
+    padding: 15px 35px;
+    border: 2px solid var(--accent);
+    color: var(--accent);
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    transition: 0.3s;
+    margin-top: 30px;
+}
+.email-btn:hover {
+    background: var(--accent);
+    color: var(--bg-dark);
+}
+.email-btn i { margin-right: 10px; }
+
 
 /* DIVIDER */
 .divider{
@@ -232,7 +263,10 @@ footer{
 <body>
 
 <nav>
-  <div class="logo">Valentine’s <span>Services</span></div>
+  <div class="logo">
+      <img src="logo.png" alt="VS Logo" class="logo-img">
+      Valentine’s <span>Services</span>
+  </div>
 </nav>
 
 <header class="hero">
@@ -348,6 +382,14 @@ footer{
     <p><b>Can this answer phone calls?</b><br>Yes, missed calls can forward to the AI.</p>
     <p><b>How do I get leads?</b><br>You receive call summaries or recordings by email.</p>
     <p><b>Is the AI customized?</b><br>Yes, it’s trained on your business info.</p>
+    <p><b>Can you develop customized apps?</b><br>Yes. Please get in touch with me concerning your needs.</p>
+    
+    <div style="text-align: center;">
+        <a href="mailto:brandonwebsites100@gmail.com" class="email-btn">
+            <i class="fa-solid fa-envelope"></i> Email Me Directly
+        </a>
+    </div>
+
   </div>
 </section>
 
@@ -378,3 +420,5 @@ const apiKey="2d50143b-0c3b-4a09-aa1a-faaf09714bc5";
   };
 })(document,"script");
 </script>
+</body>
+</html>
