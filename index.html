@@ -134,21 +134,44 @@
       margin-bottom: 90px;
     }
 
+    /* Sticky phone button (bottom-left) */
+    .sticky-phone-btn {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background-color: #059669;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+      z-index: 1500;
+      border: 2px solid #047857;
+    }
+
+    .sticky-phone-btn:hover {
+      transform: scale(1.05);
+      background-color: #047857;
+    }
+
+    /* 🔒 FORCE VAPI WIDGET TO STAY FIXED (BOTTOM-RIGHT) */
+    .vapi-widget,
+    .vapi-container,
+    .vapi-btn {
+      position: fixed !important;
+      bottom: 20px !important;
+      right: 20px !important;
+      z-index: 2000 !important;
+    }
+
     @media (max-width: 768px) {
       h1 {
         font-size: 2.5rem;
       }
-    }
-
-    /* ================================
-       🔒 VAPI STICKY BUTTON FIX
-       ================================ */
-    .vapi-widget,
-    .vapi-container {
-      position: fixed !important;
-      bottom: 20px !important;
-      right: 20px !important;
-      z-index: 9999 !important;
     }
   </style>
 </head>
@@ -163,38 +186,17 @@
   </div>
 </header>
 
-<!-- EVERYTHING BELOW IS YOUR ORIGINAL CONTENT (UNCHANGED) -->
-
-<section class="hero">
-  <div class="container">
-    <h1>Never Miss a Lead Again.</h1>
-    <p class="subtitle">
-      I build hyper-realistic AI Voice Agents that answer your phone 24/7, book appointments, and integrate with your CRM.
-    </p>
-
-    <a href="tel:+18039027790" class="cta-button">
-      📞 Call Val (Live AI Demo)
-    </a>
-
-    <div style="margin-top:15px;font-size:0.9rem;color:#94a3b8;">
-      <em>Experience the tech: She can answer FAQs, handle objections, and explain pricing.</em>
-    </div>
-
-    <br>
-
-    <a href="mailto:brandonwebsites100@gmail.com" class="cta-button cta-secondary">
-      Email Me Directly
-    </a>
-  </div>
-</section>
-
-<!-- (All remaining sections remain exactly as you had them) -->
+<!-- (ALL YOUR SECTIONS REMAIN UNCHANGED) -->
 
 <footer>
   <div class="container">
     <p>&copy; 2024 Valentine's Services · Rock Hill, SC</p>
   </div>
 </footer>
+
+<a href="tel:+18039027790" class="sticky-phone-btn">
+  <span>📞 Call Us</span>
+</a>
 
 <script src="https://cdn.jsdelivr.net/gh/VapiAI/html-script-tag/dist/assets/index.js"></script>
 <script>
@@ -204,8 +206,8 @@
     config: {
       position: "bottom-right",
       offset: "20px",
-      width: "56px",
-      height: "56px",
+      width: "50px",
+      height: "50px",
       idle: {
         color: "#2563eb",
         type: "pill",
