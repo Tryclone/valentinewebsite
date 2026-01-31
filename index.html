@@ -177,37 +177,13 @@
       margin-bottom: 60px;
     }
 
-    /* --- CUSTOM VAPI BUTTON (Guaranteed Sticky) --- */
-    #vapi-custom-btn {
-      position: fixed; /* This forces it to float */
-      bottom: 20px;
-      right: 20px;
-      z-index: 9999; /* Ensures it sits on top of everything */
-      
-      background-color: var(--primary);
-      color: white;
-      border: none;
-      border-radius: 50px;
-      padding: 12px 24px;
-      font-family: inherit;
-      font-weight: 600;
-      font-size: 1rem;
-      cursor: pointer;
-      box-shadow: 0 4px 20px rgba(37, 99, 235, 0.4);
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      transition: all 0.2s ease;
-    }
-
-    #vapi-custom-btn:hover {
-      transform: translateY(-2px);
-      background-color: var(--accent);
-    }
-
-    #vapi-custom-btn.active-call {
-      background-color: #ef4444; /* Red color when talking */
-      box-shadow: 0 4px 20px rgba(239, 68, 68, 0.4);
+    /* --- FORCE VAPI WIDGET TO STICK --- */
+    /* This overrides any hidden defaults to ensure it floats on top */
+    #vapi-support-btn {
+      position: fixed !important;
+      bottom: 20px !important;
+      right: 20px !important;
+      z-index: 2147483647 !important; /* Maximum possible layer */
     }
 
     @media (max-width: 768px) {
@@ -365,63 +341,33 @@
   </div>
 </footer>
 
-<button id="vapi-custom-btn">
-  🎤 <span id="vapi-btn-text">Talk to Val</span>
-</button>
-
-<script src="https://cdn.jsdelivr.net/npm/@vapi-ai/web/dist/vapi.min.js"></script>
-
+<script src="https://cdn.jsdelivr.net/gh/VapiAI/html-script-tag/dist/assets/index.js"></script>
 <script>
-  // --- CONFIGURATION ---
-  const publicKey = "2d50143b-0c3b-4a09-aa1a-faaf09714bc5
-"; 
-  const assistantId = "6ac7a447-64bc-4eb6-a38b-1d1ec67bd4ce"; 
-  // ---------------------
-
-  const vapi = new window.Vapi(publicKey);
-  const btn = document.getElementById("vapi-custom-btn");
-  const btnText = document.getElementById("vapi-btn-text");
-
-  // 1. Handle Click (Toggle Call)
-  btn.addEventListener("click", () => {
-    // If call is already active, stop it
-    // (Note: Vapi SDK handles state internally, but we can check via listeners)
-    // For simplicity, we just trigger the command
-    // If we are "Connected", we stop. If "Idle", we start.
-    
-    if (btn.classList.contains("active-call")) {
-      vapi.stop();
-    } else {
-      vapi.start(assistantId);
-      btnText.innerText = "Connecting...";
+  var vapiInstance = window.vapiSDK.run({
+    apiKey: "2d50143b-0c3b-4a09-aa1a-faaf09714bc5", 
+    assistant: "6ac7a447-64bc-4eb6-a38b-1d1ec67bd4ce", 
+    config: {
+      position: "bottom-right", 
+      offset: "20px",
+      width: "50px",
+      height: "50px",
+      idle: {
+        color: "#2563eb", 
+        type: "pill",
+        title: "Talk to Val", 
+        subtitle: "Click to chat",
+        icon: "https://unpkg.com/lucide-static/icons/mic.svg",
+      },
+      loading: {
+        color: "#3b82f6",
+      },
+      active: {
+        color: "#ef4444", 
+        type: "pill",
+        title: "Listening...",
+        subtitle: "Say something",
+      },
     }
-  });
-
-  // 2. Handle Vapi Events (Update Button Look)
-  vapi.on("call-start", () => {
-    console.log("Call started");
-    btn.classList.add("active-call");
-    btnText.innerText = "Listening...";
-  });
-
-  vapi.on("call-end", () => {
-    console.log("Call ended");
-    btn.classList.remove("active-call");
-    btnText.innerText = "Talk to Val";
-  });
-
-  vapi.on("speech-start", () => {
-    btnText.innerText = "Val is speaking...";
-  });
-
-  vapi.on("speech-end", () => {
-    btnText.innerText = "Listening...";
-  });
-
-  vapi.on("error", (e) => {
-    console.error(e);
-    btnText.innerText = "Error (See Console)";
-    btn.classList.remove("active-call");
   });
 </script>
 
