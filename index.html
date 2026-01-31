@@ -174,11 +174,53 @@
       text-align: center;
       padding: 3rem 0;
       color: #64748b;
+      margin-bottom: 60px; /* Added space so floating buttons don't cover text */
+    }
+
+    /* --- NEW FLOATING BUTTON STYLES --- */
+    
+    /* The Sticky Phone Button (Bottom Left) */
+    .sticky-phone-btn {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background-color: #059669; /* Green for "Call" */
+      color: white;
+      padding: 12px 20px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+      z-index: 1000;
+      transition: transform 0.2s ease;
+      border: 2px solid #047857;
+    }
+
+    .sticky-phone-btn:hover {
+      transform: scale(1.05);
+      background-color: #047857;
+    }
+
+    /* Vapi Widget Customization (Optional overrides) */
+    .vapi-btn {
+      /* The Vapi script handles most of this, but this ensures it stays right */
+      z-index: 1001; 
     }
 
     @media (max-width: 768px) {
       h1 {
         font-size: 2.5rem;
+      }
+      /* On mobile, make the phone button smaller or icon only if needed */
+      .sticky-phone-btn span {
+        display: none; /* Hide text on very small screens if desired */
+      }
+      .sticky-phone-btn::after {
+        content: "📞 Call";
+        display: block;
       }
     }
   </style>
@@ -330,6 +372,40 @@
     <p>&copy; 2024 Valentine's Services · Rock Hill, SC</p>
   </div>
 </footer>
+
+<a href="tel:+18039027790" class="sticky-phone-btn">
+  <span>📞 Call Us</span>
+</a>
+
+<script src="https://cdn.jsdelivr.net/gh/VapiAI/html-script-tag/dist/assets/index.js"></script>
+<script>
+  var vapiInstance = window.vapiSDK.run({
+    apiKey: "2d50143b-0c3b-4a09-aa1a-faaf09714bc5", 
+    assistant: "6ac7a447-64bc-4eb6-a38b-1d1ec67bd4ce", 
+    config: {
+      position: "bottom-right", // Places the widget in the bottom right
+      offset: "20px",
+      width: "50px",
+      height: "50px",
+      idle: {
+        color: "#2563eb", // Blue (matches your brand)
+        type: "pill",
+        title: "Talk to Val", // Text shown on the widget
+        subtitle: "Click to chat",
+        icon: "https://unpkg.com/lucide-static/icons/mic.svg",
+      },
+      loading: {
+        color: "#3b82f6",
+      },
+      active: {
+        color: "#ef4444", // Red when recording
+        type: "pill",
+        title: "Listening...",
+        subtitle: "Say something",
+      },
+    }
+  });
+</script>
 
 </body>
 </html>
