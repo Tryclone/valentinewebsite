@@ -40,11 +40,6 @@
       border-bottom: 1px solid var(--border);
     }
 
-    header .brand {
-      font-size: 1.5rem;
-      font-weight: 700;
-    }
-
     /* HERO */
     .hero {
       padding: 5rem 0;
@@ -91,14 +86,8 @@
       box-shadow: none;
     }
 
-    /* SECTIONS */
     .section {
       padding: 4.5rem 0;
-    }
-
-    .section h2 {
-      text-align: center;
-      margin-bottom: 2.5rem;
     }
 
     .grid {
@@ -114,67 +103,12 @@
       border: 1px solid var(--border);
     }
 
-    /* PRICING */
-    .price-card {
-      background: linear-gradient(145deg, #1e293b, #0f172a);
-      border: 1px solid var(--primary);
-      padding: 3rem;
-      border-radius: 1rem;
-      text-align: center;
-      max-width: 520px;
-      margin: 0 auto;
-      position: relative;
-    }
-
-    .badge {
-      position: absolute;
-      top: -14px;
-      right: 20px;
-      background: #059669;
-      color: #fff;
-      font-size: 0.8rem;
-      padding: 6px 10px;
-      border-radius: 6px;
-      font-weight: 600;
-    }
-
-    .price {
-      font-size: 3rem;
-      font-weight: 800;
-      margin: 1rem 0;
-    }
-
-    .price span {
-      font-size: 1rem;
-      color: var(--muted);
-    }
-
-    .feature-list {
-      list-style: none;
-      text-align: left;
-      margin: 2rem 0;
-    }
-
-    .feature-list li {
-      margin-bottom: 1rem;
-      padding-left: 1.6rem;
-      position: relative;
-    }
-
-    .feature-list li::before {
-      content: "✓";
-      position: absolute;
-      left: 0;
-      color: var(--primary);
-      font-weight: bold;
-    }
-
     footer {
       border-top: 1px solid var(--border);
       text-align: center;
       padding: 3rem 0;
       color: #64748b;
-      margin-bottom: 60px; /* Kept slight spacing just in case */
+      margin-bottom: 90px;
     }
 
     @media (max-width: 768px) {
@@ -182,16 +116,25 @@
         font-size: 2.5rem;
       }
     }
+
+    /* 🔒 FORCE VAPI BUTTON TO STAY FIXED */
+    .vapi-widget,
+    .vapi-container {
+      position: fixed !important;
+      bottom: 20px !important;
+      right: 20px !important;
+      z-index: 9999 !important;
+    }
   </style>
 </head>
 
 <body>
 
 <header>
-  <div class="container" style="display: flex; align-items: center; justify-content: flex-start; padding-top: 10px; padding-bottom: 10px;">
-    <img src="valentinesserviceslogo2.jpg" 
-         alt="Valentine's Services" 
-         style="height: 130px; width: 130px; border-radius: 50%; object-fit: cover; border: 2px solid #334155;">
+  <div class="container" style="display:flex; align-items:center;">
+    <img src="valentinesserviceslogo2.jpg"
+         alt="Valentine's Services"
+         style="height:130px;width:130px;border-radius:50%;object-fit:cover;border:2px solid #334155;">
   </div>
 </header>
 
@@ -206,8 +149,8 @@
       📞 Call Val (Live AI Demo)
     </a>
 
-    <div style="margin-top: 15px; font-size: 0.9rem; color: #94a3b8;">
-      <em>Experience the tech: She can answer FAQs, handle objections, and explain the pricing.</em>
+    <div style="margin-top:15px;font-size:0.9rem;color:#94a3b8;">
+      <em>Experience the tech: She can answer FAQs, handle objections, and explain pricing.</em>
     </div>
 
     <br>
@@ -215,114 +158,6 @@
     <a href="mailto:brandonwebsites100@gmail.com" class="cta-button cta-secondary">
       Email Me Directly
     </a>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container">
-    <h2>What We Build</h2>
-    <div class="grid">
-      <div class="card">
-        <h3>🤖 24/7 AI Receptionist</h3>
-        <p>Answers calls, filters spam, and handles FAQs day or night.</p>
-      </div>
-      <div class="card">
-        <h3>📅 Automatic Booking</h3>
-        <p>Books appointments directly into your calendar.</p>
-      </div>
-      <div class="card">
-        <h3>⚡ CRM & SMS Integration</h3>
-        <p>Every call logged with transcripts and summaries.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section" style="background-color: #162032;">
-  <div class="container">
-    <h2 style="text-align: center; margin-bottom: 10px;">Hear The Difference</h2>
-    <p style="text-align: center; color: #94a3b8; margin-bottom: 3rem; max-width: 600px; margin-left: auto; margin-right: auto;">
-      Don't take our word for it. Listen to how Val handles real-world scenarios compared to a standard voicemail.
-    </p>
-
-    <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
-      
-      <div class="card">
-        <h3>🏠 Roofing & HVAC</h3>
-        <p style="font-size: 0.9rem; color: #94a3b8; margin-bottom: 15px;">
-          Handling an emergency leak after hours.
-        </p>
-        <audio controls style="width: 100%; border-radius: 50px;">
-          <source src="demo-roofing.mp3" type="audio/mpeg">
-          Your browser does not support the audio element.
-        </audio>
-      </div>
-
-      <div class="card">
-        <h3>⚖️ Legal Defense</h3>
-        <p style="font-size: 0.9rem; color: #94a3b8; margin-bottom: 15px;">
-          Screening a frantic DUI client without giving advice.
-        </p>
-        <audio controls style="width: 100%; border-radius: 50px;">
-          <source src="demo-legal.mp3" type="audio/mpeg">
-          Your browser does not support the audio element.
-        </audio>
-      </div>
-
-      <div class="card">
-        <h3>🦷 Dental Practice</h3>
-        <p style="font-size: 0.9rem; color: #94a3b8; margin-bottom: 15px;">
-          Identifying urgent pain vs. routine checkups.
-        </p>
-        <audio controls style="width: 100%; border-radius: 50px;">
-          <source src="demo-dental.mp3" type="audio/mpeg">
-          Your browser does not support the audio element.
-        </audio>
-      </div>
-
-      <div class="card">
-        <h3>🏢 Property Leasing</h3>
-        <p style="font-size: 0.9rem; color: #94a3b8; margin-bottom: 15px;">
-          Filtering tenants and answering pet policy FAQs.
-        </p>
-        <audio controls style="width: 100%; border-radius: 50px;">
-          <source src="demo-property.mp3" type="audio/mpeg">
-          Your browser does not support the audio element.
-        </audio>
-      </div>
-
-    </div>
-  </div>
-</section>
-<section class="section">
-  <div class="container">
-    <div class="price-card">
-      <div class="badge">PAYMENT PLANS AVAILABLE</div>
-      <h3>Full AI Voice System</h3>
-      <div class="price">$1,497 <span>/ one-time setup</span></div>
-      <p style="color: var(--muted); margin-bottom: 1.5rem;">
-        + $197/month hosting & maintenance
-      </p>
-
-      <ul class="feature-list">
-        <li>Custom Vapi AI Voice Agent</li>
-        <li>Knowledge Base & Call Logic</li>
-        <li>Calendar Booking Integration</li>
-        <li>Flexible 3-Month Payment Plan</li>
-      </ul>
-
-      <a href="https://tally.so/r/zx79P0" target="_blank" class="cta-button" style="width:100%;">
-        Start My Project
-      </a>
-
-      <p style="margin-top: 20px; font-size: 0.9rem; color: #64748b;">
-        Are you a Marketing Agency? 
-        <a href="mailto:brandonwebsites100@gmail.com?subject=Agency Partnership Inquiry - Verification Request" style="color: #60a5fa; text-decoration: none;">
-          Contact us for Wholesale Partnership rates.
-        </a>
-      </p>
-
-    </div>
   </div>
 </section>
 
@@ -334,30 +169,30 @@
 
 <script src="https://cdn.jsdelivr.net/gh/VapiAI/html-script-tag/dist/assets/index.js"></script>
 <script>
-  var vapiInstance = window.vapiSDK.run({
-    apiKey: "YOUR_PUBLIC_KEY_GOES_HERE", 
-    assistant: "YOUR_ASSISTANT_ID_GOES_HERE", 
+  window.vapiSDK.run({
+    apiKey: "2d50143b-0c3b-4a09-aa1a-faaf09714bc5",
+    assistant: "6ac7a447-64bc-4eb6-a38b-1d1ec67bd4ce",
     config: {
-      position: "bottom-right", 
+      position: "bottom-right",
       offset: "20px",
-      width: "50px",
-      height: "50px",
+      width: "56px",
+      height: "56px",
       idle: {
-        color: "#2563eb", 
+        color: "#2563eb",
         type: "pill",
-        title: "Talk to Val", 
+        title: "Talk to Val",
         subtitle: "Click to chat",
-        icon: "https://unpkg.com/lucide-static/icons/mic.svg",
+        icon: "https://unpkg.com/lucide-static/icons/mic.svg"
       },
       loading: {
-        color: "#3b82f6",
+        color: "#3b82f6"
       },
       active: {
-        color: "#ef4444", 
+        color: "#ef4444",
         type: "pill",
         title: "Listening...",
-        subtitle: "Say something",
-      },
+        subtitle: "Say something"
+      }
     }
   });
 </script>
