@@ -428,65 +428,47 @@
   </div>
 </footer>
 
-<script src="https://unpkg.com/@vapi-ai/web@latest/dist/index.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/VapiAI/html-script-tag/dist/assets/index.js"></script>
 
 <!-- Robust Vapi init (wait + retry) -->
 <script>
-  (function () {
-    function getVapiRunner() {
-      // Try common globals:
-      if (window.vapiSDK && typeof window.vapiSDK.run === "function") return window.vapiSDK.run;
-      if (window.vapi && typeof window.vapi.run === "function") return window.vapi.run;
-      return null;
+  window.addEventListener("load", function () {
+    if (!window.vapiSDK || !window.vapiSDK.run) {
+      console.error("❌ vapiSDK.run not found. The script didn't load correctly.");
+      return;
     }
 
-    function initVapi() {
-      var run = getVapiRunner();
-      if (!run) return false;
+    try {
+      window.vapiSDK.run({
+        apiKey: "2d50143b-0c3b-4a09-aa1a-faaf09714bc5",
+        assistant: "6ac7a447-64bc-4eb6-a38b-1d1ec67bd4ce",
+        config: {
+          position: "bottom-right",
+          offset: "20px",
+          width: "50px",
+          height: "50px",
+          idle: {
+            color: "#2563eb",
+            type: "pill",
+            title: "Talk to Val",
+            subtitle: "Click to chat",
+            icon: "https://unpkg.com/lucide-static/icons/mic.svg",
+          },
+          loading: { color: "#3b82f6" },
+          active: {
+            color: "#ef4444",
+            type: "pill",
+            title: "Listening...",
+            subtitle: "Say something",
+          },
+        }
+      });
 
-      try {
-        run({
-          apiKey: "2d50143b-0c3b-4a09-aa1a-faaf09714bc5",
-          assistant: "6ac7a447-64bc-4eb6-a38b-1d1ec67bd4ce",
-          config: {
-            position: "bottom-right",
-            offset: "20px",
-            width: "50px",
-            height: "50px",
-            idle: {
-              color: "#2563eb",
-              type: "pill",
-              title: "Talk to Val",
-              subtitle: "Click to chat",
-              icon: "https://unpkg.com/lucide-static/icons/mic.svg",
-            },
-            loading: { color: "#3b82f6" },
-            active: {
-              color: "#ef4444",
-              type: "pill",
-              title: "Listening...",
-              subtitle: "Say something",
-            },
-          }
-        });
-
-        console.log("✅ Vapi initialized");
-        return true;
-      } catch (e) {
-        console.error("❌ Vapi init error:", e);
-        return false;
-      }
+      console.log("✅ Vapi widget injected");
+    } catch (e) {
+      console.error("❌ Vapi init error:", e);
     }
-
-    window.addEventListener("load", function () {
-      var attempts = 0;
-      var timer = setInterval(function () {
-        attempts++;
-        var ok = initVapi();
-        if (ok || attempts >= 20) clearInterval(timer);
-      }, 250);
-    });
-  })();
+  });
 </script>
 
 </body>
