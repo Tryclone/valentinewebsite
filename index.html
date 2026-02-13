@@ -16,11 +16,7 @@
       --light: #f8fafc;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
@@ -29,22 +25,12 @@
       line-height: 1.6;
     }
 
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
-    header {
-      padding: 2rem 0;
-      border-bottom: 1px solid var(--border);
-    }
+    header { padding: 2rem 0; border-bottom: 1px solid var(--border); }
 
     /* HERO */
-    .hero {
-      padding: 5rem 0;
-      text-align: center;
-    }
+    .hero { padding: 5rem 0; text-align: center; }
 
     h1 {
       font-size: 3.5rem;
@@ -75,26 +61,13 @@
       box-shadow: 0 10px 30px rgba(37, 99, 235, 0.35);
     }
 
-    .cta-button:hover {
-      transform: translateY(-2px);
-      background-color: var(--accent);
-    }
+    .cta-button:hover { transform: translateY(-2px); background-color: var(--accent); }
 
-    .cta-secondary {
-      background: transparent;
-      border: 2px solid var(--border);
-      box-shadow: none;
-    }
+    .cta-secondary { background: transparent; border: 2px solid var(--border); box-shadow: none; }
 
     /* SECTIONS */
-    .section {
-      padding: 4.5rem 0;
-    }
-
-    .section h2 {
-      text-align: center;
-      margin-bottom: 2.5rem;
-    }
+    .section { padding: 4.5rem 0; }
+    .section h2 { text-align: center; margin-bottom: 2.5rem; }
 
     .grid {
       display: grid;
@@ -133,22 +106,10 @@
       font-weight: 600;
     }
 
-    .price {
-      font-size: 3rem;
-      font-weight: 800;
-      margin: 1rem 0;
-    }
+    .price { font-size: 3rem; font-weight: 800; margin: 1rem 0; }
+    .price span { font-size: 1rem; color: var(--muted); }
 
-    .price span {
-      font-size: 1rem;
-      color: var(--muted);
-    }
-
-    .feature-list {
-      list-style: none;
-      text-align: left;
-      margin: 2rem 0;
-    }
+    .feature-list { list-style: none; text-align: left; margin: 2rem 0; }
 
     .feature-list li {
       margin-bottom: 1rem;
@@ -172,7 +133,7 @@
       margin-bottom: 60px;
     }
 
-    /* --- FORCE VAPI WIDGET TO STICK (keep, but add click hardening below) --- */
+    /* --- VAPI: positioning + click hardening --- */
     #vapi-support-btn {
       position: fixed !important;
       bottom: 20px !important;
@@ -180,22 +141,18 @@
       z-index: 2147483647 !important;
     }
 
-    /* ✅ VAPI WIDGET CLICK FIX (IMPORTANT) */
     #vapi-support-btn,
     #vapi-support-btn * {
       pointer-events: auto !important;
     }
 
-    /* Vapi sometimes uses different IDs/wrappers — this makes it clickable regardless */
     [id*="vapi"],
     [id*="vapi"] * {
       pointer-events: auto !important;
     }
 
     @media (max-width: 768px) {
-      h1 {
-        font-size: 2.5rem;
-      }
+      h1 { font-size: 2.5rem; }
     }
   </style>
 </head>
@@ -221,6 +178,16 @@
       📞 Call Val (Live AI Demo)
     </a>
 
+    <!-- Visible dial line -->
+    <div style="margin-top: 12px; font-size: 1rem; color: #e2e8f0;">
+      Prefer to dial manually? <strong style="color:#fff;">(803) 902-7790</strong>
+      <span style="color:#94a3b8; font-size:0.9rem;">(24/7 demo line)</span>
+    </div>
+
+    <div style="margin-top: 6px; font-size: 0.9rem; color: #94a3b8;">
+      Tip: On desktop, you can also use the <strong>“Talk to Val”</strong> mic widget in the bottom-right.
+    </div>
+
     <div style="margin-top: 15px; font-size: 0.9rem; color: #94a3b8;">
       <em>Experience the tech: She can answer FAQs, handle objections, and explain the pricing.</em>
     </div>
@@ -230,6 +197,37 @@
     <a href="mailto:brandonwebsites100@gmail.com" class="cta-button cta-secondary">
       Email Me Directly
     </a>
+
+    <br><br>
+
+    <a href="#start" class="cta-button cta-secondary">
+      ✅ See Pricing / Start Setup
+    </a>
+  </div>
+</section>
+
+<!-- How It Works -->
+<section class="section" style="padding-top: 1.5rem;">
+  <div class="container">
+    <h2>How It Works</h2>
+    <p style="text-align:center; color: #94a3b8; max-width: 720px; margin: 0 auto 2.5rem;">
+      A simple setup that stops missed calls, captures leads, and books appointments—without hiring more staff.
+    </p>
+
+    <div class="grid">
+      <div class="card">
+        <h3>1) We connect your phone line</h3>
+        <p>Your calls can be forwarded to Val or routed after-hours. Keep your existing number.</p>
+      </div>
+      <div class="card">
+        <h3>2) Val answers & qualifies callers</h3>
+        <p>She handles FAQs, filters spam, collects details, and routes urgent calls appropriately.</p>
+      </div>
+      <div class="card">
+        <h3>3) You get bookings + transcripts</h3>
+        <p>Appointments go on your calendar and every call is logged with summaries and next steps.</p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -261,7 +259,6 @@
     </p>
 
     <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
-
       <div class="card">
         <h3>🏠 Roofing & HVAC</h3>
         <p style="font-size: 0.9rem; color: #94a3b8; margin-bottom: 15px;">
@@ -305,12 +302,62 @@
           Your browser does not support the audio element.
         </audio>
       </div>
-
     </div>
   </div>
 </section>
 
-<section class="section">
+<!-- ROI / Missed Call Cost -->
+<section class="section" style="background-color:#0b1224;">
+  <div class="container">
+    <h2>What Missed Calls Really Cost</h2>
+    <p style="text-align:center; color:#94a3b8; max-width: 780px; margin: 0 auto 2rem;">
+      If you’re unavailable, callers don’t wait. They call the next business on Google.
+      Val turns “missed” into booked.
+    </p>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Example: Home Services</h3>
+        <p style="color:#94a3b8;">
+          Miss just <strong style="color:#fff;">3 calls/week</strong> and only <strong style="color:#fff;">1 becomes a job</strong> at
+          <strong style="color:#fff;">$800</strong> average ticket…
+        </p>
+        <p style="margin-top: 10px; font-size: 1.2rem; font-weight: 800;">
+          That’s ~$3,200/month in lost revenue.
+        </p>
+        <p style="color:#94a3b8; font-size:0.9rem;">(Conservative estimate.)</p>
+      </div>
+
+      <div class="card">
+        <h3>Example: Dental / Medical</h3>
+        <p style="color:#94a3b8;">
+          If you miss <strong style="color:#fff;">2 new patient calls/week</strong> and the lifetime value is
+          <strong style="color:#fff;">$1,500+</strong>…
+        </p>
+        <p style="margin-top: 10px; font-size: 1.2rem; font-weight: 800;">
+          That’s $12,000+ in opportunity each month.
+        </p>
+        <p style="color:#94a3b8; font-size:0.9rem;">Val helps capture that demand automatically.</p>
+      </div>
+
+      <div class="card">
+        <h3>Best first step</h3>
+        <p style="color:#94a3b8; margin-bottom: 14px;">
+          Call the demo line and try to “break” it. Ask pricing, availability, services—anything.
+        </p>
+        <a href="tel:+18039027790" class="cta-button" style="width:100%; text-align:center;">
+          📞 Test Val Now
+        </a>
+        <div style="margin-top: 10px; font-size: 0.9rem; color:#94a3b8;">
+          Manual dial: <strong style="color:#fff;">(803) 902-7790</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Pricing section w/ anchor -->
+<section class="section" id="start">
   <div class="container">
     <div class="price-card">
       <div class="badge">PAYMENT PLANS AVAILABLE</div>
@@ -342,6 +389,39 @@
   </div>
 </section>
 
+<!-- FAQ -->
+<section class="section" style="background-color:#162032;">
+  <div class="container">
+    <h2>FAQ</h2>
+    <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));">
+      <div class="card">
+        <h3>Does this replace my staff?</h3>
+        <p style="color:#94a3b8;">No—Val handles overflow, after-hours, and repetitive calls so your team can focus on higher value work.</p>
+      </div>
+      <div class="card">
+        <h3>Can it book appointments?</h3>
+        <p style="color:#94a3b8;">Yes. We can connect it to your calendar and set rules for what gets booked vs. routed.</p>
+      </div>
+      <div class="card">
+        <h3>What if callers ask weird questions?</h3>
+        <p style="color:#94a3b8;">We train your knowledge base + guardrails. Unknown requests can be captured and routed to you.</p>
+      </div>
+      <div class="card">
+        <h3>How fast can this go live?</h3>
+        <p style="color:#94a3b8;">Basic builds can go live quickly once we have your services, policies, and booking rules.</p>
+      </div>
+      <div class="card">
+        <h3>Will it sound robotic?</h3>
+        <p style="color:#94a3b8;">Your demos show the voice quality. You can also test it live on the demo line.</p>
+      </div>
+      <div class="card">
+        <h3>What do I need to provide?</h3>
+        <p style="color:#94a3b8;">Hours, services, FAQs, booking rules, and where to send call summaries (email/SMS/CRM).</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <footer>
   <div class="container">
     <p>&copy; 2024 Valentine's Services · Rock Hill, SC</p>
@@ -350,11 +430,11 @@
 
 <script src="https://cdn.jsdelivr.net/gh/VapiAI/html-script-tag/dist/assets/index.js"></script>
 
+<!-- Robust Vapi init (wait + retry) -->
 <script>
   (function () {
     function initVapi() {
       if (!window.vapiSDK || !window.vapiSDK.run) {
-        console.warn("Vapi SDK not ready yet. Retrying...");
         return false;
       }
 
@@ -384,9 +464,7 @@
           }
         });
 
-        console.log("✅ Vapi initialized:", vapiInstance);
-
-        // Extra safety: keep widget clickable even if Vapi changes wrapper IDs
+        // Keep clickable even if wrapper changes
         var tries = 0;
         var t = setInterval(function () {
           tries++;
@@ -395,17 +473,16 @@
             el.style.pointerEvents = "auto";
             el.style.zIndex = "2147483647";
           });
-          if (tries >= 20) clearInterval(t); // stop after ~10 seconds
+          if (tries >= 20) clearInterval(t);
         }, 500);
 
         return true;
       } catch (e) {
-        console.error("❌ Vapi init error:", e);
+        console.error("Vapi init error:", e);
         return false;
       }
     }
 
-    // Wait for load, then retry a few times (handles slow script loads on Vercel/CDN)
     window.addEventListener("load", function () {
       var attempts = 0;
       var timer = setInterval(function () {
