@@ -4,18 +4,27 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Valentine's Services | AI Voice Automation</title>
-/* --- VAPI WIDGET CLICK FIX --- */
-#vapi-support-btn,
-#vapi-support-btn * {
-  pointer-events: auto !important;
-}
-
-/* If Vapi uses a different wrapper, this helps too */
-[id*="vapi"],
-[id*="vapi"] * {
-  pointer-events: auto !important;
-}
+  
   <style>
+    /* --- VAPI WIDGET CLICK FIX --- */
+    #vapi-support-btn,
+    #vapi-support-btn * {
+      pointer-events: auto !important;
+    }
+
+    [id*="vapi"],
+    [id*="vapi"] * {
+      pointer-events: auto !important;
+    }
+
+    /* --- FORCE VAPI WIDGET TO STICK --- */
+    #vapi-support-btn {
+      position: fixed !important;
+      bottom: 20px !important;
+      right: 20px !important;
+      z-index: 2147483647 !important;
+    }
+
     :root {
       --primary: #2563eb;
       --accent: #3b82f6;
@@ -182,14 +191,6 @@
       margin-bottom: 60px;
     }
 
-    /* --- FORCE VAPI WIDGET TO STICK --- */
-    #vapi-support-btn {
-      position: fixed !important;
-      bottom: 20px !important;
-      right: 20px !important;
-      z-index: 2147483647 !important;
-    }
-
     @media (max-width: 768px) {
       h1 {
         font-size: 2.5rem;
@@ -249,10 +250,6 @@
 <section class="section" style="padding-top: 1.5rem;">
   <div class="container">
     <h2>How It Works</h2>
-    <p style="text-align:center; color: #94a3b8; max-width: 720px; margin: 0 auto 2.5rem;">
-      A simple setup that stops missed calls, captures leads, and books appointments—without hiring more staff.
-    </p>
-
     <div class="grid">
       <div class="card">
         <h3>1) We connect your phone line</h3>
@@ -270,131 +267,6 @@
   </div>
 </section>
 
-<section class="section">
-  <div class="container">
-    <h2>What We Build</h2>
-    <div class="grid">
-      <div class="card">
-        <h3>🤖 24/7 AI Receptionist</h3>
-        <p>Answers calls, filters spam, and handles FAQs day or night.</p>
-      </div>
-      <div class="card">
-        <h3>📅 Automatic Booking</h3>
-        <p>Books appointments directly into your calendar.</p>
-      </div>
-      <div class="card">
-        <h3>⚡ CRM & SMS Integration</h3>
-        <p>Every call logged with transcripts and summaries.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section" style="background-color: #162032;">
-  <div class="container">
-    <h2 style="text-align: center; margin-bottom: 10px;">Hear The Difference</h2>
-    <p style="text-align: center; color: #94a3b8; margin-bottom: 3rem; max-width: 600px; margin-left: auto; margin-right: auto;">
-      Don't take our word for it. Listen to how Val handles real-world scenarios compared to a standard voicemail.
-    </p>
-
-    <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
-      <div class="card">
-        <h3>🏠 Roofing & HVAC</h3>
-        <p style="font-size: 0.9rem; color: #94a3b8; margin-bottom: 15px;">
-          Handling an emergency leak after hours.
-        </p>
-        <audio controls style="width: 100%; border-radius: 50px;">
-          <source src="demo-roofing.mp3" type="audio/mpeg">
-          Your browser does not support the audio element.
-        </audio>
-      </div>
-
-      <div class="card">
-        <h3>⚖️ Legal Defense</h3>
-        <p style="font-size: 0.9rem; color: #94a3b8; margin-bottom: 15px;">
-          Screening a frantic DUI client without giving advice.
-        </p>
-        <audio controls style="width: 100%; border-radius: 50px;">
-          <source src="demo-legal.mp3" type="audio/mpeg">
-          Your browser does not support the audio element.
-        </audio>
-      </div>
-
-      <div class="card">
-        <h3>🦷 Dental Practice</h3>
-        <p style="font-size: 0.9rem; color: #94a3b8; margin-bottom: 15px;">
-          Identifying urgent pain vs. routine checkups.
-        </p>
-        <audio controls style="width: 100%; border-radius: 50px;">
-          <source src="demo-dental.mp3" type="audio/mpeg">
-          Your browser does not support the audio element.
-        </audio>
-      </div>
-
-      <div class="card">
-        <h3>🏢 Property Leasing</h3>
-        <p style="font-size: 0.9rem; color: #94a3b8; margin-bottom: 15px;">
-          Filtering tenants and answering pet policy FAQs.
-        </p>
-        <audio controls style="width: 100%; border-radius: 50px;">
-          <source src="demo-property.mp3" type="audio/mpeg">
-          Your browser does not support the audio element.
-        </audio>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section" style="background-color:#0b1224;">
-  <div class="container">
-    <h2>What Missed Calls Really Cost</h2>
-    <p style="text-align:center; color:#94a3b8; max-width: 780px; margin: 0 auto 2rem;">
-      If you’re unavailable, callers don’t wait. They call the next business on Google.
-      Val turns “missed” into booked.
-    </p>
-
-    <div class="grid">
-      <div class="card">
-        <h3>Example: Home Services</h3>
-        <p style="color:#94a3b8;">
-          Miss just <strong style="color:#fff;">3 calls/week</strong> and only <strong style="color:#fff;">1 becomes a job</strong> at
-          <strong style="color:#fff;">$800</strong> average ticket…
-        </p>
-        <p style="margin-top: 10px; font-size: 1.2rem; font-weight: 800;">
-          That’s ~$3,200/month in lost revenue.
-        </p>
-        <p style="color:#94a3b8; font-size:0.9rem;">(Conservative estimate.)</p>
-      </div>
-
-      <div class="card">
-        <h3>Example: Dental / Medical</h3>
-        <p style="color:#94a3b8;">
-          If you miss <strong style="color:#fff;">2 new patient calls/week</strong> and the lifetime value is
-          <strong style="color:#fff;">$1,500+</strong>…
-        </p>
-        <p style="margin-top: 10px; font-size: 1.2rem; font-weight: 800;">
-          That’s $12,000+ in opportunity each month.
-        </p>
-        <p style="color:#94a3b8; font-size:0.9rem;">Val helps capture that demand automatically.</p>
-      </div>
-
-      <div class="card">
-        <h3>Best first step</h3>
-        <p style="color:#94a3b8; margin-bottom: 14px;">
-          Call the demo line and try to “break” it. Ask pricing, availability, services—anything.
-        </p>
-        <a href="tel:+18039027790" class="cta-button" style="width:100%; text-align:center;">
-          📞 Test Val Now
-        </a>
-        <div style="margin-top: 10px; font-size: 0.9rem; color:#94a3b8;">
-          Manual dial: <strong style="color:#fff;">(803) 902-7790</strong>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- IMPORTANT FIX: Added id="start" so the hero button scrolls here -->
 <section class="section" id="start">
   <div class="container">
     <div class="price-card">
@@ -415,46 +287,6 @@
       <a href="https://tally.so/r/zx79P0" target="_blank" class="cta-button" style="width:100%;">
         Start My Project
       </a>
-
-      <p style="margin-top: 20px; font-size: 0.9rem; color: #64748b;">
-        Are you a Marketing Agency?
-        <a href="mailto:brandonwebsites100@gmail.com?subject=Agency Partnership Inquiry - Verification Request" style="color: #60a5fa; text-decoration: none;">
-          Contact us for Wholesale Partnership rates.
-        </a>
-      </p>
-
-    </div>
-  </div>
-</section>
-
-<section class="section" style="background-color:#162032;">
-  <div class="container">
-    <h2>FAQ</h2>
-    <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));">
-      <div class="card">
-        <h3>Does this replace my staff?</h3>
-        <p style="color:#94a3b8;">No—Val handles overflow, after-hours, and repetitive calls so your team can focus on higher value work.</p>
-      </div>
-      <div class="card">
-        <h3>Can it book appointments?</h3>
-        <p style="color:#94a3b8;">Yes. We can connect it to your calendar and set rules for what gets booked vs. routed.</p>
-      </div>
-      <div class="card">
-        <h3>What if callers ask weird questions?</h3>
-        <p style="color:#94a3b8;">We train your knowledge base + guardrails. Unknown requests can be captured and routed to you.</p>
-      </div>
-      <div class="card">
-        <h3>How fast can this go live?</h3>
-        <p style="color:#94a3b8;">Basic builds can go live quickly once we have your services, policies, and booking rules.</p>
-      </div>
-      <div class="card">
-        <h3>Will it sound robotic?</h3>
-        <p style="color:#94a3b8;">The demos show the voice quality. You can also test it live on the demo line yourself.</p>
-      </div>
-      <div class="card">
-        <h3>What do I need to provide?</h3>
-        <p style="color:#94a3b8;">Hours, services, FAQs, booking rules, and where to send call summaries (email/SMS/CRM).</p>
-      </div>
     </div>
   </div>
 </section>
@@ -467,31 +299,34 @@
 
 <script src="https://cdn.jsdelivr.net/gh/VapiAI/html-script-tag/dist/assets/index.js"></script>
 <script>
-  var vapiInstance = window.vapiSDK.run({
-    apiKey: "2d50143b-0c3b-4a09-aa1a-faaf09714bc5",
-    assistant: "6ac7a447-64bc-4eb6-a38b-1d1ec67bd4ce",
-    config: {
-      position: "bottom-right",
-      offset: "20px",
-      width: "50px",
-      height: "50px",
-      idle: {
-        color: "#2563eb",
-        type: "pill",
-        title: "Talk to Val",
-        subtitle: "Click to chat",
-        icon: "https://unpkg.com/lucide-static/icons/mic.svg",
-      },
-      loading: {
-        color: "#3b82f6",
-      },
-      active: {
-        color: "#ef4444",
-        type: "pill",
-        title: "Listening...",
-        subtitle: "Say something",
-      },
-    }
+  // Ensure the SDK loads before running
+  window.addEventListener('load', function() {
+    var vapiInstance = window.vapiSDK.run({
+      apiKey: "2d50143b-0c3b-4a09-aa1a-faaf09714bc5", // Public Key
+      assistant: "6ac7a447-64bc-4eb6-a38b-1d1ec67bd4ce", // Assistant ID
+      config: {
+        position: "bottom-right",
+        offset: "20px",
+        width: "50px",
+        height: "50px",
+        idle: {
+          color: "#2563eb",
+          type: "pill",
+          title: "Talk to Val",
+          subtitle: "Click to chat",
+          icon: "https://unpkg.com/lucide-static/icons/mic.svg",
+        },
+        loading: {
+          color: "#3b82f6",
+        },
+        active: {
+          color: "#ef4444",
+          type: "pill",
+          title: "Listening...",
+          subtitle: "Say something",
+        },
+      }
+    });
   });
 </script>
 
