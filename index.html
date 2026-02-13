@@ -4,7 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Valentine's Services | AI Voice Automation</title>
+/* --- VAPI WIDGET CLICK FIX --- */
+#vapi-support-btn,
+#vapi-support-btn * {
+  pointer-events: auto !important;
+}
 
+/* If Vapi uses a different wrapper, this helps too */
+[id*="vapi"],
+[id*="vapi"] * {
+  pointer-events: auto !important;
+}
   <style>
     :root {
       --primary: #2563eb;
