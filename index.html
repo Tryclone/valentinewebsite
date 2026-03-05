@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Valentine's Services | Websites, Apps & Digital Solutions</title>
-  <meta name="description" content="Websites, apps, and digital solutions built to help small businesses grow, convert leads, and operate smoothly. Based in Rock Hill, SC." />
+  <meta name="description"
+    content="Websites, apps, and digital solutions built to help small businesses grow, convert leads, and operate smoothly. Based in Rock Hill, SC." />
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,82 +14,123 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
   <style>
-    :root{
+    :root {
       --bg: #070A12;
-      --bg2:#0B1224;
-      --card:#0F1A33;
-      --card2:#0B1530;
-      --border: rgba(148,163,184,.18);
-      --text:#F8FAFC;
-      --muted:#A7B3C7;
-      --muted2:#7E8BA3;
-      --primary:#60A5FA;
-      --primary2:#A855F7;
-      --success:#22C55E;
-      --shadow: 0 18px 60px rgba(0,0,0,.45);
-      --shadow2: 0 10px 30px rgba(96,165,250,.18);
+      --bg2: #0B1224;
+      --card: #0F1A33;
+      --card2: #0B1530;
+      --border: rgba(148, 163, 184, .18);
+      --text: #F8FAFC;
+      --muted: #A7B3C7;
+      --muted2: #7E8BA3;
+      --primary: #60A5FA;
+      --primary2: #A855F7;
+      --success: #22C55E;
+      --shadow: 0 18px 60px rgba(0, 0, 0, .45);
+      --shadow2: 0 10px 30px rgba(96, 165, 250, .18);
       --radius: 18px;
       --radius2: 24px;
       --max: 1120px;
     }
 
-    *{box-sizing:border-box;margin:0;padding:0}
-    html{scroll-behavior:smooth}
-    body{
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
+
+    html {
+      scroll-behavior: smooth
+    }
+
+    body {
       font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
       color: var(--text);
       background:
-        radial-gradient(900px 480px at 15% 8%, rgba(168,85,247,.14), transparent 60%),
-        radial-gradient(900px 520px at 90% 10%, rgba(96,165,250,.16), transparent 55%),
-        radial-gradient(600px 400px at 50% 100%, rgba(34,197,94,.08), transparent 60%),
+        radial-gradient(900px 480px at 15% 8%, rgba(168, 85, 247, .14), transparent 60%),
+        radial-gradient(900px 520px at 90% 10%, rgba(96, 165, 250, .16), transparent 55%),
+        radial-gradient(600px 400px at 50% 100%, rgba(34, 197, 94, .08), transparent 60%),
         linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
-      line-height:1.6;
-      overflow-x:hidden;
+      line-height: 1.6;
+      overflow-x: hidden;
     }
 
-    a{color:inherit;text-decoration:none}
-    .container{max-width:var(--max);margin:0 auto;padding:0 20px}
+    a {
+      color: inherit;
+      text-decoration: none
+    }
+
+    .container {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 20px
+    }
 
     /* Top bar / nav */
-    .nav{
-      position:sticky; top:0; z-index:50;
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
       backdrop-filter: blur(12px);
-      background: rgba(7,10,18,.7);
+      background: rgba(7, 10, 18, .7);
       border-bottom: 1px solid var(--border);
     }
-    .nav-inner{
-      display:flex; align-items:center; justify-content:space-between;
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       padding: 14px 0;
       gap: 18px;
     }
-    .brand{
-      display:flex; align-items:center; gap:12px;
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
       min-width: 240px;
     }
-    .logo{
-      width:44px;height:44px;border-radius: 50%;
+
+    .logo {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
       border: 1px solid var(--border);
-      display:grid;place-items:center;
+      display: grid;
+      place-items: center;
       background:
-        radial-gradient(circle at 30% 30%, rgba(96,165,250,.35), transparent 55%),
-        radial-gradient(circle at 70% 70%, rgba(168,85,247,.30), transparent 55%),
-        rgba(15,26,51,.8);
+        radial-gradient(circle at 30% 30%, rgba(96, 165, 250, .35), transparent 55%),
+        radial-gradient(circle at 70% 70%, rgba(168, 85, 247, .30), transparent 55%),
+        rgba(15, 26, 51, .8);
       box-shadow: var(--shadow2);
-      font-weight:800;
-      letter-spacing:-.5px;
+      font-weight: 800;
+      letter-spacing: -.5px;
     }
-    .brand-title{
-      display:flex; flex-direction:column; line-height:1.1;
+
+    .brand-title {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
     }
-    .brand-title strong{font-size: 14px}
-    .brand-title span{font-size:12px;color:var(--muted2)}
-    .nav-links{
-      display:flex; gap: 18px;
-      align-items:center;
-      justify-content:center;
+
+    .brand-title strong {
+      font-size: 14px
+    }
+
+    .brand-title span {
+      font-size: 12px;
+      color: var(--muted2)
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+      justify-content: center;
       flex: 1;
     }
-    .nav-links a{
+
+    .nav-links a {
       color: var(--muted);
       font-size: 13px;
       padding: 8px 10px;
@@ -95,68 +138,88 @@
       transition: .18s ease;
       border: 1px solid transparent;
     }
-    .nav-links a:hover{
+
+    .nav-links a:hover {
       color: var(--text);
       border-color: var(--border);
-      background: rgba(255,255,255,.03);
+      background: rgba(255, 255, 255, .03);
     }
-    .nav-cta{
-      display:flex; gap: 10px; align-items:center;
-      justify-content:flex-end;
+
+    .nav-cta {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      justify-content: flex-end;
       min-width: 240px;
     }
 
     /* Buttons */
-    .btn{
-      display:inline-flex; align-items:center; justify-content:center;
-      gap:10px;
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
       padding: 12px 16px;
       border-radius: 999px;
       border: 1px solid var(--border);
       color: var(--text);
-      background: rgba(255,255,255,.03);
+      background: rgba(255, 255, 255, .03);
       transition: .18s ease;
       font-weight: 700;
       font-size: 13px;
       white-space: nowrap;
     }
-    .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.05)}
-    .btn-primary{
-      border-color: rgba(96,165,250,.35);
-      background: linear-gradient(135deg, rgba(96,165,250,.22), rgba(168,85,247,.18));
+
+    .btn:hover {
+      transform: translateY(-1px);
+      background: rgba(255, 255, 255, .05)
+    }
+
+    .btn-primary {
+      border-color: rgba(96, 165, 250, .35);
+      background: linear-gradient(135deg, rgba(96, 165, 250, .22), rgba(168, 85, 247, .18));
       box-shadow: var(--shadow2);
     }
-    .btn-primary:hover{background: linear-gradient(135deg, rgba(96,165,250,.28), rgba(168,85,247,.22))}
-    .btn-ghost{
+
+    .btn-primary:hover {
+      background: linear-gradient(135deg, rgba(96, 165, 250, .28), rgba(168, 85, 247, .22))
+    }
+
+    .btn-ghost {
       background: transparent;
     }
 
     /* Hero */
-    .hero{
+    .hero {
       padding: 68px 0 26px;
     }
-    .hero-grid{
-      display:grid;
+
+    .hero-grid {
+      display: grid;
       grid-template-columns: 1.25fr .75fr;
       gap: 26px;
       align-items: stretch;
     }
-    .hero-card{
+
+    .hero-card {
       border: 1px solid var(--border);
       border-radius: var(--radius2);
       background:
-        radial-gradient(700px 350px at 15% 20%, rgba(96,165,250,.18), transparent 60%),
-        radial-gradient(700px 350px at 80% 30%, rgba(168,85,247,.14), transparent 60%),
-        rgba(15,26,51,.55);
+        radial-gradient(700px 350px at 15% 20%, rgba(96, 165, 250, .18), transparent 60%),
+        radial-gradient(700px 350px at 80% 30%, rgba(168, 85, 247, .14), transparent 60%),
+        rgba(15, 26, 51, .55);
       box-shadow: var(--shadow);
       padding: 34px;
-      overflow:hidden;
+      overflow: hidden;
       position: relative;
     }
-    .kicker{
-      display:inline-flex; align-items:center; gap:10px;
-      border:1px solid var(--border);
-      background: rgba(255,255,255,.03);
+
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, .03);
       color: var(--muted);
       padding: 8px 12px;
       border-radius: 999px;
@@ -164,83 +227,107 @@
       margin-bottom: 16px;
       width: fit-content;
     }
-    .dot{
-      width:9px;height:9px;border-radius:50%;
+
+    .dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
       background: linear-gradient(135deg, var(--primary), var(--primary2));
-      box-shadow: 0 0 0 4px rgba(96,165,250,.14);
+      box-shadow: 0 0 0 4px rgba(96, 165, 250, .14);
     }
-    h1{
+
+    h1 {
       font-size: 44px;
       line-height: 1.06;
       letter-spacing: -1.2px;
       margin-bottom: 14px;
       background: linear-gradient(to right, #EAF2FF, #BFD7FF 35%, #EEDCFF);
-      -webkit-background-clip:text;
-      -webkit-text-fill-color:transparent;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
-    .sub{
+
+    .sub {
       color: var(--muted);
       font-size: 15px;
       max-width: 60ch;
       margin-bottom: 18px;
     }
-    .hero-actions{
-      display:flex; gap: 12px; flex-wrap: wrap;
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
       margin-top: 10px;
     }
-    .mini{
+
+    .mini {
       margin-top: 18px;
-      display:flex;
-      flex-wrap:wrap;
+      display: flex;
+      flex-wrap: wrap;
       gap: 10px;
       color: var(--muted2);
       font-size: 12px;
     }
-    .pill{
+
+    .pill {
       border: 1px solid var(--border);
-      background: rgba(255,255,255,.02);
+      background: rgba(255, 255, 255, .02);
       padding: 8px 10px;
       border-radius: 999px;
     }
 
-    .side-card{
+    .side-card {
       border: 1px solid var(--border);
       border-radius: var(--radius2);
-      background: rgba(15,26,51,.45);
+      background: rgba(15, 26, 51, .45);
       box-shadow: var(--shadow);
       padding: 22px;
-      display:flex;
-      flex-direction:column;
+      display: flex;
+      flex-direction: column;
       gap: 14px;
     }
-    .side-title{
+
+    .side-title {
       font-size: 13px;
       color: var(--muted);
       text-transform: uppercase;
       letter-spacing: .12em;
     }
-    .side-strong{
+
+    .side-strong {
       font-size: 16px;
       font-weight: 800;
       letter-spacing: -.4px;
     }
-    .side-list{
-      display:flex;
-      flex-direction:column;
+
+    .side-list {
+      display: flex;
+      flex-direction: column;
       gap: 10px;
       margin-top: 4px;
     }
-    .check{
-      display:flex; gap:10px; align-items:flex-start;
+
+    .check {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
       color: var(--muted);
       font-size: 13px;
     }
-    .check b{color: var(--text); font-weight:700}
-    .check .ic{
-      width:20px;height:20px;border-radius:6px;
-      display:grid;place-items:center;
-      background: rgba(34,197,94,.12);
-      border: 1px solid rgba(34,197,94,.25);
+
+    .check b {
+      color: var(--text);
+      font-weight: 700
+    }
+
+    .check .ic {
+      width: 20px;
+      height: 20px;
+      border-radius: 6px;
+      display: grid;
+      place-items: center;
+      background: rgba(34, 197, 94, .12);
+      border: 1px solid rgba(34, 197, 94, .25);
       color: var(--success);
       flex: 0 0 auto;
       margin-top: 2px;
@@ -249,52 +336,72 @@
     }
 
     /* Sections */
-    section{padding: 54px 0}
-    .section-head{
-      display:flex; flex-direction:column; align-items:center;
-      text-align:center;
+    section {
+      padding: 54px 0
+    }
+
+    .section-head {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
       gap: 10px;
       margin-bottom: 22px;
     }
-    .h2{
+
+    .h2 {
       font-size: 28px;
       letter-spacing: -.7px;
     }
-    .lead{
+
+    .lead {
       color: var(--muted);
       max-width: 78ch;
       font-size: 14px;
     }
 
     /* Cards / grid */
-    .grid{
-      display:grid;
+    .grid {
+      display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 16px;
     }
-    .card{
+
+    .card {
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      background: rgba(15,26,51,.45);
+      background: rgba(15, 26, 51, .45);
       padding: 18px;
-      box-shadow: 0 10px 30px rgba(0,0,0,.25);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, .25);
       transition: .18s ease;
       position: relative;
-      overflow:hidden;
+      overflow: hidden;
     }
-    .card:hover{transform: translateY(-2px); background: rgba(15,26,51,.6)}
-    .card h3{
+
+    .card:hover {
+      transform: translateY(-2px);
+      background: rgba(15, 26, 51, .6)
+    }
+
+    .card h3 {
       font-size: 16px;
       margin-bottom: 8px;
       letter-spacing: -.3px;
     }
-    .card p{color: var(--muted); font-size: 13px}
-    .tag{
-      display:inline-flex; gap:8px; align-items:center;
+
+    .card p {
+      color: var(--muted);
+      font-size: 13px
+    }
+
+    .tag {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
       font-size: 12px;
       color: var(--muted2);
       border: 1px solid var(--border);
-      background: rgba(255,255,255,.02);
+      background: rgba(255, 255, 255, .02);
       padding: 7px 10px;
       border-radius: 999px;
       margin-bottom: 10px;
@@ -302,163 +409,224 @@
     }
 
     /* Pricing */
-    .pricing{
-      display:grid;
+    .pricing {
+      display: grid;
       grid-template-columns: 1.1fr .9fr;
       gap: 16px;
       align-items: stretch;
     }
-    .price{
-      border: 1px solid rgba(96,165,250,.3);
+
+    .price {
+      border: 1px solid rgba(96, 165, 250, .3);
       border-radius: var(--radius2);
       background:
-        radial-gradient(600px 300px at 15% 20%, rgba(96,165,250,.18), transparent 60%),
-        rgba(15,26,51,.55);
+        radial-gradient(600px 300px at 15% 20%, rgba(96, 165, 250, .18), transparent 60%),
+        rgba(15, 26, 51, .55);
       box-shadow: var(--shadow);
       padding: 22px;
       position: relative;
-      overflow:hidden;
+      overflow: hidden;
     }
-    .price .badge{
-      position:absolute;
-      top: 16px; right: 16px;
+
+    .price .badge {
+      position: absolute;
+      top: 16px;
+      right: 16px;
       font-size: 11px;
       font-weight: 800;
       letter-spacing: .10em;
       padding: 8px 10px;
       border-radius: 999px;
-      border: 1px solid rgba(34,197,94,.25);
-      background: rgba(34,197,94,.12);
+      border: 1px solid rgba(34, 197, 94, .25);
+      background: rgba(34, 197, 94, .12);
       color: #BFF8D0;
     }
-    .price h3{font-size: 18px; letter-spacing:-.4px}
-    .money{
+
+    .price h3 {
+      font-size: 18px;
+      letter-spacing: -.4px
+    }
+
+    .money {
       font-size: 40px;
       font-weight: 900;
       margin: 10px 0 6px;
       letter-spacing: -1px;
     }
-    .money span{font-size: 13px; color: var(--muted); font-weight:700}
-    .price ul{
-      list-style:none;
+
+    .money span {
+      font-size: 13px;
+      color: var(--muted);
+      font-weight: 700
+    }
+
+    .price ul {
+      list-style: none;
       margin-top: 14px;
-      display:flex;
-      flex-direction:column;
+      display: flex;
+      flex-direction: column;
       gap: 10px;
     }
-    .price li{
-      display:flex; gap:10px; align-items:flex-start;
+
+    .price li {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
       color: var(--muted);
       font-size: 13px;
     }
-    .price li .ic{
-      width:20px;height:20px;border-radius:6px;
-      display:grid;place-items:center;
-      background: rgba(96,165,250,.14);
-      border: 1px solid rgba(96,165,250,.25);
+
+    .price li .ic {
+      width: 20px;
+      height: 20px;
+      border-radius: 6px;
+      display: grid;
+      place-items: center;
+      background: rgba(96, 165, 250, .14);
+      border: 1px solid rgba(96, 165, 250, .25);
       color: #CFE3FF;
       flex: 0 0 auto;
       margin-top: 2px;
       font-weight: 900;
       font-size: 13px;
     }
-    .aside{
+
+    .aside {
       border: 1px solid var(--border);
       border-radius: var(--radius2);
-      background: rgba(15,26,51,.45);
+      background: rgba(15, 26, 51, .45);
       box-shadow: var(--shadow);
       padding: 22px;
     }
-    .aside h4{
+
+    .aside h4 {
       font-size: 15px;
       letter-spacing: -.2px;
       margin-bottom: 10px;
     }
-    .aside p{color: var(--muted); font-size: 13px; margin-bottom: 12px}
-    .two-col{
-      display:grid; grid-template-columns: 1fr 1fr; gap: 12px;
+
+    .aside p {
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 12px
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
       margin-top: 14px;
     }
-    .mini-card{
+
+    .mini-card {
       border: 1px solid var(--border);
-      background: rgba(255,255,255,.02);
+      background: rgba(255, 255, 255, .02);
       border-radius: 14px;
       padding: 14px;
     }
-    .mini-card b{display:block; margin-bottom: 6px}
-    .mini-card span{color: var(--muted); font-size: 13px}
+
+    .mini-card b {
+      display: block;
+      margin-bottom: 6px
+    }
+
+    .mini-card span {
+      color: var(--muted);
+      font-size: 13px
+    }
 
     /* FAQ */
-    details{
+    details {
       border: 1px solid var(--border);
       border-radius: 14px;
-      background: rgba(15,26,51,.4);
+      background: rgba(15, 26, 51, .4);
       padding: 14px 14px;
     }
-    summary{
-      cursor:pointer;
-      list-style:none;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
+
+    summary {
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       gap: 16px;
       font-weight: 800;
       font-size: 14px;
     }
-    summary::-webkit-details-marker{display:none}
-    details p{
+
+    summary::-webkit-details-marker {
+      display: none
+    }
+
+    details p {
       margin-top: 10px;
       color: var(--muted);
       font-size: 13px;
     }
-    .faq-grid{
-      display:grid;
+
+    .faq-grid {
+      display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 12px;
     }
 
     /* Contact */
-    .contact{
+    .contact {
       border: 1px solid var(--border);
       border-radius: var(--radius2);
       background:
-        radial-gradient(700px 350px at 10% 20%, rgba(168,85,247,.16), transparent 60%),
-        radial-gradient(700px 350px at 90% 30%, rgba(96,165,250,.14), transparent 60%),
-        rgba(15,26,51,.55);
+        radial-gradient(700px 350px at 10% 20%, rgba(168, 85, 247, .16), transparent 60%),
+        radial-gradient(700px 350px at 90% 30%, rgba(96, 165, 250, .14), transparent 60%),
+        rgba(15, 26, 51, .55);
       box-shadow: var(--shadow);
       padding: 22px;
-      display:grid;
+      display: grid;
       grid-template-columns: 1.05fr .95fr;
       gap: 16px;
       align-items: start;
     }
-    .contact h3{font-size: 18px; letter-spacing:-.3px}
-    .contact p{color: var(--muted); font-size: 13px; margin-top: 6px}
-    .contact-actions{
-      display:flex; gap: 10px; flex-wrap: wrap;
+
+    .contact h3 {
+      font-size: 18px;
+      letter-spacing: -.3px
+    }
+
+    .contact p {
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 6px
+    }
+
+    .contact-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
       margin-top: 14px;
     }
-    .info{
+
+    .info {
       border: 1px solid var(--border);
-      background: rgba(255,255,255,.02);
+      background: rgba(255, 255, 255, .02);
       border-radius: 14px;
       padding: 14px;
-      display:flex;
-      flex-direction:column;
+      display: flex;
+      flex-direction: column;
       gap: 10px;
     }
-    .line{
-      display:flex;
-      justify-content:space-between;
+
+    .line {
+      display: flex;
+      justify-content: space-between;
       gap: 12px;
-      align-items:center;
+      align-items: center;
       color: var(--muted);
       font-size: 13px;
       flex-wrap: wrap;
     }
-    .kbd{
+
+    .kbd {
       border: 1px solid var(--border);
-      background: rgba(0,0,0,.25);
+      background: rgba(0, 0, 0, .25);
       padding: 7px 10px;
       border-radius: 12px;
       color: var(--text);
@@ -466,40 +634,73 @@
       font-size: 12px;
     }
 
-    footer{
+    footer {
       border-top: 1px solid var(--border);
       padding: 26px 0 42px;
-      color: rgba(167,179,199,.85);
+      color: rgba(167, 179, 199, .85);
       font-size: 12px;
       margin-top: 28px;
     }
 
     /* Motion */
-    .fade-up{
+    .fade-up {
       opacity: 0;
       transform: translateY(10px);
       transition: opacity .5s ease, transform .5s ease;
     }
-    .fade-up.show{
+
+    .fade-up.show {
       opacity: 1;
       transform: translateY(0);
     }
 
     /* Responsive */
-    @media (max-width: 980px){
-      .hero-grid{grid-template-columns: 1fr}
-      .nav-links{display:none}
-      .nav-cta{min-width: auto}
-      .grid{grid-template-columns: 1fr}
-      .pricing{grid-template-columns: 1fr}
-      .faq-grid{grid-template-columns: 1fr}
-      .contact{grid-template-columns: 1fr}
-      h1{font-size: 38px}
+    @media (max-width: 980px) {
+      .hero-grid {
+        grid-template-columns: 1fr
+      }
+
+      .nav-links {
+        display: none
+      }
+
+      .nav-cta {
+        min-width: auto
+      }
+
+      .grid {
+        grid-template-columns: 1fr
+      }
+
+      .pricing {
+        grid-template-columns: 1fr
+      }
+
+      .faq-grid {
+        grid-template-columns: 1fr
+      }
+
+      .contact {
+        grid-template-columns: 1fr
+      }
+
+      h1 {
+        font-size: 38px
+      }
     }
-    @media (max-width: 420px){
-      h1{font-size: 32px}
-      .hero-card{padding: 22px}
-      .side-card{padding: 18px}
+
+    @media (max-width: 420px) {
+      h1 {
+        font-size: 32px
+      }
+
+      .hero-card {
+        padding: 22px
+      }
+
+      .side-card {
+        padding: 18px
+      }
     }
   </style>
 </head>
@@ -528,7 +729,9 @@
 
         <div class="nav-cta">
           <a class="btn btn-ghost" href="#pricing">View pricing</a>
-          <a class="btn btn-primary" href="mailto:brandonwebsites100@gmail.com?subject=Project%20Inquiry%20-%20Valentine's%20Services">Email Brandon</a>
+          <a class="btn btn-primary"
+            href="mailto:brandonwebsites100@gmail.com?subject=Project%20Inquiry%20-%20Valentine's%20Services">Email
+            Me</a>
         </div>
       </div>
     </div>
@@ -542,14 +745,17 @@
           <div class="kicker"><span class="dot"></span> Rock Hill, SC • Serving businesses anywhere</div>
           <h1>Modern websites, apps, and automations that make business easier.</h1>
           <p class="sub">
-            I build clean, fast digital experiences — from business websites to custom apps and lightweight automations —
+            I build clean, fast digital experiences — from business websites to custom apps and lightweight automations
+            —
             designed to help you look credible, capture leads, and run smoother day-to-day.
           </p>
 
           <div class="hero-actions">
             <a class="btn btn-primary" href="#contact">Get a quote</a>
             <a class="btn" href="#projects">See typical projects</a>
-            <a class="btn btn-ghost" href="mailto:brandonwebsites100@gmail.com?subject=Quick%20Question%20-%20Valentine's%20Services">Ask a quick question</a>
+            <a class="btn btn-ghost"
+              href="mailto:brandonwebsites100@gmail.com?subject=Quick%20Question%20-%20Valentine's%20Services">Ask a
+              quick question</a>
           </div>
 
           <div class="mini" aria-label="Key benefits">
@@ -564,9 +770,18 @@
           <div class="side-title">What you can expect</div>
           <div class="side-strong">Professional delivery without the tech headache.</div>
           <div class="side-list">
-            <div class="check"><div class="ic">✓</div><div><b>Clarity first:</b> we define the goal and build around it.</div></div>
-            <div class="check"><div class="ic">✓</div><div><b>Conversion-ready:</b> clear CTA, lead capture, clean structure.</div></div>
-            <div class="check"><div class="ic">✓</div><div><b>Launch support:</b> updates, fixes, and small changes available.</div></div>
+            <div class="check">
+              <div class="ic">✓</div>
+              <div><b>Clarity first:</b> we define the goal and build around it.</div>
+            </div>
+            <div class="check">
+              <div class="ic">✓</div>
+              <div><b>Conversion-ready:</b> clear CTA, lead capture, clean structure.</div>
+            </div>
+            <div class="check">
+              <div class="ic">✓</div>
+              <div><b>Launch support:</b> updates, fixes, and small changes available.</div>
+            </div>
           </div>
 
           <div style="margin-top:10px; border-top:1px solid var(--border); padding-top:14px;">
@@ -601,13 +816,15 @@
         <div class="card fade-up">
           <div class="tag">Web</div>
           <h3>Business Websites</h3>
-          <p>Modern, mobile-first websites that load fast and make your business look credible. Built to convert visitors into leads.</p>
+          <p>Modern, mobile-first websites that load fast and make your business look credible. Built to convert
+            visitors into leads.</p>
         </div>
 
         <div class="card fade-up" style="transition-delay:.06s;">
           <div class="tag">Apps</div>
           <h3>Custom Web Apps</h3>
-          <p>Simple internal tools, client portals, calculators, quoting workflows, or dashboards tailored to your business process.</p>
+          <p>Simple internal tools, client portals, calculators, quoting workflows, or dashboards tailored to your
+            business process.</p>
         </div>
 
         <div class="card fade-up" style="transition-delay:.12s;">
@@ -702,7 +919,8 @@
           </ul>
 
           <div class="hero-actions" style="margin-top:16px;">
-            <a class="btn btn-primary" href="mailto:brandonwebsites100@gmail.com?subject=Website%20Quote%20Request">Request a quote</a>
+            <a class="btn btn-primary"
+              href="mailto:brandonwebsites100@gmail.com?subject=Website%20Quote%20Request">Request a quote</a>
             <a class="btn" href="#contact">Ask what fits</a>
           </div>
         </div>
@@ -717,11 +935,11 @@
           <div class="two-col">
             <div class="mini-card">
               <b>Starter Care</b>
-              <span>$49–$99/mo<br/>updates + small edits</span>
+              <span>$49–$99/mo<br />updates + small edits</span>
             </div>
             <div class="mini-card">
               <b>Growth Care</b>
-              <span>$99–$199/mo<br/>priority changes + support</span>
+              <span>$99–$199/mo<br />priority changes + support</span>
             </div>
           </div>
 
@@ -729,7 +947,9 @@
             Need a custom app or automation? That’s scoped separately based on features.
           </p>
 
-          <a class="btn btn-primary" style="width:100%;" href="mailto:brandonwebsites100@gmail.com?subject=App%20or%20Automation%20Project%20Inquiry">Discuss an app/automation</a>
+          <a class="btn btn-primary" style="width:100%;"
+            href="mailto:brandonwebsites100@gmail.com?subject=App%20or%20Automation%20Project%20Inquiry">Discuss an
+            app/automation</a>
         </div>
       </div>
     </div>
@@ -747,12 +967,14 @@
       <div class="faq-grid">
         <details class="fade-up">
           <summary>Do I need an app or a website? <span style="color:var(--muted2)">+</span></summary>
-          <p>Most businesses start with a great website. Apps are best when you need repeat users, internal tools, portals, or custom workflows.</p>
+          <p>Most businesses start with a great website. Apps are best when you need repeat users, internal tools,
+            portals, or custom workflows.</p>
         </details>
 
         <details class="fade-up" style="transition-delay:.06s;">
           <summary>How long does a website take? <span style="color:var(--muted2)">+</span></summary>
-          <p>A standard business website is often 1–3 weeks depending on content, pages, and revisions. Larger builds vary by scope.</p>
+          <p>A standard business website is often 1–3 weeks depending on content, pages, and revisions. Larger builds
+            vary by scope.</p>
         </details>
 
         <details class="fade-up" style="transition-delay:.12s;">
@@ -762,7 +984,8 @@
 
         <details class="fade-up" style="transition-delay:.18s;">
           <summary>Do you offer ongoing support? <span style="color:var(--muted2)">+</span></summary>
-          <p>Yes. Maintenance plans cover updates, fixes, and small changes so you’re not stuck handling technical issues.</p>
+          <p>Yes. Maintenance plans cover updates, fixes, and small changes so you’re not stuck handling technical
+            issues.</p>
         </details>
       </div>
     </div>
@@ -776,11 +999,14 @@
           <div class="tag">Contact</div>
           <h3>Tell me what you need — I’ll tell you the simplest path.</h3>
           <p>
-            Whether it’s a website refresh, a new build, or a simple app/workflow, I’ll ask a few questions and give you a clear next step.
+            Whether it’s a website refresh, a new build, or a simple app/workflow, I’ll ask a few questions and give you
+            a clear next step.
           </p>
 
           <div class="contact-actions">
-            <a class="btn btn-primary" href="mailto:brandonwebsites100@gmail.com?subject=Project%20Inquiry%20-%20Valentine's%20Services">Email Brandon</a>
+            <a class="btn btn-primary"
+              href="mailto:brandonwebsites100@gmail.com?subject=Project%20Inquiry%20-%20Valentine's%20Services">Email
+              Brandon</a>
             <a class="btn" href="#pricing">See pricing</a>
             <button class="btn btn-ghost" id="copyEmailBtn" type="button">Copy email</button>
           </div>
@@ -822,15 +1048,16 @@
     const copyBtn = document.getElementById('copyEmailBtn');
     const email = document.getElementById('emailText')?.textContent?.trim() || 'brandonwebsites100@gmail.com';
     copyBtn?.addEventListener('click', async () => {
-      try{
+      try {
         await navigator.clipboard.writeText(email);
         copyBtn.textContent = 'Copied ✓';
         setTimeout(() => copyBtn.textContent = 'Copy email', 1400);
-      }catch(err){
+      } catch (err) {
         window.prompt('Copy this email:', email);
       }
     });
   </script>
 
 </body>
+
 </html>
