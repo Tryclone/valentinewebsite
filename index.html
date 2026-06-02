@@ -1,17 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Valentine's Services | Websites, Apps & Digital Solutions</title>
   <meta name="description"
     content="Websites, apps, and digital solutions built to help small businesses grow, convert leads, and operate smoothly. Based in Rock Hill, SC." />
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-
   <style>
     :root {
       --bg: #070A12;
@@ -31,17 +28,8 @@
       --radius2: 24px;
       --max: 1120px;
     }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0
-    }
-
-    html {
-      scroll-behavior: smooth
-    }
-
+    * { box-sizing: border-box; margin: 0; padding: 0 }
+    html { scroll-behavior: smooth }
     body {
       font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
       color: var(--text);
@@ -53,684 +41,243 @@
       line-height: 1.6;
       overflow-x: hidden;
     }
-
-    a {
-      color: inherit;
-      text-decoration: none
-    }
-
-    .container {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 0 20px
-    }
-
-    /* Top bar / nav */
+    a { color: inherit; text-decoration: none }
+    .container { max-width: var(--max); margin: 0 auto; padding: 0 20px }
     .nav {
-      position: sticky;
-      top: 0;
-      z-index: 50;
+      position: sticky; top: 0; z-index: 50;
       backdrop-filter: blur(12px);
       background: rgba(7, 10, 18, .7);
       border-bottom: 1px solid var(--border);
     }
-
     .nav-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 14px 0;
-      gap: 18px;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 0; gap: 18px;
     }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      min-width: 240px;
-    }
-
+    .brand { display: flex; align-items: center; gap: 12px; min-width: 240px; }
     .logo {
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      border: 1px solid var(--border);
-      display: grid;
-      place-items: center;
+      width: 44px; height: 44px; border-radius: 50%;
+      border: 1px solid var(--border); display: grid; place-items: center;
       background:
         radial-gradient(circle at 30% 30%, rgba(96, 165, 250, .35), transparent 55%),
         radial-gradient(circle at 70% 70%, rgba(168, 85, 247, .30), transparent 55%),
         rgba(15, 26, 51, .8);
-      box-shadow: var(--shadow2);
-      font-weight: 800;
-      letter-spacing: -.5px;
+      box-shadow: var(--shadow2); font-weight: 800; letter-spacing: -.5px;
     }
-
-    .brand-title {
-      display: flex;
-      flex-direction: column;
-      line-height: 1.1;
-    }
-
-    .brand-title strong {
-      font-size: 14px
-    }
-
-    .brand-title span {
-      font-size: 12px;
-      color: var(--muted2)
-    }
-
+    .brand-title { display: flex; flex-direction: column; line-height: 1.1; }
+    .brand-title strong { font-size: 14px }
+    .brand-title span { font-size: 12px; color: var(--muted2) }
     .nav-links {
-      display: flex;
-      gap: 18px;
-      align-items: center;
-      justify-content: center;
-      flex: 1;
+      display: flex; gap: 18px; align-items: center;
+      justify-content: center; flex: 1;
     }
-
     .nav-links a {
-      color: var(--muted);
-      font-size: 13px;
-      padding: 8px 10px;
-      border-radius: 10px;
-      transition: .18s ease;
-      border: 1px solid transparent;
+      color: var(--muted); font-size: 13px; padding: 8px 10px;
+      border-radius: 10px; transition: .18s ease; border: 1px solid transparent;
     }
-
     .nav-links a:hover {
-      color: var(--text);
-      border-color: var(--border);
+      color: var(--text); border-color: var(--border);
       background: rgba(255, 255, 255, .03);
     }
-
-    .nav-cta {
-      display: flex;
-      gap: 10px;
-      align-items: center;
-      justify-content: flex-end;
-      min-width: 240px;
-    }
-
-    /* Buttons */
+    .nav-cta { display: flex; gap: 10px; align-items: center; justify-content: flex-end; min-width: 240px; }
     .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      padding: 12px 16px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      color: var(--text);
-      background: rgba(255, 255, 255, .03);
-      transition: .18s ease;
-      font-weight: 700;
-      font-size: 13px;
-      white-space: nowrap;
+      display: inline-flex; align-items: center; justify-content: center;
+      gap: 10px; padding: 12px 16px; border-radius: 999px;
+      border: 1px solid var(--border); color: var(--text);
+      background: rgba(255, 255, 255, .03); transition: .18s ease;
+      font-weight: 700; font-size: 13px; white-space: nowrap; cursor: pointer;
     }
-
-    .btn:hover {
-      transform: translateY(-1px);
-      background: rgba(255, 255, 255, .05)
-    }
-
+    .btn:hover { transform: translateY(-1px); background: rgba(255, 255, 255, .05) }
     .btn-primary {
       border-color: rgba(96, 165, 250, .35);
       background: linear-gradient(135deg, rgba(96, 165, 250, .22), rgba(168, 85, 247, .18));
       box-shadow: var(--shadow2);
     }
-
-    .btn-primary:hover {
-      background: linear-gradient(135deg, rgba(96, 165, 250, .28), rgba(168, 85, 247, .22))
-    }
-
-    .btn-ghost {
-      background: transparent;
-    }
-
-    /* Hero */
-    .hero {
-      padding: 68px 0 26px;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.25fr .75fr;
-      gap: 26px;
-      align-items: stretch;
-    }
-
+    .btn-primary:hover { background: linear-gradient(135deg, rgba(96, 165, 250, .28), rgba(168, 85, 247, .22)) }
+    .btn-ghost { background: transparent; }
+    .hero { padding: 68px 0 26px; }
+    .hero-grid { display: grid; grid-template-columns: 1.25fr .75fr; gap: 26px; align-items: stretch; }
     .hero-card {
-      border: 1px solid var(--border);
-      border-radius: var(--radius2);
+      border: 1px solid var(--border); border-radius: var(--radius2);
       background:
         radial-gradient(700px 350px at 15% 20%, rgba(96, 165, 250, .18), transparent 60%),
         radial-gradient(700px 350px at 80% 30%, rgba(168, 85, 247, .14), transparent 60%),
         rgba(15, 26, 51, .55);
-      box-shadow: var(--shadow);
-      padding: 34px;
-      overflow: hidden;
-      position: relative;
+      box-shadow: var(--shadow); padding: 34px; overflow: hidden; position: relative;
     }
-
     .kicker {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      border: 1px solid var(--border);
-      background: rgba(255, 255, 255, .03);
-      color: var(--muted);
-      padding: 8px 12px;
-      border-radius: 999px;
-      font-size: 12px;
-      margin-bottom: 16px;
-      width: fit-content;
+      display: inline-flex; align-items: center; gap: 10px;
+      border: 1px solid var(--border); background: rgba(255, 255, 255, .03);
+      color: var(--muted); padding: 8px 12px; border-radius: 999px;
+      font-size: 12px; margin-bottom: 16px; width: fit-content;
     }
-
     .dot {
-      width: 9px;
-      height: 9px;
-      border-radius: 50%;
+      width: 9px; height: 9px; border-radius: 50%;
       background: linear-gradient(135deg, var(--primary), var(--primary2));
       box-shadow: 0 0 0 4px rgba(96, 165, 250, .14);
     }
-
     h1 {
-      font-size: 44px;
-      line-height: 1.06;
-      letter-spacing: -1.2px;
-      margin-bottom: 14px;
+      font-size: 44px; line-height: 1.06; letter-spacing: -1.2px; margin-bottom: 14px;
       background: linear-gradient(to right, #EAF2FF, #BFD7FF 35%, #EEDCFF);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     }
-
-    .sub {
-      color: var(--muted);
-      font-size: 15px;
-      max-width: 60ch;
-      margin-bottom: 18px;
-    }
-
-    .hero-actions {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-top: 10px;
-    }
-
-    .mini {
-      margin-top: 18px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      color: var(--muted2);
-      font-size: 12px;
-    }
-
-    .pill {
-      border: 1px solid var(--border);
-      background: rgba(255, 255, 255, .02);
-      padding: 8px 10px;
-      border-radius: 999px;
-    }
-
+    .sub { color: var(--muted); font-size: 15px; max-width: 60ch; margin-bottom: 18px; }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 10px; }
+    .mini { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 10px; color: var(--muted2); font-size: 12px; }
+    .pill { border: 1px solid var(--border); background: rgba(255, 255, 255, .02); padding: 8px 10px; border-radius: 999px; }
     .side-card {
-      border: 1px solid var(--border);
-      border-radius: var(--radius2);
-      background: rgba(15, 26, 51, .45);
-      box-shadow: var(--shadow);
-      padding: 22px;
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
+      border: 1px solid var(--border); border-radius: var(--radius2);
+      background: rgba(15, 26, 51, .45); box-shadow: var(--shadow);
+      padding: 22px; display: flex; flex-direction: column; gap: 14px;
     }
-
-    .side-title {
-      font-size: 13px;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: .12em;
-    }
-
-    .side-strong {
-      font-size: 16px;
-      font-weight: 800;
-      letter-spacing: -.4px;
-    }
-
-    .side-list {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin-top: 4px;
-    }
-
-    .check {
-      display: flex;
-      gap: 10px;
-      align-items: flex-start;
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .check b {
-      color: var(--text);
-      font-weight: 700
-    }
-
+    .side-title { font-size: 13px; color: var(--muted); text-transform: uppercase; letter-spacing: .12em; }
+    .side-strong { font-size: 16px; font-weight: 800; letter-spacing: -.4px; }
+    .side-list { display: flex; flex-direction: column; gap: 10px; margin-top: 4px; }
+    .check { display: flex; gap: 10px; align-items: flex-start; color: var(--muted); font-size: 13px; }
+    .check b { color: var(--text); font-weight: 700 }
     .check .ic {
-      width: 20px;
-      height: 20px;
-      border-radius: 6px;
-      display: grid;
-      place-items: center;
-      background: rgba(34, 197, 94, .12);
-      border: 1px solid rgba(34, 197, 94, .25);
-      color: var(--success);
-      flex: 0 0 auto;
-      margin-top: 2px;
-      font-weight: 900;
-      font-size: 13px;
+      width: 20px; height: 20px; border-radius: 6px; display: grid; place-items: center;
+      background: rgba(34, 197, 94, .12); border: 1px solid rgba(34, 197, 94, .25);
+      color: var(--success); flex: 0 0 auto; margin-top: 2px; font-weight: 900; font-size: 13px;
     }
-
-    /* Sections */
-    section {
-      padding: 54px 0
-    }
-
-    .section-head {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      gap: 10px;
-      margin-bottom: 22px;
-    }
-
-    .h2 {
-      font-size: 28px;
-      letter-spacing: -.7px;
-    }
-
-    .lead {
-      color: var(--muted);
-      max-width: 78ch;
-      font-size: 14px;
-    }
-
-    /* Cards / grid */
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-    }
-
+    section { padding: 54px 0 }
+    .section-head { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 10px; margin-bottom: 22px; }
+    .h2 { font-size: 28px; letter-spacing: -.7px; }
+    .lead { color: var(--muted); max-width: 78ch; font-size: 14px; }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
     .card {
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      background: rgba(15, 26, 51, .45);
-      padding: 18px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, .25);
-      transition: .18s ease;
-      position: relative;
-      overflow: hidden;
+      border: 1px solid var(--border); border-radius: var(--radius);
+      background: rgba(15, 26, 51, .45); padding: 18px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, .25); transition: .18s ease;
+      position: relative; overflow: hidden;
     }
-
-    .card:hover {
-      transform: translateY(-2px);
-      background: rgba(15, 26, 51, .6)
-    }
-
-    .card h3 {
-      font-size: 16px;
-      margin-bottom: 8px;
-      letter-spacing: -.3px;
-    }
-
-    .card p {
-      color: var(--muted);
-      font-size: 13px
-    }
-
+    .card:hover { transform: translateY(-2px); background: rgba(15, 26, 51, .6) }
+    .card h3 { font-size: 16px; margin-bottom: 8px; letter-spacing: -.3px; }
+    .card p { color: var(--muted); font-size: 13px }
     .tag {
-      display: inline-flex;
-      gap: 8px;
-      align-items: center;
-      font-size: 12px;
-      color: var(--muted2);
-      border: 1px solid var(--border);
-      background: rgba(255, 255, 255, .02);
-      padding: 7px 10px;
-      border-radius: 999px;
-      margin-bottom: 10px;
-      width: fit-content;
+      display: inline-flex; gap: 8px; align-items: center; font-size: 12px;
+      color: var(--muted2); border: 1px solid var(--border);
+      background: rgba(255, 255, 255, .02); padding: 7px 10px;
+      border-radius: 999px; margin-bottom: 10px; width: fit-content;
     }
-
-    /* Pricing */
-    .pricing {
-      display: grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap: 16px;
-      align-items: stretch;
-    }
-
+    .pricing { display: grid; grid-template-columns: 1.1fr .9fr; gap: 16px; align-items: stretch; }
     .price {
-      border: 1px solid rgba(96, 165, 250, .3);
-      border-radius: var(--radius2);
+      border: 1px solid rgba(96, 165, 250, .3); border-radius: var(--radius2);
       background:
         radial-gradient(600px 300px at 15% 20%, rgba(96, 165, 250, .18), transparent 60%),
         rgba(15, 26, 51, .55);
-      box-shadow: var(--shadow);
-      padding: 22px;
-      position: relative;
-      overflow: hidden;
+      box-shadow: var(--shadow); padding: 22px; position: relative; overflow: hidden;
     }
-
     .price .badge {
-      position: absolute;
-      top: 16px;
-      right: 16px;
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: .10em;
-      padding: 8px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(34, 197, 94, .25);
-      background: rgba(34, 197, 94, .12);
-      color: #BFF8D0;
+      position: absolute; top: 16px; right: 16px; font-size: 11px; font-weight: 800;
+      letter-spacing: .10em; padding: 8px 10px; border-radius: 999px;
+      border: 1px solid rgba(34, 197, 94, .25); background: rgba(34, 197, 94, .12); color: #BFF8D0;
     }
-
-    .price h3 {
-      font-size: 18px;
-      letter-spacing: -.4px
-    }
-
-    .money {
-      font-size: 40px;
-      font-weight: 900;
-      margin: 10px 0 6px;
-      letter-spacing: -1px;
-    }
-
-    .money span {
-      font-size: 13px;
-      color: var(--muted);
-      font-weight: 700
-    }
-
-    .price ul {
-      list-style: none;
-      margin-top: 14px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .price li {
-      display: flex;
-      gap: 10px;
-      align-items: flex-start;
-      color: var(--muted);
-      font-size: 13px;
-    }
-
+    .price h3 { font-size: 18px; letter-spacing: -.4px }
+    .money { font-size: 40px; font-weight: 900; margin: 10px 0 6px; letter-spacing: -1px; }
+    .money span { font-size: 13px; color: var(--muted); font-weight: 700 }
+    .price ul { list-style: none; margin-top: 14px; display: flex; flex-direction: column; gap: 10px; }
+    .price li { display: flex; gap: 10px; align-items: flex-start; color: var(--muted); font-size: 13px; }
     .price li .ic {
-      width: 20px;
-      height: 20px;
-      border-radius: 6px;
-      display: grid;
-      place-items: center;
-      background: rgba(96, 165, 250, .14);
-      border: 1px solid rgba(96, 165, 250, .25);
-      color: #CFE3FF;
-      flex: 0 0 auto;
-      margin-top: 2px;
-      font-weight: 900;
-      font-size: 13px;
+      width: 20px; height: 20px; border-radius: 6px; display: grid; place-items: center;
+      background: rgba(96, 165, 250, .14); border: 1px solid rgba(96, 165, 250, .25);
+      color: #CFE3FF; flex: 0 0 auto; margin-top: 2px; font-weight: 900; font-size: 13px;
     }
-
     .aside {
-      border: 1px solid var(--border);
-      border-radius: var(--radius2);
-      background: rgba(15, 26, 51, .45);
-      box-shadow: var(--shadow);
-      padding: 22px;
+      border: 1px solid var(--border); border-radius: var(--radius2);
+      background: rgba(15, 26, 51, .45); box-shadow: var(--shadow); padding: 22px;
     }
-
-    .aside h4 {
-      font-size: 15px;
-      letter-spacing: -.2px;
-      margin-bottom: 10px;
-    }
-
-    .aside p {
-      color: var(--muted);
-      font-size: 13px;
-      margin-bottom: 12px
-    }
-
-    .two-col {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin-top: 14px;
-    }
-
-    .mini-card {
-      border: 1px solid var(--border);
-      background: rgba(255, 255, 255, .02);
-      border-radius: 14px;
-      padding: 14px;
-    }
-
-    .mini-card b {
-      display: block;
-      margin-bottom: 6px
-    }
-
-    .mini-card span {
-      color: var(--muted);
-      font-size: 13px
-    }
-
-    /* FAQ */
-    details {
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      background: rgba(15, 26, 51, .4);
-      padding: 14px 14px;
-    }
-
+    .aside h4 { font-size: 15px; letter-spacing: -.2px; margin-bottom: 10px; }
+    .aside p { color: var(--muted); font-size: 13px; margin-bottom: 12px }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 14px; }
+    .mini-card { border: 1px solid var(--border); background: rgba(255, 255, 255, .02); border-radius: 14px; padding: 14px; }
+    .mini-card b { display: block; margin-bottom: 6px }
+    .mini-card span { color: var(--muted); font-size: 13px }
+    details { border: 1px solid var(--border); border-radius: 14px; background: rgba(15, 26, 51, .4); padding: 14px; }
     summary {
-      cursor: pointer;
-      list-style: none;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      font-weight: 800;
-      font-size: 14px;
+      cursor: pointer; list-style: none; display: flex; align-items: center;
+      justify-content: space-between; gap: 16px; font-weight: 800; font-size: 14px;
     }
-
-    summary::-webkit-details-marker {
-      display: none
-    }
-
-    details p {
-      margin-top: 10px;
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .faq-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-    }
-
-    /* Contact */
+    summary::-webkit-details-marker { display: none }
+    details p { margin-top: 10px; color: var(--muted); font-size: 13px; }
+    .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
     .contact {
-      border: 1px solid var(--border);
-      border-radius: var(--radius2);
+      border: 1px solid var(--border); border-radius: var(--radius2);
       background:
         radial-gradient(700px 350px at 10% 20%, rgba(168, 85, 247, .16), transparent 60%),
         radial-gradient(700px 350px at 90% 30%, rgba(96, 165, 250, .14), transparent 60%),
         rgba(15, 26, 51, .55);
-      box-shadow: var(--shadow);
-      padding: 22px;
-      display: grid;
-      grid-template-columns: 1.05fr .95fr;
-      gap: 16px;
-      align-items: start;
+      box-shadow: var(--shadow); padding: 22px;
+      display: grid; grid-template-columns: 1.05fr .95fr; gap: 16px; align-items: start;
     }
-
-    .contact h3 {
-      font-size: 18px;
-      letter-spacing: -.3px
-    }
-
-    .contact p {
-      color: var(--muted);
-      font-size: 13px;
-      margin-top: 6px
-    }
-
-    .contact-actions {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-top: 14px;
-    }
-
-    .info {
-      border: 1px solid var(--border);
-      background: rgba(255, 255, 255, .02);
-      border-radius: 14px;
-      padding: 14px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .line {
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      align-items: center;
-      color: var(--muted);
-      font-size: 13px;
-      flex-wrap: wrap;
-    }
-
-    .kbd {
-      border: 1px solid var(--border);
-      background: rgba(0, 0, 0, .25);
-      padding: 7px 10px;
-      border-radius: 12px;
-      color: var(--text);
-      font-weight: 700;
-      font-size: 12px;
-    }
-
+    .contact h3 { font-size: 18px; letter-spacing: -.3px }
+    .contact p { color: var(--muted); font-size: 13px; margin-top: 6px }
     footer {
-      border-top: 1px solid var(--border);
-      padding: 26px 0 42px;
-      color: rgba(167, 179, 199, .85);
-      font-size: 12px;
-      margin-top: 28px;
+      border-top: 1px solid var(--border); padding: 26px 0 42px;
+      color: rgba(167, 179, 199, .85); font-size: 12px; margin-top: 28px;
     }
-
-    /* Motion */
-    .fade-up {
-      opacity: 0;
-      transform: translateY(10px);
-      transition: opacity .5s ease, transform .5s ease;
+    .fade-up { opacity: 0; transform: translateY(10px); transition: opacity .5s ease, transform .5s ease; }
+    .fade-up.show { opacity: 1; transform: translateY(0); }
+    /* Form styles */
+    .form-group { display: flex; flex-direction: column; gap: 6px; }
+    .form-group label { font-size: 12px; color: var(--muted); font-weight: 600; letter-spacing: .04em; }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      background: rgba(255,255,255,.04); border: 1px solid var(--border);
+      border-radius: 12px; padding: 10px 14px; color: var(--text);
+      font-family: inherit; font-size: 13px; outline: none;
+      transition: border-color .18s ease; width: 100%;
     }
-
-    .fade-up.show {
-      opacity: 1;
-      transform: translateY(0);
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus { border-color: rgba(96,165,250,.5); }
+    .form-group select option { background: #0F1A33; color: var(--text); }
+    .form-group textarea { resize: vertical; min-height: 90px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .form-success {
+      display: none; text-align: center; padding: 24px;
+      color: var(--success); font-size: 15px; font-weight: 700;
     }
-
-    /* Responsive */
     @media (max-width: 980px) {
-      .hero-grid {
-        grid-template-columns: 1fr
-      }
-
-      .nav-links {
-        display: none
-      }
-
-      .nav-cta {
-        min-width: auto
-      }
-
-      .grid {
-        grid-template-columns: 1fr
-      }
-
-      .pricing {
-        grid-template-columns: 1fr
-      }
-
-      .faq-grid {
-        grid-template-columns: 1fr
-      }
-
-      .contact {
-        grid-template-columns: 1fr
-      }
-
-      h1 {
-        font-size: 38px
-      }
+      .hero-grid { grid-template-columns: 1fr }
+      .nav-links { display: none }
+      .nav-cta { min-width: auto }
+      .grid { grid-template-columns: 1fr }
+      .pricing { grid-template-columns: 1fr }
+      .faq-grid { grid-template-columns: 1fr }
+      .contact { grid-template-columns: 1fr }
+      .form-row { grid-template-columns: 1fr }
+      h1 { font-size: 38px }
     }
-
     @media (max-width: 420px) {
-      h1 {
-        font-size: 32px
-      }
-
-      .hero-card {
-        padding: 22px
-      }
-
-      .side-card {
-        padding: 18px
-      }
+      h1 { font-size: 32px }
+      .hero-card { padding: 22px }
+      .side-card { padding: 18px }
     }
   </style>
 </head>
-
 <body>
-
   <div class="nav">
     <div class="container">
       <div class="nav-inner">
         <a class="brand" href="#top" aria-label="Valentine's Services home">
           <div class="logo">V</div>
           <div class="brand-title">
-            <strong>Valentine’s Services</strong>
+            <strong>Valentine's Services</strong>
             <span>Websites • Apps • Digital Solutions</span>
           </div>
         </a>
-
         <div class="nav-links" aria-label="Primary navigation">
           <a href="#services">Services</a>
           <a href="#projects">Projects</a>
           <a href="#pricing">Pricing</a>
           <a href="#faq">FAQ</a>
           <a href="voice-agents.html">Voice Agents</a>
-          <a href="mailto:brandonwebsites100@gmail.com">Contact</a>
+          <a href="#contact">Contact</a>
         </div>
-
         <div class="nav-cta">
           <a class="btn btn-ghost" href="#pricing">View pricing</a>
-          <a class="btn btn-primary"
-            href="mailto:brandonwebsites100@gmail.com?subject=Project%20Inquiry%20-%20Valentine's%20Services">Email
-            Me!</a>
+          <a class="btn btn-primary" href="#contact">Get a Quote</a>
         </div>
       </div>
     </div>
@@ -743,18 +290,14 @@
           <div class="kicker"><span class="dot"></span> Rock Hill, SC • Serving businesses anywhere</div>
           <h1>Modern websites, apps, and automations that make business easier.</h1>
           <p class="sub">
-            I build clean, fast digital experiences — from business websites to custom apps and lightweight automations
-            —
+            I build clean, fast digital experiences — from business websites to custom apps and lightweight automations —
             designed to help you look credible, capture leads, and run smoother day-to-day.
           </p>
-
           <div class="hero-actions">
             <a class="btn btn-primary" href="#contact">Get a quote</a>
-            <a class="btn" style="border-color: #A855F7; background: rgba(168, 85, 247, 0.1);"
-              href="voice-agents.html">🎙️ Hear AI Voice Agents</a>
+            <a class="btn" style="border-color: #A855F7; background: rgba(168, 85, 247, 0.1);" href="voice-agents.html">🎙️ Hear AI Voice Agents</a>
             <a class="btn btn-ghost" href="mailto:brandonwebsites100@gmail.com">Ask a quick question</a>
           </div>
-
           <div class="mini" aria-label="Key benefits">
             <div class="pill">Fast, mobile-first builds</div>
             <div class="pill">Simple, clear pricing</div>
@@ -762,7 +305,6 @@
             <div class="pill">Business-focused outcomes</div>
           </div>
         </div>
-
         <div class="side-card fade-up" style="transition-delay:.08s;">
           <div class="side-title">What you can expect</div>
           <div class="side-strong">Professional delivery without the tech headache.</div>
@@ -780,7 +322,6 @@
               <div><b>Launch support:</b> updates, fixes, and small changes available.</div>
             </div>
           </div>
-
           <div style="margin-top:10px; border-top:1px solid var(--border); padding-top:14px;">
             <div class="side-title">Quick contact</div>
             <div class="check" style="margin-top:10px;">
@@ -791,7 +332,6 @@
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </div>
@@ -807,22 +347,17 @@
           make you easier to find, easier to trust, and easier to pay.
         </div>
       </div>
-
       <div class="grid">
         <div class="card fade-up">
           <div class="tag">Web</div>
           <h3>Business Websites</h3>
-          <p>Modern, mobile-first websites that load fast and make your business look credible. Built to convert
-            visitors into leads.</p>
+          <p>Modern, mobile-first websites that load fast and make your business look credible. Built to convert visitors into leads.</p>
         </div>
-
         <div class="card fade-up" style="transition-delay:.06s;">
           <div class="tag">Apps</div>
           <h3>Custom Web Apps</h3>
-          <p>Simple internal tools, client portals, calculators, quoting workflows, or dashboards tailored to your
-            business process.</p>
+          <p>Simple internal tools, client portals, calculators, quoting workflows, or dashboards tailored to your business process.</p>
         </div>
-
         <div class="card fade-up" style="transition-delay:.12s;">
           <div class="tag">Automation</div>
           <h3>Digital Workflows</h3>
@@ -839,20 +374,17 @@
         <div class="h2">Simple process, clean delivery</div>
         <div class="lead">No complicated jargon. Just clear steps and progress you can track.</div>
       </div>
-
       <div class="grid">
         <div class="card fade-up">
           <div class="tag">1</div>
           <h3>Discovery</h3>
           <p>We define your goal, your audience, and what success looks like (leads, bookings, sales, credibility).</p>
         </div>
-
         <div class="card fade-up" style="transition-delay:.06s;">
           <div class="tag">2</div>
           <h3>Build</h3>
-          <p>I design and develop the solution with quick check-ins so you’re never guessing what’s happening.</p>
+          <p>I design and develop the solution with quick check-ins so you're never guessing what's happening.</p>
         </div>
-
         <div class="card fade-up" style="transition-delay:.12s;">
           <div class="tag">3</div>
           <h3>Launch + Support</h3>
@@ -867,17 +399,16 @@
       <div class="section-head fade-up">
         <div class="tag">Typical projects</div>
         <div class="h2">Great fits for small business</div>
-        <div class="lead">If any of these sound like you, you’re in the right place.</div>
+        <div class="lead">If any of these sound like you, you're in the right place.</div>
       </div>
-
       <div class="grid">
         <div class="card fade-up">
           <h3>Lead-capture website</h3>
           <p>Clean pages, strong CTA, contact form, and a layout that makes people call or request a quote.</p>
         </div>
         <div class="card fade-up" style="transition-delay:.06s;">
-          <h3>Service menus & “book now” flow</h3>
-          <p>Simple scheduling links, service descriptions, FAQs, and trust builders to reduce “tire-kickers.”</p>
+          <h3>Service menus &amp; "book now" flow</h3>
+          <p>Simple scheduling links, service descriptions, FAQs, and trust builders to reduce "tire-kickers."</p>
         </div>
         <div class="card fade-up" style="transition-delay:.12s;">
           <h3>Internal tool / spreadsheet replacement</h3>
@@ -894,7 +425,6 @@
         <div class="h2">Clear starting points</div>
         <div class="lead">Final pricing depends on scope, but these ranges help you plan.</div>
       </div>
-
       <div class="pricing">
         <div class="price fade-up">
           <div class="badge">POPULAR</div>
@@ -903,28 +433,23 @@
           <div class="lead" style="text-align:left; max-width:none;">
             A clean, professional website designed to capture leads and build trust.
           </div>
-
           <ul>
             <li><span class="ic">✓</span> Custom branded design</li>
             <li><span class="ic">✓</span> Mobile + tablet responsive</li>
             <li><span class="ic">✓</span> Lead capture form + clear CTAs</li>
             <li><span class="ic">✓</span> Basic SEO setup + performance best practices</li>
           </ul>
-
           <div class="hero-actions" style="margin-top:16px;">
-            <a class="btn btn-primary"
-              href="mailto:brandonwebsites100@gmail.com?subject=Website%20Quote%20Request">Request a quote</a>
+            <a class="btn btn-primary" href="#contact">Request a quote</a>
             <a class="btn" href="#contact">Ask what fits</a>
           </div>
         </div>
-
         <div class="aside fade-up" style="transition-delay:.06s;">
-          <h4>Maintenance & updates</h4>
+          <h4>Maintenance &amp; updates</h4>
           <p>
             If you want someone to keep things updated, handle small changes, and make sure your site stays solid,
             a monthly plan is usually the easiest option.
           </p>
-
           <div class="two-col">
             <div class="mini-card">
               <b>Starter Care</b>
@@ -935,14 +460,10 @@
               <span>$99–$199/mo<br />priority changes + support</span>
             </div>
           </div>
-
           <p style="margin-top:12px;">
-            Need a custom app or automation? That’s scoped separately based on features.
+            Need a custom app or automation? That's scoped separately based on features.
           </p>
-
-          <a class="btn btn-primary" style="width:100%;"
-            href="mailto:brandonwebsites100@gmail.com?subject=App%20or%20Automation%20Project%20Inquiry">Discuss an
-            app/automation</a>
+          <a class="btn btn-primary" style="width:100%; margin-top:8px;" href="#contact">Discuss an app/automation</a>
         </div>
       </div>
     </div>
@@ -953,31 +474,24 @@
       <div class="section-head fade-up">
         <div class="tag">FAQ</div>
         <div class="h2">Quick answers</div>
-        <div class="lead">If you’re unsure where to start, email me and I’ll point you in the right direction.</div>
+        <div class="lead">If you're unsure where to start, email me and I'll point you in the right direction.</div>
       </div>
-
       <div class="faq-grid">
         <details class="fade-up">
           <summary>Do I need an app or a website? <span style="color:var(--muted2)">+</span></summary>
-          <p>Most businesses start with a great website. Apps are best when you need repeat users, internal tools,
-            portals, or custom workflows.</p>
+          <p>Most businesses start with a great website. Apps are best when you need repeat users, internal tools, portals, or custom workflows.</p>
         </details>
-
         <details class="fade-up" style="transition-delay:.06s;">
           <summary>How long does a website take? <span style="color:var(--muted2)">+</span></summary>
-          <p>A standard business website is often 1–3 weeks depending on content, pages, and revisions. Larger builds
-            vary by scope.</p>
+          <p>A standard business website is often 1–3 weeks depending on content, pages, and revisions. Larger builds vary by scope.</p>
         </details>
-
         <details class="fade-up" style="transition-delay:.12s;">
           <summary>Will it work on phones? <span style="color:var(--muted2)">+</span></summary>
           <p>Yes. Every site is mobile-first so it looks clean and loads fast on phones, tablets, and desktops.</p>
         </details>
-
         <details class="fade-up" style="transition-delay:.18s;">
           <summary>Do you offer ongoing support? <span style="color:var(--muted2)">+</span></summary>
-          <p>Yes. Maintenance plans cover updates, fixes, and small changes so you’re not stuck handling technical
-            issues.</p>
+          <p>Yes. Maintenance plans cover updates, fixes, and small changes so you're not stuck handling technical issues.</p>
         </details>
       </div>
     </div>
@@ -988,28 +502,71 @@
       <div class="contact fade-up">
         <div>
           <div class="tag">Contact</div>
-          <h3>Tell me what you need — I’ll tell you the simplest path.</h3>
+          <h3>Tell me what you need — I'll tell you the simplest path.</h3>
           <p>
-            Whether it’s a website refresh, a new build, or a simple app/workflow, I’ll ask a few questions and give you
-            a clear next step.
+            Whether it's a website refresh, a new build, or a simple app/workflow,
+            fill out the form and I'll get back to you with a clear next step — usually within 24 hours.
           </p>
-
-          <div class="contact-actions">
-            <a class="btn btn-primary"
-              href="mailto:brandonwebsites100@gmail.com?subject=Project%20Inquiry%20-%20Valentine's%20Services">Email
-              Brandon</a>
-            <a class="btn" href="#pricing">See pricing</a>
-            <button class="btn btn-ghost" id="copyEmailBtn" type="button">Copy email</button>
+          <div class="mini" style="margin-top:16px;">
+            <div class="pill">📍 Rock Hill, SC</div>
+            <div class="pill">⚡ Reply within 24 hrs</div>
+            <div class="pill">💬 No pressure, no jargon</div>
           </div>
         </div>
-
-        <div class="info">
-          <div class="line"><span>Name</span><span class="kbd">Brandon Valentine</span></div>
-          <div class="line"><span>Email</span><span class="kbd" id="emailText">brandonwebsites100@gmail.com</span></div>
-          <div class="line"><span>Website</span><span class="kbd">www.valentinesservices.com</span></div>
-          <div class="line"><span>Based in</span><span class="kbd">Rock Hill, SC</span></div>
-          <div style="border-top:1px solid var(--border); padding-top:10px; color: var(--muted2); font-size:12px;">
-            Tip: In your email, include your business name, what you do, and any example websites you like.
+        <div>
+          <form
+            name="contact"
+            method="POST"
+            data-netlify="true"
+            netlify-honeypot="bot-field"
+            id="contactForm"
+          >
+            <input type="hidden" name="form-name" value="contact" />
+            <p style="display:none;">
+              <label>Don't fill this out: <input name="bot-field" /></label>
+            </p>
+            <div style="display:flex; flex-direction:column; gap:12px;">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="fname">Your Name *</label>
+                  <input type="text" id="fname" name="name" placeholder="Jane Smith" required />
+                </div>
+                <div class="form-group">
+                  <label for="femail">Email Address *</label>
+                  <input type="email" id="femail" name="email" placeholder="jane@yourbusiness.com" required />
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="fbusiness">Business Name</label>
+                  <input type="text" id="fbusiness" name="business" placeholder="Smith Roofing LLC" />
+                </div>
+                <div class="form-group">
+                  <label for="fwebsite">Current Website</label>
+                  <input type="text" id="fwebsite" name="website" placeholder="www.yourbusiness.com (or none)" />
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="fbudget">Budget Range *</label>
+                <select id="fbudget" name="budget" required>
+                  <option value="" disabled selected>Select your budget range</option>
+                  <option value="Under $500">Under $500</option>
+                  <option value="$500-$2,000">$500 – $2,000</option>
+                  <option value="$2,000+">$2,000+</option>
+                  <option value="Not Sure">Not Sure Yet</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="fmessage">What do you need? *</label>
+                <textarea id="fmessage" name="message" placeholder="Tell me about your business, what you're trying to accomplish, and any details that would help me understand your project..." required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center; padding:14px;">
+                Send My Request &rarr;
+              </button>
+            </div>
+          </form>
+          <div class="form-success" id="formSuccess">
+            &#10003; Message received! I'll be in touch within 24 hours.
           </div>
         </div>
       </div>
@@ -1019,7 +576,7 @@
   <footer>
     <div class="container">
       <div style="display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;">
-        <div>© 2026 Valentine’s Services • Rock Hill, SC</div>
+        <div>© 2026 Valentine's Services • Rock Hill, SC</div>
         <div style="color:rgba(167,179,199,.75)">Websites • Apps • Digital Solutions</div>
       </div>
     </div>
@@ -1029,26 +586,28 @@
     // Fade-in on scroll
     const els = document.querySelectorAll('.fade-up');
     const io = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) e.target.classList.add('show');
-      });
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('show'); });
     }, { threshold: 0.10 });
     els.forEach(el => io.observe(el));
 
-    // Copy email
-    const copyBtn = document.getElementById('copyEmailBtn');
-    const email = document.getElementById('emailText')?.textContent?.trim() || 'brandonwebsites100@gmail.com';
-    copyBtn?.addEventListener('click', async () => {
+    // Handle Netlify form submission
+    const form = document.getElementById('contactForm');
+    const successMsg = document.getElementById('formSuccess');
+    form?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const data = new FormData(form);
       try {
-        await navigator.clipboard.writeText(email);
-        copyBtn.textContent = 'Copied ✓';
-        setTimeout(() => copyBtn.textContent = 'Copy email', 1400);
+        await fetch('/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: new URLSearchParams(data).toString()
+        });
+        form.style.display = 'none';
+        successMsg.style.display = 'block';
       } catch (err) {
-        window.prompt('Copy this email:', email);
+        alert('Something went wrong. Please email me directly at brandonwebsites100@gmail.com');
       }
     });
   </script>
-
 </body>
-
 </html>
