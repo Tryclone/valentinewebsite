@@ -217,7 +217,6 @@
     }
     .fade-up { opacity: 0; transform: translateY(10px); transition: opacity .5s ease, transform .5s ease; }
     .fade-up.show { opacity: 1; transform: translateY(0); }
-    /* Form styles */
     .form-group { display: flex; flex-direction: column; gap: 6px; }
     .form-group label { font-size: 12px; color: var(--muted); font-weight: 600; letter-spacing: .04em; }
     .form-group input,
@@ -238,6 +237,69 @@
       display: none; text-align: center; padding: 24px;
       color: var(--success); font-size: 15px; font-weight: 700;
     }
+
+    /* ── VAPI STICKY WIDGET ── */
+    #vapi-widget-container {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 10px;
+    }
+    #vapi-tooltip {
+      background: rgba(15, 26, 51, 0.95);
+      border: 1px solid rgba(96, 165, 250, .35);
+      color: #F8FAFC;
+      font-family: Inter, sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 10px 14px;
+      border-radius: 12px;
+      white-space: nowrap;
+      box-shadow: 0 8px 32px rgba(0,0,0,.4);
+      opacity: 0;
+      transform: translateY(4px);
+      transition: opacity .25s ease, transform .25s ease;
+      pointer-events: none;
+    }
+    #vapi-tooltip.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    #vapi-btn-custom {
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #60A5FA, #A855F7);
+      box-shadow: 0 4px 24px rgba(96,165,250,.45), 0 0 0 0 rgba(96,165,250,.3);
+      transition: transform .18s ease, box-shadow .18s ease;
+      animation: pulse-ring 2.4s ease-out infinite;
+      position: relative;
+    }
+    #vapi-btn-custom:hover {
+      transform: scale(1.08);
+      box-shadow: 0 6px 32px rgba(96,165,250,.55), 0 0 0 0 rgba(96,165,250,.3);
+    }
+    #vapi-btn-custom svg {
+      width: 26px;
+      height: 26px;
+      fill: white;
+      pointer-events: none;
+    }
+    @keyframes pulse-ring {
+      0%   { box-shadow: 0 4px 24px rgba(96,165,250,.45), 0 0 0 0 rgba(96,165,250,.35); }
+      60%  { box-shadow: 0 4px 24px rgba(96,165,250,.45), 0 0 0 14px rgba(96,165,250,.0); }
+      100% { box-shadow: 0 4px 24px rgba(96,165,250,.45), 0 0 0 0 rgba(96,165,250,.0); }
+    }
+
     @media (max-width: 980px) {
       .hero-grid { grid-template-columns: 1fr }
       .nav-links { display: none }
@@ -248,6 +310,7 @@
       .contact { grid-template-columns: 1fr }
       .form-row { grid-template-columns: 1fr }
       h1 { font-size: 38px }
+      #vapi-widget-container { bottom: 18px; right: 18px; }
     }
     @media (max-width: 420px) {
       h1 { font-size: 32px }
@@ -293,7 +356,7 @@
           </p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="#contact">Get a Custom Strategy</a>
-            <a class="btn btn-ghost" href="mailto:brandonwebsites100@gmail.com">Ask a quick question</a>
+            <a class="btn btn-ghost" href="mailto:valentinesservices@yahoo.com">Ask a quick question</a>
           </div>
           <div class="mini" aria-label="Key benefits">
             <div class="pill">AI Commercials</div>
@@ -324,7 +387,7 @@
             <div class="check" style="margin-top:10px;">
               <div class="ic">✉</div>
               <div>
-                <b>Email:</b> brandonwebsites100@gmail.com<br />
+                <b>Email:</b> valentinesservices@yahoo.com<br />
                 <span style="color:var(--muted2); font-size:12px;">Reply usually within 24 hours</span>
               </div>
             </div>
@@ -418,7 +481,7 @@
     <style>
       .pricing-three { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; align-items: stretch; }
       .a-la-carte { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 16px; }
-      @media (max-width: 980px) { 
+      @media (max-width: 980px) {
         .pricing-three { grid-template-columns: 1fr; }
         .a-la-carte { grid-template-columns: 1fr; }
       }
@@ -429,11 +492,8 @@
         <div class="h2">High-end marketing. Sensible pricing.</div>
         <div class="lead">I keep my software overhead low so I can offer premium digital solutions without the massive agency markup.</div>
       </div>
-      
-      <!-- Subscription Plans -->
+
       <div class="pricing-three">
-        
-        <!-- Tier 1: Social -->
         <div class="price fade-up">
           <h3>"Stay Relevant" Social Plan</h3>
           <div class="money">$199 <span>/ month</span></div>
@@ -450,7 +510,6 @@
           </div>
         </div>
 
-        <!-- Tier 2: Video & Social (The Bundle) -->
         <div class="price fade-up" style="border-color: rgba(168, 85, 247, 0.4); transition-delay:.06s;">
           <div class="badge" style="background: rgba(168,85,247,0.15); color: #EEDCFF; border-color: rgba(168,85,247,0.3);">POPULAR</div>
           <h3>Content &amp; Video Bundle</h3>
@@ -469,7 +528,6 @@
           </div>
         </div>
 
-        <!-- Tier 3: Website As A Service -->
         <div class="price fade-up" style="transition-delay:.12s;">
           <h3>Lead-Capture Website</h3>
           <div class="money">$149 <span>/ month</span></div>
@@ -488,10 +546,8 @@
             <a class="btn btn-ghost" style="width:100%" href="#contact">Build My Site</a>
           </div>
         </div>
-
       </div>
 
-      <!-- One-Offs and A-la-carte -->
       <div class="a-la-carte fade-up" style="transition-delay:.18s;">
         <div class="aside">
           <h4>One-Off AI Video Ads</h4>
@@ -518,7 +574,6 @@
           </div>
         </div>
       </div>
-
     </div>
   </section>
 
@@ -604,7 +659,7 @@
                 <select id="fbudget" name="budget" required>
                   <option value="" disabled selected>Select a service...</option>
                   <option value="Social Plan ($199/mo)">"Stay Relevant" Social Plan ($199/mo)</option>
-                  <option value="Video Bundle ($499/mo)">Content & Video Bundle ($499/mo)</option>
+                  <option value="Video Bundle ($499/mo)">Content &amp; Video Bundle ($499/mo)</option>
                   <option value="Lead Website ($149/mo + setup)">Lead-Capture Website ($149/mo + Setup)</option>
                   <option value="One-Off Video ($150)">One-Off AI Video Ad ($150)</option>
                   <option value="Basic Site ($299)">Basic Informational Site ($299)</option>
@@ -613,7 +668,7 @@
               </div>
               <div class="form-group">
                 <label for="fmessage">What do you need? *</label>
-                <textarea id="fmessage" name="message" placeholder="Are you looking for the Stay Relevant social plan, a one-off AI video ad, or a new website? Tell me about your goals..." required></textarea>
+                <textarea id="fmessage" name="message" placeholder="Tell me about your goals..." required></textarea>
               </div>
               <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center; padding:14px;">
                 Send My Request &rarr;
@@ -636,6 +691,17 @@
       </div>
     </div>
   </footer>
+
+  <!-- ── VAPI STICKY WIDGET ── -->
+  <div id="vapi-widget-container">
+    <div id="vapi-tooltip">Talk to Val — AI Assistant</div>
+    <button id="vapi-btn-custom" aria-label="Talk to Val, AI assistant">
+      <!-- Microphone icon -->
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 1a4 4 0 0 1 4 4v7a4 4 0 0 1-8 0V5a4 4 0 0 1 4-4zm-1.5 4v7a1.5 1.5 0 0 0 3 0V5a1.5 1.5 0 0 0-3 0zM5 11a1 1 0 0 1 1 1 6 6 0 0 0 12 0 1 1 0 1 1 2 0 8 8 0 0 1-7 7.938V22h2a1 1 0 1 1 0 2H9a1 1 0 1 1 0-2h2v-2.062A8 8 0 0 1 4 12a1 1 0 0 1 1-1z"/>
+      </svg>
+    </button>
+  </div>
 
   <script>
     // Fade-in on scroll
@@ -660,7 +726,68 @@
         form.style.display = 'none';
         successMsg.style.display = 'block';
       } catch (err) {
-        alert('Something went wrong. Please email me directly at brandonwebsites100@gmail.com');
+        alert('Something went wrong. Please email me directly at valentinesservices@yahoo.com');
+      }
+    });
+
+    // ── VAPI WIDGET LOGIC ──
+    const VAPI_PUBLIC_KEY = "2d50143b-0c3b-4a09-aa1a-faaf09714bc5";
+    const VAPI_ASSISTANT_ID = "6ac7a447-64bc-4eb6-a38b-1d1ec67bd4ce";
+
+    let vapiInstance = null;
+    let isCallActive = false;
+    const vapiBtn = document.getElementById('vapi-btn-custom');
+    const tooltip = document.getElementById('vapi-tooltip');
+
+    // Show tooltip on hover
+    vapiBtn.addEventListener('mouseenter', () => tooltip.classList.add('visible'));
+    vapiBtn.addEventListener('mouseleave', () => tooltip.classList.remove('visible'));
+
+    // Load Vapi SDK
+    (function(d, t) {
+      var g = d.createElement(t), s = d.getElementsByTagName(t)[0];
+      g.src = "https://cdn.jsdelivr.net/gh/VapiAI/html-script-tag@latest/dist/assets/index.js";
+      g.defer = true;
+      g.async = true;
+      s.parentNode.insertBefore(g, s);
+      g.onload = function() {
+        vapiInstance = window.vapi(VAPI_PUBLIC_KEY);
+
+        // Hide Vapi's default button since we have our own
+        const hideDefaultBtn = () => {
+          const defaultBtn = document.querySelector('[id^="vapi-support-btn"]') ||
+                             document.querySelector('.vapi-btn') ||
+                             document.querySelector('[class*="vapi"]');
+          if (defaultBtn) defaultBtn.style.display = 'none';
+        };
+        setTimeout(hideDefaultBtn, 1000);
+        setTimeout(hideDefaultBtn, 2000);
+
+        vapiInstance.on('call-start', () => {
+          isCallActive = true;
+          vapiBtn.style.background = 'linear-gradient(135deg, #ef4444, #dc2626)';
+          vapiBtn.style.animation = 'none';
+          tooltip.textContent = 'Tap to end call';
+          tooltip.classList.add('visible');
+          setTimeout(() => tooltip.classList.remove('visible'), 2500);
+        });
+
+        vapiInstance.on('call-end', () => {
+          isCallActive = false;
+          vapiBtn.style.background = 'linear-gradient(135deg, #60A5FA, #A855F7)';
+          vapiBtn.style.animation = 'pulse-ring 2.4s ease-out infinite';
+          tooltip.textContent = 'Talk to Val — AI Assistant';
+        });
+      };
+    })(document, 'script');
+
+    // Button click handler
+    vapiBtn.addEventListener('click', () => {
+      if (!vapiInstance) return;
+      if (isCallActive) {
+        vapiInstance.stop();
+      } else {
+        vapiInstance.start(VAPI_ASSISTANT_ID);
       }
     });
   </script>
