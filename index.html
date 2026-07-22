@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Valentine's Services | AI Video Ads, Marketing & Digital Solutions</title>
+  <title>Valentine's Services | AI Websites, Video Ads & Digital Marketing</title>
   <meta name="description"
-    content="Next-generation marketing, cinematic AI video ads, social media management, and high-converting websites for businesses. Based in Rock Hill, SC." />
+    content="AI-powered websites with 24/7 voice agents, cinematic video ads, and automated lead capture for local businesses. Based in Rock Hill, SC." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
@@ -144,6 +144,7 @@
     .h2 { font-size: 28px; letter-spacing: -.7px; }
     .lead { color: var(--muted); max-width: 78ch; font-size: 14px; }
     .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
     .card {
       border: 1px solid var(--border); border-radius: var(--radius);
       background: rgba(15, 26, 51, .45); padding: 18px;
@@ -159,6 +160,57 @@
       background: rgba(255, 255, 255, .02); padding: 7px 10px;
       border-radius: 999px; margin-bottom: 10px; width: fit-content;
     }
+
+    /* DEMO SECTION */
+    .demo-section {
+      border: 1px solid rgba(96, 165, 250, .35);
+      border-radius: var(--radius2);
+      background:
+        radial-gradient(700px 350px at 10% 30%, rgba(96, 165, 250, .14), transparent 60%),
+        radial-gradient(700px 350px at 90% 70%, rgba(168, 85, 247, .12), transparent 60%),
+        rgba(15, 26, 51, .65);
+      box-shadow: var(--shadow);
+      padding: 34px;
+    }
+    .demo-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: center; }
+    .demo-features { display: flex; flex-direction: column; gap: 12px; margin-top: 18px; }
+    .demo-feature { display: flex; gap: 12px; align-items: flex-start; font-size: 13px; color: var(--muted); }
+    .demo-feature .ic {
+      width: 22px; height: 22px; border-radius: 6px; display: grid; place-items: center;
+      background: rgba(96, 165, 250, .14); border: 1px solid rgba(96, 165, 250, .3);
+      color: #CFE3FF; flex: 0 0 auto; font-weight: 900; font-size: 12px; margin-top: 1px;
+    }
+    .demo-feature b { color: var(--text); }
+    .demo-video-wrap {
+      border-radius: 14px; overflow: hidden;
+      border: 1px solid var(--border);
+      aspect-ratio: 16/9;
+      position: relative;
+      cursor: pointer;
+    }
+    .demo-video-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .demo-play {
+      position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+      background: rgba(7, 10, 18, .45);
+    }
+    .demo-play-btn {
+      width: 60px; height: 60px; border-radius: 50%;
+      background: linear-gradient(135deg, rgba(96,165,250,.9), rgba(168,85,247,.9));
+      display: flex; align-items: center; justify-content: center;
+      transition: transform .18s;
+    }
+    .demo-video-wrap:hover .demo-play-btn { transform: scale(1.1); }
+    .demo-play-btn svg { width: 24px; height: 24px; fill: white; margin-left: 3px; }
+    .demo-link {
+      display: inline-flex; align-items: center; gap: 8px;
+      border: 1px solid rgba(96,165,250,.4);
+      background: rgba(96,165,250,.1);
+      color: #CFE3FF; padding: 10px 18px; border-radius: 999px;
+      font-size: 13px; font-weight: 700; margin-top: 18px;
+      transition: .18s ease;
+    }
+    .demo-link:hover { background: rgba(96,165,250,.18); transform: translateY(-1px); }
+
     .pricing { display: grid; grid-template-columns: 1.1fr .9fr; gap: 16px; align-items: stretch; }
     .price {
       border: 1px solid rgba(96, 165, 250, .3); border-radius: var(--radius2);
@@ -238,62 +290,33 @@
       color: var(--success); font-size: 15px; font-weight: 700;
     }
 
-    /* ── VAPI STICKY WIDGET ── */
+    /* VAPI STICKY WIDGET */
     #vapi-widget-container {
-      position: fixed;
-      bottom: 28px;
-      right: 28px;
-      z-index: 9999;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 10px;
+      position: fixed; bottom: 28px; right: 28px; z-index: 9999;
+      display: flex; flex-direction: column; align-items: flex-end; gap: 10px;
     }
     #vapi-tooltip {
       background: rgba(15, 26, 51, 0.95);
       border: 1px solid rgba(96, 165, 250, .35);
-      color: #F8FAFC;
-      font-family: Inter, sans-serif;
-      font-size: 13px;
-      font-weight: 600;
-      padding: 10px 14px;
-      border-radius: 12px;
-      white-space: nowrap;
+      color: #F8FAFC; font-family: Inter, sans-serif;
+      font-size: 13px; font-weight: 600; padding: 10px 14px;
+      border-radius: 12px; white-space: nowrap;
       box-shadow: 0 8px 32px rgba(0,0,0,.4);
-      opacity: 0;
-      transform: translateY(4px);
+      opacity: 0; transform: translateY(4px);
       transition: opacity .25s ease, transform .25s ease;
       pointer-events: none;
     }
-    #vapi-tooltip.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    #vapi-tooltip.visible { opacity: 1; transform: translateY(0); }
     #vapi-btn-custom {
-      width: 58px;
-      height: 58px;
-      border-radius: 50%;
-      border: none;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      width: 58px; height: 58px; border-radius: 50%; border: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
       background: linear-gradient(135deg, #60A5FA, #A855F7);
       box-shadow: 0 4px 24px rgba(96,165,250,.45), 0 0 0 0 rgba(96,165,250,.3);
       transition: transform .18s ease, box-shadow .18s ease;
-      animation: pulse-ring 2.4s ease-out infinite;
-      position: relative;
+      animation: pulse-ring 2.4s ease-out infinite; position: relative;
     }
-    #vapi-btn-custom:hover {
-      transform: scale(1.08);
-      box-shadow: 0 6px 32px rgba(96,165,250,.55), 0 0 0 0 rgba(96,165,250,.3);
-    }
-    #vapi-btn-custom svg {
-      width: 26px;
-      height: 26px;
-      fill: white;
-      pointer-events: none;
-    }
+    #vapi-btn-custom:hover { transform: scale(1.08); }
+    #vapi-btn-custom svg { width: 26px; height: 26px; fill: white; pointer-events: none; }
     @keyframes pulse-ring {
       0%   { box-shadow: 0 4px 24px rgba(96,165,250,.45), 0 0 0 0 rgba(96,165,250,.35); }
       60%  { box-shadow: 0 4px 24px rgba(96,165,250,.45), 0 0 0 14px rgba(96,165,250,.0); }
@@ -305,10 +328,12 @@
       .nav-links { display: none }
       .nav-cta { min-width: auto }
       .grid { grid-template-columns: 1fr }
+      .grid-4 { grid-template-columns: 1fr 1fr }
       .pricing { grid-template-columns: 1fr }
       .faq-grid { grid-template-columns: 1fr }
       .contact { grid-template-columns: 1fr }
       .form-row { grid-template-columns: 1fr }
+      .demo-inner { grid-template-columns: 1fr }
       h1 { font-size: 38px }
       #vapi-widget-container { bottom: 18px; right: 18px; }
     }
@@ -316,6 +341,7 @@
       h1 { font-size: 32px }
       .hero-card { padding: 22px }
       .side-card { padding: 18px }
+      .grid-4 { grid-template-columns: 1fr }
     }
   </style>
 </head>
@@ -332,7 +358,7 @@
         </a>
         <div class="nav-links" aria-label="Primary navigation">
           <a href="#services">Services</a>
-          <a href="#projects">Video Portfolio</a>
+          <a href="#demo">Live Demo</a>
           <a href="#pricing">Pricing</a>
           <a href="#faq">FAQ</a>
           <a href="#contact">Contact</a>
@@ -350,19 +376,19 @@
       <div class="hero-grid">
         <div class="hero-card fade-up">
           <div class="kicker"><span class="dot"></span> Rock Hill, SC • Serving businesses anywhere</div>
-          <h1>Next-generation marketing, video ads &amp; digital solutions.</h1>
+          <h1>AI-powered websites that work for your business 24/7.</h1>
           <p class="sub">
-            I help businesses capture attention and drive leads using AI-powered video commercials, automated social media management, and high-converting websites.
+            I build websites with built-in AI voice agents that answer customer questions around the clock, capture leads automatically, and send you instant alerts — plus cinematic video ads and social media management.
           </p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#contact">Get a Custom Strategy</a>
-            <a class="btn btn-ghost" href="mailto:valentinesservices@yahoo.com">Ask a quick question</a>
+            <a class="btn btn-primary" href="#demo">See a Live Demo</a>
+            <a class="btn btn-ghost" href="#contact">Get a Quote</a>
           </div>
           <div class="mini" aria-label="Key benefits">
-            <div class="pill">AI Commercials</div>
-            <div class="pill">Social Media Automation</div>
-            <div class="pill">Smart Lead Forms</div>
-            <div class="pill">Websites</div>
+            <div class="pill">AI Voice Agent</div>
+            <div class="pill">Instant Lead Alerts</div>
+            <div class="pill">AI Video Ads</div>
+            <div class="pill">Social Media</div>
           </div>
         </div>
         <div class="side-card fade-up" style="transition-delay:.08s;">
@@ -371,15 +397,19 @@
           <div class="side-list">
             <div class="check">
               <div class="ic">✓</div>
+              <div><b>24/7 AI Voice Agent:</b> Answers customer questions instantly, day or night.</div>
+            </div>
+            <div class="check">
+              <div class="ic">✓</div>
+              <div><b>Instant Lead Alerts:</b> Text and email the moment a lead fills out your form.</div>
+            </div>
+            <div class="check">
+              <div class="ic">✓</div>
               <div><b>Cinematic Video:</b> High-end ads built with advanced AI.</div>
             </div>
             <div class="check">
               <div class="ic">✓</div>
               <div><b>Consistent Socials:</b> Automated scheduling and posting.</div>
-            </div>
-            <div class="check">
-              <div class="ic">✓</div>
-              <div><b>Smart Websites:</b> Designed strictly to capture leads.</div>
             </div>
           </div>
           <div style="margin-top:10px; border-top:1px solid var(--border); padding-top:14px;">
@@ -406,13 +436,18 @@
           Stop paying massive agency fees. I use advanced tools to deliver high-end marketing assets and digital workflows that actually convert.
         </div>
       </div>
-      <div class="grid">
+      <div class="grid-4">
         <div class="card fade-up">
+          <div class="tag">AI Voice</div>
+          <h3>24/7 AI Voice Agent</h3>
+          <p>Your website answers customer questions around the clock — no hold music, no missed leads. Captures contact info and alerts you instantly when someone needs help.</p>
+        </div>
+        <div class="card fade-up" style="transition-delay:.04s;">
           <div class="tag">Video</div>
           <h3>AI Video Ads &amp; Commercials</h3>
-          <p>Eye-catching, cinematic video ads tailored for your brand using advanced tools and digital spokesperson avatars. Get agency-quality visuals without the massive production costs.</p>
+          <p>Eye-catching, cinematic video ads tailored for your brand using advanced tools and digital spokesperson avatars. Agency-quality visuals without the massive cost.</p>
         </div>
-        <div class="card fade-up" style="transition-delay:.06s;">
+        <div class="card fade-up" style="transition-delay:.08s;">
           <div class="tag">Marketing</div>
           <h3>Social Media Management</h3>
           <p>Consistent, engaging content posted automatically across all your channels. Build your audience and credibility while you focus on running your business.</p>
@@ -420,7 +455,48 @@
         <div class="card fade-up" style="transition-delay:.12s;">
           <div class="tag">Web</div>
           <h3>High-Converting Websites</h3>
-          <p>Lightning-fast, mobile-ready websites paired with smart lead-capture forms that qualify clients and send them straight to your inbox.</p>
+          <p>Lightning-fast, mobile-ready websites paired with smart lead-capture forms and instant estimate tools that qualify clients and send them straight to your inbox.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIVE DEMO SECTION -->
+  <section id="demo">
+    <div class="container">
+      <div class="section-head fade-up">
+        <div class="tag">Live Demo</div>
+        <div class="h2">See it working right now</div>
+        <div class="lead">This isn't a mockup. Click the link below to interact with a real, fully working AI-powered website — voice agent included.</div>
+      </div>
+      <div class="demo-section fade-up">
+        <div class="demo-inner">
+          <div>
+            <div class="tag">What's inside the demo</div>
+            <div class="h2" style="font-size:22px; margin-top:10px;">Everything your business needs to capture leads automatically.</div>
+            <div class="demo-features">
+              <div class="demo-feature"><div class="ic">✓</div><div><b>AI voice agent</b> — click the green button and speak with it right now, 24/7</div></div>
+              <div class="demo-feature"><div class="ic">✓</div><div><b>Instant price estimate widget</b> — gives visitors a ballpark range in under 60 seconds</div></div>
+              <div class="demo-feature"><div class="ic">✓</div><div><b>Smart lead capture form</b> — owner gets an email and text alert the moment someone submits</div></div>
+              <div class="demo-feature"><div class="ic">✓</div><div><b>AI commercial video</b> — embedded directly on the site, showing what's possible</div></div>
+              <div class="demo-feature"><div class="ic">✓</div><div><b>Professional mobile-ready design</b> — built to convert visitors into booked jobs</div></div>
+            </div>
+            <a class="demo-link" href="https://rooferagent.netlify.app" target="_blank" rel="noopener">
+              → Try the Live Demo: rooferagent.netlify.app
+            </a>
+            <div style="margin-top:10px; font-size:12px; color:var(--muted2);">Currently set up for a roofing company — same system works for real estate, HVAC, plumbing, gyms, and any local service business.</div>
+          </div>
+          <div>
+            <div class="demo-video-wrap" onclick="window.open('https://www.youtube.com/watch?v=6rIXzLxmSK4','_blank')">
+              <img src="https://i.postimg.cc/QNWRVCm2/1.jpg" alt="Apex Roofing AI commercial demo video" />
+              <div class="demo-play">
+                <div class="demo-play-btn">
+                  <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+                </div>
+              </div>
+            </div>
+            <div style="text-align:center; margin-top:10px; font-size:12px; color:var(--muted2);">▶ Watch the AI commercial I made for the demo site</div>
+          </div>
         </div>
       </div>
     </div>
@@ -442,36 +518,12 @@
         <div class="card fade-up" style="transition-delay:.06s;">
           <div class="tag">2</div>
           <h3>Creation &amp; Build</h3>
-          <p>I generate the video assets, schedule the social media posts, or develop your web solution while keeping you in the loop.</p>
+          <p>I build your website, configure the AI voice agent, set up lead alerts, and generate video assets while keeping you in the loop.</p>
         </div>
         <div class="card fade-up" style="transition-delay:.12s;">
           <div class="tag">3</div>
           <h3>Launch &amp; Automate</h3>
-          <p>We launch your assets. Leads get routed directly to your email via smart forms, minimizing your admin work so you can just focus on closing.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="projects">
-    <div class="container">
-      <div class="section-head fade-up">
-        <div class="tag">Capabilities</div>
-        <div class="h2">Perfect for modern businesses</div>
-        <div class="lead">If you need to stand out digitally, these solutions are built for you.</div>
-      </div>
-      <div class="grid">
-        <div class="card fade-up">
-          <h3>Cinematic Concept Ads</h3>
-          <p>Short, highly visual promo videos designed for Instagram Reels, TikTok, or Facebook ads to stop the scroll.</p>
-        </div>
-        <div class="card fade-up" style="transition-delay:.06s;">
-          <h3>Digital Avatar Spokespersons</h3>
-          <p>Need someone to explain your service but don't want to be on camera? I create professional AI avatar videos to deliver your message.</p>
-        </div>
-        <div class="card fade-up" style="transition-delay:.12s;">
-          <h3>Smart Quote Forms</h3>
-          <p>Intelligent, multi-step contact forms that ask the right questions upfront, so you only talk to qualified leads.</p>
+          <p>We go live. Leads flow directly to your phone and email automatically. You focus on closing jobs — the website handles everything else.</p>
         </div>
       </div>
     </div>
@@ -480,7 +532,7 @@
   <section id="pricing">
     <style>
       .pricing-three { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; align-items: stretch; }
-      .a-la-carte { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 16px; }
+      .a-la-carte { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-top: 16px; }
       @media (max-width: 980px) {
         .pricing-three { grid-template-columns: 1fr; }
         .a-la-carte { grid-template-columns: 1fr; }
@@ -489,7 +541,7 @@
     <div class="container">
       <div class="section-head fade-up">
         <div class="tag">Pricing</div>
-        <div class="h2">High-end marketing. Sensible pricing.</div>
+        <div class="h2">High-end results. Sensible pricing.</div>
         <div class="lead">I keep my software overhead low so I can offer premium digital solutions without the massive agency markup.</div>
       </div>
 
@@ -529,18 +581,20 @@
         </div>
 
         <div class="price fade-up" style="transition-delay:.12s;">
-          <h3>Lead-Capture Website</h3>
-          <div class="money">$149 <span>/ month</span></div>
+          <h3>AI-Powered Website</h3>
+          <div class="money">$197 <span>/ month</span></div>
           <div class="lead" style="text-align:left; max-width:none; font-weight:700; color:var(--text);">
-            +$299 One-Time Setup Fee
+            +$497 One-Time Setup Fee
           </div>
           <div class="lead" style="text-align:left; max-width:none; margin-top:8px;">
-            A fast, modern site powered by intelligent forms to route qualified leads directly to your inbox.
+            A complete lead generation system — not just a website. Includes everything in the live demo.
           </div>
           <ul>
-            <li><span class="ic">✓</span> Premium hosting &amp; maintenance</li>
-            <li><span class="ic">✓</span> Automated lead-capture routing</li>
-            <li><span class="ic">✓</span> Mobile-first design</li>
+            <li><span class="ic">✓</span> 24/7 AI voice agent built in</li>
+            <li><span class="ic">✓</span> Instant estimate widget</li>
+            <li><span class="ic">✓</span> Lead capture with email &amp; text alerts</li>
+            <li><span class="ic">✓</span> Mobile-first professional design</li>
+            <li><span class="ic">✓</span> Hosting &amp; maintenance included</li>
           </ul>
           <div class="hero-actions" style="margin-top:16px;">
             <a class="btn btn-ghost" style="width:100%" href="#contact">Build My Site</a>
@@ -555,7 +609,7 @@
           <div class="two-col">
             <div class="mini-card">
               <b>Cinematic Promo</b>
-              <span>$150 / video<br />Highly visual short-form ad</span>
+              <span>$150–$300 / video<br />Highly visual short-form ad</span>
             </div>
             <div class="mini-card">
               <b>Digital Avatar</b>
@@ -566,10 +620,20 @@
         <div class="aside">
           <h4>Basic Informational Sites</h4>
           <p>Just need a digital business card to establish credibility? I code it, set it up, and hand you the keys.</p>
-          <div class="two-col" style="display:flex; align-items:center;">
+          <div style="margin-top:14px;">
             <div class="mini-card" style="width:100%;">
               <b>Static Business Site</b>
-              <span>From $299 (One-Time)<br />No monthly hosting fees from me. Yours forever.</span>
+              <span>From $397 (One-Time)<br />No monthly hosting fees from me. Yours forever.</span>
+            </div>
+          </div>
+        </div>
+        <div class="aside">
+          <h4>AI Voice Agent Add-On</h4>
+          <p>Already have a website? Add a 24/7 AI voice agent that answers questions and captures leads automatically.</p>
+          <div style="margin-top:14px;">
+            <div class="mini-card" style="width:100%;">
+              <b>Voice Agent Only</b>
+              <span>$97 / month<br />Works with any existing website</span>
             </div>
           </div>
         </div>
@@ -586,18 +650,26 @@
       </div>
       <div class="faq-grid">
         <details class="fade-up">
-          <summary>What is an AI Video Ad? <span style="color:var(--muted2)">+</span></summary>
-          <p>Instead of hiring a full camera crew, I use advanced generative tools to create cinematic visuals, lifelike voiceovers, and even digital avatars to promote your business for a fraction of the cost.</p>
+          <summary>What is the AI voice agent? <span style="color:var(--muted2)">+</span></summary>
+          <p>It's a voice assistant built into your website that answers customer questions in real time — 24 hours a day, 7 days a week. Think of it like a receptionist who never sleeps, never misses a call, and alerts you instantly when a hot lead comes in. You can try it live at rooferagent.netlify.app — click the green button in the corner.</p>
         </details>
         <details class="fade-up" style="transition-delay:.06s;">
-          <summary>Do I own my website? <span style="color:var(--muted2)">+</span></summary>
-          <p>Yes. For informational sites, I build them and hand them over so you never have to pay a monthly hosting fee to me. For complex lead-capture sites, I offer hosted retainer options.</p>
+          <summary>Will I know when a lead comes in? <span style="color:var(--muted2)">+</span></summary>
+          <p>Yes — the moment someone fills out your estimate form, you get an instant email with all their details and a text message alert to your phone. No checking a dashboard, no delays. You find out the second it happens.</p>
         </details>
         <details class="fade-up" style="transition-delay:.12s;">
+          <summary>What is an AI Video Ad? <span style="color:var(--muted2)">+</span></summary>
+          <p>Instead of hiring a full camera crew, I use advanced generative tools to create cinematic visuals, lifelike voiceovers, and even digital avatars to promote your business for a fraction of the cost. You can see an example in the Live Demo section above.</p>
+        </details>
+        <details class="fade-up" style="transition-delay:.18s;">
+          <summary>Do I own my website? <span style="color:var(--muted2)">+</span></summary>
+          <p>Yes. For informational sites, I build them and hand them over so you never have to pay a monthly hosting fee to me. For AI-powered lead-capture sites, I offer a monthly retainer that includes hosting, maintenance, and ongoing support.</p>
+        </details>
+        <details class="fade-up" style="transition-delay:.24s;">
           <summary>What social platforms do you manage? <span style="color:var(--muted2)">+</span></summary>
           <p>I can syndicate and schedule content across all major platforms including Facebook, Instagram, LinkedIn, X, and TikTok, depending on where your audience lives.</p>
         </details>
-        <details class="fade-up" style="transition-delay:.18s;">
+        <details class="fade-up" style="transition-delay:.30s;">
           <summary>How long does a video take? <span style="color:var(--muted2)">+</span></summary>
           <p>Most short-form commercials and avatar videos can be scripted, generated, edited, and delivered within 1 to 2 weeks.</p>
         </details>
@@ -612,13 +684,17 @@
           <div class="tag">Contact</div>
           <h3>Tell me what you need — I'll build the strategy.</h3>
           <p>
-            Whether it's monthly video marketing, automated socials, or a lead-capture website,
+            Whether it's a talking website, monthly video marketing, automated socials, or all of the above —
             fill out the form and I'll get back to you with a clear next step.
           </p>
           <div class="mini" style="margin-top:16px;">
             <div class="pill">📍 Rock Hill, SC</div>
             <div class="pill">⚡ Reply within 24 hrs</div>
             <div class="pill">💬 No pressure, no jargon</div>
+          </div>
+          <div style="margin-top:20px; padding:16px; border:1px solid rgba(96,165,250,.25); border-radius:14px; background:rgba(96,165,250,.06);">
+            <div style="font-size:13px; font-weight:700; margin-bottom:6px;">Want to see it before you commit?</div>
+            <div style="font-size:13px; color:var(--muted);">Try the live demo first: <a href="https://rooferagent.netlify.app" target="_blank" style="color:#CFE3FF;">rooferagent.netlify.app</a></div>
           </div>
         </div>
         <div>
@@ -658,17 +734,18 @@
                 <label for="fbudget">What are you interested in? *</label>
                 <select id="fbudget" name="budget" required>
                   <option value="" disabled selected>Select a service...</option>
+                  <option value="AI-Powered Website ($197/mo + $497 setup)">AI-Powered Website ($197/mo + $497 setup)</option>
+                  <option value="AI Voice Agent Add-On ($97/mo)">AI Voice Agent Add-On ($97/mo)</option>
                   <option value="Social Plan ($199/mo)">"Stay Relevant" Social Plan ($199/mo)</option>
                   <option value="Video Bundle ($499/mo)">Content &amp; Video Bundle ($499/mo)</option>
-                  <option value="Lead Website ($149/mo + setup)">Lead-Capture Website ($149/mo + Setup)</option>
-                  <option value="One-Off Video ($150)">One-Off AI Video Ad ($150)</option>
-                  <option value="Basic Site ($299)">Basic Informational Site ($299)</option>
+                  <option value="One-Off Video ($150-$300)">One-Off AI Video Ad ($150–$300)</option>
+                  <option value="Basic Site ($397)">Basic Informational Site ($397)</option>
                   <option value="Not Sure">Not Sure Yet / Custom</option>
                 </select>
               </div>
               <div class="form-group">
                 <label for="fmessage">What do you need? *</label>
-                <textarea id="fmessage" name="message" placeholder="Tell me about your goals..." required></textarea>
+                <textarea id="fmessage" name="message" placeholder="Tell me about your business and goals..." required></textarea>
               </div>
               <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center; padding:14px;">
                 Send My Request &rarr;
@@ -692,11 +769,10 @@
     </div>
   </footer>
 
-  <!-- ── VAPI STICKY WIDGET ── -->
+  <!-- VAPI STICKY WIDGET -->
   <div id="vapi-widget-container">
-    <div id="vapi-tooltip">Talk to Val — AI Assistant</div>
+    <div id="vapi-tooltip">Talk to Val — AI Assistant 🎙️</div>
     <button id="vapi-btn-custom" aria-label="Talk to Val, AI assistant">
-      <!-- Microphone icon -->
       <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
         <path d="M12 1a4 4 0 0 1 4 4v7a4 4 0 0 1-8 0V5a4 4 0 0 1 4-4zm-1.5 4v7a1.5 1.5 0 0 0 3 0V5a1.5 1.5 0 0 0-3 0zM5 11a1 1 0 0 1 1 1 6 6 0 0 0 12 0 1 1 0 1 1 2 0 8 8 0 0 1-7 7.938V22h2a1 1 0 1 1 0 2H9a1 1 0 1 1 0-2h2v-2.062A8 8 0 0 1 4 12a1 1 0 0 1 1-1z"/>
       </svg>
@@ -704,14 +780,12 @@
   </div>
 
   <script>
-    // Fade-in on scroll
     const els = document.querySelectorAll('.fade-up');
     const io = new IntersectionObserver((entries) => {
       entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('show'); });
     }, { threshold: 0.10 });
     els.forEach(el => io.observe(el));
 
-    // Handle Netlify form submission
     const form = document.getElementById('contactForm');
     const successMsg = document.getElementById('formSuccess');
     form?.addEventListener('submit', async (e) => {
@@ -730,7 +804,6 @@
       }
     });
 
-    // ── VAPI WIDGET LOGIC ──
     const VAPI_PUBLIC_KEY = "2d50143b-0c3b-4a09-aa1a-faaf09714bc5";
     const VAPI_ASSISTANT_ID = "6ac7a447-64bc-4eb6-a38b-1d1ec67bd4ce";
 
@@ -739,39 +812,25 @@
     const vapiBtn = document.getElementById('vapi-btn-custom');
     const tooltip = document.getElementById('vapi-tooltip');
 
-    // Show tooltip on hover
     vapiBtn.addEventListener('mouseenter', () => tooltip.classList.add('visible'));
     vapiBtn.addEventListener('mouseleave', () => { if (!isCallActive) tooltip.classList.remove('visible'); });
 
-    // Load Vapi SDK from CDN
     var vapiScript = document.createElement('script');
     vapiScript.src = "https://cdn.jsdelivr.net/gh/VapiAI/html-script-tag@latest/dist/assets/index.js";
     vapiScript.async = true;
     vapiScript.onload = function() {
-      // Vapi exposes itself as window.vapiSDK or window.Vapi depending on version
-      // Try both
       try {
         if (window.vapiSDK) {
           vapi = window.vapiSDK.run({
             apiKey: VAPI_PUBLIC_KEY,
             assistant: VAPI_ASSISTANT_ID,
-            config: {
-              hideButton: true  // hide default button, use ours
-            }
+            config: { hideButton: true }
           });
         } else if (window.Vapi) {
           vapi = new window.Vapi(VAPI_PUBLIC_KEY);
-        } else {
-          // Fallback: use the window.vapi function style
-          vapi = window.vapi ? window.vapi(VAPI_PUBLIC_KEY) : null;
         }
+        if (!vapi) return;
 
-        if (!vapi) {
-          console.warn('Vapi SDK loaded but could not initialize instance');
-          return;
-        }
-
-        // Hide any default Vapi button that might appear
         setTimeout(() => {
           document.querySelectorAll('[id*="vapi"], [class*="vapi-btn"], [class*="vapi-support"]').forEach(el => {
             if (el.id !== 'vapi-widget-container' && el.id !== 'vapi-btn-custom' && el.id !== 'vapi-tooltip') {
@@ -787,45 +846,26 @@
           tooltip.textContent = 'Click to end call';
           tooltip.classList.add('visible');
         });
-
         vapi.on('call-end', () => {
           isCallActive = false;
           vapiBtn.style.background = 'linear-gradient(135deg, #60A5FA, #A855F7)';
           vapiBtn.style.animation = 'pulse-ring 2.4s ease-out infinite';
-          tooltip.textContent = 'Talk to Val — AI Assistant';
+          tooltip.textContent = 'Talk to Val — AI Assistant 🎙️';
           tooltip.classList.remove('visible');
         });
-
-        vapi.on('error', (e) => {
-          console.error('Vapi error:', e);
+        vapi.on('error', () => {
           isCallActive = false;
           vapiBtn.style.background = 'linear-gradient(135deg, #60A5FA, #A855F7)';
           vapiBtn.style.animation = 'pulse-ring 2.4s ease-out infinite';
         });
-
-      } catch(err) {
-        console.error('Vapi init error:', err);
-      }
-    };
-    vapiScript.onerror = function() {
-      console.error('Failed to load Vapi SDK');
+      } catch(err) { console.error('Vapi init error:', err); }
     };
     document.body.appendChild(vapiScript);
 
-    // Button click handler
     vapiBtn.addEventListener('click', () => {
-      if (!vapi) {
-        alert('Voice assistant is loading, please try again in a moment.');
-        return;
-      }
-      if (isCallActive) {
-        vapi.stop();
-      } else {
-        try {
-          vapi.start(VAPI_ASSISTANT_ID);
-        } catch(err) {
-          console.error('Could not start call:', err);
-        }
+      if (!vapi) { alert('Voice assistant is loading, please try again in a moment.'); return; }
+      if (isCallActive) { vapi.stop(); } else {
+        try { vapi.start(VAPI_ASSISTANT_ID); } catch(err) { console.error('Could not start call:', err); }
       }
     });
   </script>
