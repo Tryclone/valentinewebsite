@@ -1,136 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
+  <title>Valentine's Services | Websites, AI Solutions & Video Marketing</title>
 
   <meta
     name="description"
-    content="Carolina Fence & Outdoor — Professional fencing solutions for privacy, security, pets, and outdoor spaces."
+    content="Websites, AI-powered lead systems, voice assistants, video advertising, and digital marketing solutions for small businesses. Based in Rock Hill, SC and serving businesses anywhere."
+  />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet"
   >
 
-  <title>Carolina Fence & Outdoor | Fencing Solutions</title>
+  <style>
+    :root {
+      --bg: #070A12;
+      --bg2: #0B1224;
+      --card: #0F1A33;
+      --card2: #0B1530;
+      --border: rgba(148, 163, 184, .18);
 
-  <!-- Vapi Web SDK for the custom voice interface -->
-  <script type="module">
-    import Vapi from "https://esm.sh/@vapi-ai/web@2.6.1";
+      --text: #F8FAFC;
+      --muted: #A7B3C7;
+      --muted2: #7E8BA3;
 
-    const VAPI_PUBLIC_KEY = "2d50143b-0c3b-4a09-aa1a-faaf09714bc5";
-    const FENCING_ASSISTANT_ID = "820b70f6-7211-4f25-b7fe-035299cfd16f";
-    const vapi = new Vapi(VAPI_PUBLIC_KEY);
+      --primary: #60A5FA;
+      --primary2: #A855F7;
+      --success: #22C55E;
 
-    let callActive = false;
-    let starting = false;
+      --shadow: 0 18px 60px rgba(0, 0, 0, .45);
+      --shadow2: 0 10px 30px rgba(96, 165, 250, .18);
 
-    function get(id) { return document.getElementById(id); }
-
-    function setIdleState(message) {
-      callActive = false;
-      starting = false;
-      const button = get("customVapiButton");
-      const status = get("customVapiStatus");
-      const helper = get("customVapiHelper");
-      const arrow = get("customVapiArrow");
-
-      if (button) {
-        button.disabled = false;
-        button.innerHTML = '<span class="custom-vapi-mic" aria-hidden="true">🎙</span><span>CLICK HERE to TALK</span>';
-      }
-      if (status) {
-        status.textContent = message || "Ready when you are.";
-        status.classList.toggle("show", Boolean(message));
-      }
-      if (helper) helper.textContent = "You'll be asked to allow microphone access when the call starts.";
-      if (arrow) arrow.style.opacity = "1";
+      --radius: 18px;
+      --radius2: 24px;
+      --max: 1120px;
     }
 
-    async function startFenceCall() {
-      if (callActive || starting) return;
-      starting = true;
-      const button = get("customVapiButton");
-      const status = get("customVapiStatus");
-      const helper = get("customVapiHelper");
-      const arrow = get("customVapiArrow");
-
-      if (button) {
-        button.disabled = true;
-        button.innerHTML = '<span class="custom-vapi-mic" aria-hidden="true">🎙</span><span>CONNECTING...</span>';
-      }
-      if (status) {
-        status.textContent = "Connecting to the AI receptionist...";
-        status.classList.add("show");
-      }
-      if (helper) helper.textContent = "Please allow microphone access if your browser asks.";
-      if (arrow) arrow.style.opacity = ".35";
-
-      try {
-        await vapi.start(FENCING_ASSISTANT_ID);
-      } catch (error) {
-        console.error("Vapi call failed:", error);
-        setIdleState("The call could not be started. Please try again.");
-        if (helper) helper.textContent = "If your browser asks for microphone access, choose Allow.";
-      }
-    }
-
-    function endFenceCall() {
-      vapi.stop();
-    }
-
-    window.startFenceCall = startFenceCall;
-    window.endFenceCall = endFenceCall;
-    window.fencingVapi = vapi;
-
-    vapi.on("call-start", () => {
-      callActive = true;
-      starting = false;
-      const button = get("customVapiButton");
-      const status = get("customVapiStatus");
-      const helper = get("customVapiHelper");
-      const arrow = get("customVapiArrow");
-      if (button) {
-        button.disabled = false;
-        button.innerHTML = '<span class="custom-vapi-mic" aria-hidden="true">🎙</span><span>END CALL</span>';
-      }
-      if (status) {
-        status.textContent = "You're connected — start talking.";
-        status.classList.add("show");
-      }
-      if (helper) helper.textContent = "The AI receptionist is listening.";
-      if (arrow) arrow.style.opacity = ".35";
-    });
-
-    vapi.on("call-end", () => {
-      setIdleState("Call ended. Ready to try it again.");
-    });
-
-    vapi.on("error", (error) => {
-      console.error("Vapi error:", error);
-      setIdleState("Something went wrong with the call. Please try again.");
-    });
-
-    window.addEventListener("DOMContentLoaded", () => {
-      const button = get("customVapiButton");
-      if (button) {
-        button.addEventListener("click", () => {
-          if (callActive) endFenceCall();
-          else startFenceCall();
-        });
-      }
-
-      document.querySelectorAll(".ai-button").forEach((el) => {
-        el.removeAttribute("onclick");
-        el.addEventListener("click", () => {
-          const target = get("customVapiButton");
-          if (target) target.scrollIntoView({ behavior: "smooth", block: "center" });
-        });
-      });
-    });
-  </script>
-<style>
     * {
       box-sizing: border-box;
       margin: 0;
@@ -144,6 +56,7 @@
     body {
       font-family:
         Inter,
+        system-ui,
         -apple-system,
         BlinkMacSystemFont,
         "Segoe UI",
@@ -152,9 +65,32 @@
         Arial,
         sans-serif;
 
-      background: #f7f8f6;
-      color: #17201b;
+      color: var(--text);
+
+      background:
+        radial-gradient(
+          900px 480px at 15% 8%,
+          rgba(168, 85, 247, .14),
+          transparent 60%
+        ),
+        radial-gradient(
+          900px 520px at 90% 10%,
+          rgba(96, 165, 250, .16),
+          transparent 55%
+        ),
+        radial-gradient(
+          600px 400px at 50% 100%,
+          rgba(34, 197, 94, .08),
+          transparent 60%
+        ),
+        linear-gradient(
+          180deg,
+          var(--bg) 0%,
+          var(--bg2) 100%
+        );
+
       line-height: 1.6;
+      overflow-x: hidden;
     }
 
     a {
@@ -162,1141 +98,1922 @@
       text-decoration: none;
     }
 
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
     .container {
-      width: min(1120px, 92%);
+      max-width: var(--max);
       margin: 0 auto;
+      padding: 0 20px;
     }
 
-    /* ------------------------------
-       HEADER
-    ------------------------------ */
-
-    header {
-      background: #ffffff;
-      border-bottom: 1px solid #e7e9e6;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
+    /* NAVIGATION */
 
     .nav {
-      min-height: 76px;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+
+      backdrop-filter: blur(12px);
+
+      background: rgba(7, 10, 18, .72);
+
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 30px;
+
+      padding: 14px 0;
+
+      gap: 18px;
     }
 
-    .logo {
+    .brand {
       display: flex;
       align-items: center;
       gap: 12px;
-      font-weight: 800;
-      font-size: 1.15rem;
-      letter-spacing: -0.02em;
+
+      min-width: 240px;
     }
 
-    .logo-mark {
-      width: 42px;
-      height: 42px;
-      border-radius: 10px;
-      background: #244a35;
-      color: white;
+    .logo {
+      width: 44px;
+      height: 44px;
+
+      border-radius: 50%;
+
+      border: 1px solid var(--border);
+
+      display: grid;
+      place-items: center;
+
+      background:
+        radial-gradient(
+          circle at 30% 30%,
+          rgba(96, 165, 250, .35),
+          transparent 55%
+        ),
+        radial-gradient(
+          circle at 70% 70%,
+          rgba(168, 85, 247, .30),
+          transparent 55%
+        ),
+        rgba(15, 26, 51, .8);
+
+      box-shadow: var(--shadow2);
+
+      font-weight: 800;
+      letter-spacing: -.5px;
+    }
+
+    .brand-title {
       display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+
+    .brand-title strong {
+      font-size: 14px;
+    }
+
+    .brand-title span {
+      font-size: 12px;
+      color: var(--muted2);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
       align-items: center;
       justify-content: center;
-      font-weight: 900;
-      font-size: 1rem;
+
+      flex: 1;
     }
 
-    nav {
-      display: flex;
-      align-items: center;
-      gap: 28px;
+    .nav-links a {
+      color: var(--muted);
+      font-size: 13px;
+
+      padding: 8px 10px;
+
+      border-radius: 10px;
+
+      transition: .18s ease;
+
+      border: 1px solid transparent;
     }
 
-    nav a {
-      font-size: 0.95rem;
-      color: #526058;
-      font-weight: 600;
-      transition: 0.2s ease;
-    }
+    .nav-links a:hover {
+      color: var(--text);
 
-    nav a:hover {
-      color: #244a35;
+      border-color: var(--border);
+
+      background: rgba(255, 255, 255, .03);
     }
 
     .nav-cta {
-      background: #244a35;
-      color: white !important;
-      padding: 11px 18px;
-      border-radius: 8px;
-    }
-
-    .nav-cta:hover {
-      background: #183725;
-    }
-
-    /* ------------------------------
-       HERO
-    ------------------------------ */
-
-    .hero {
-      background:
-        linear-gradient(
-          120deg,
-          #eef4ef 0%,
-          #f7f8f6 55%,
-          #e9f0eb 100%
-        );
-
-      padding: 90px 0 80px;
-      overflow: hidden;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      align-items: center;
-      gap: 65px;
-    }
-
-    .eyebrow {
-      display: inline-block;
-      font-size: 0.78rem;
-      font-weight: 800;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: #477158;
-      margin-bottom: 18px;
-    }
-
-    h1 {
-      font-size: clamp(2.7rem, 5vw, 4.7rem);
-      line-height: 1.02;
-      letter-spacing: -0.055em;
-      margin-bottom: 24px;
-      color: #152019;
-    }
-
-    .hero p {
-      font-size: 1.16rem;
-      color: #59655e;
-      max-width: 610px;
-      margin-bottom: 32px;
-    }
-
-    .hero-buttons {
       display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
+      gap: 10px;
+      align-items: center;
+      justify-content: flex-end;
+
+      min-width: 240px;
     }
+
+    /* BUTTONS */
 
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 14px 22px;
-      border-radius: 9px;
-      font-weight: 750;
-      border: 1px solid transparent;
-      transition: 0.2s ease;
+
+      gap: 10px;
+
+      padding: 12px 16px;
+
+      border-radius: 999px;
+
+      border: 1px solid var(--border);
+
+      color: var(--text);
+
+      background: rgba(255, 255, 255, .03);
+
+      transition: .18s ease;
+
+      font-weight: 700;
+      font-size: 13px;
+
+      white-space: nowrap;
+
       cursor: pointer;
     }
 
+    .btn:hover {
+      transform: translateY(-1px);
+
+      background: rgba(255, 255, 255, .05);
+    }
+
     .btn-primary {
-      background: #244a35;
-      color: white;
+      border-color: rgba(96, 165, 250, .35);
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(96, 165, 250, .22),
+          rgba(168, 85, 247, .18)
+        );
+
+      box-shadow: var(--shadow2);
     }
 
     .btn-primary:hover {
-      background: #183725;
-      transform: translateY(-1px);
-    }
-
-    .btn-secondary {
-      background: white;
-      border-color: #ccd5ce;
-      color: #244a35;
-    }
-
-    .btn-secondary:hover {
-      border-color: #244a35;
-    }
-
-    .hero-note {
-      margin-top: 20px;
-      font-size: 0.86rem;
-      color: #718078;
-    }
-
-    /* Fence visual */
-
-    .hero-visual {
-      min-height: 420px;
-      border-radius: 22px;
       background:
         linear-gradient(
-          180deg,
-          #dce9df 0%,
-          #edf1e9 48%,
-          #bdc9b7 49%,
-          #8a997e 100%
+          135deg,
+          rgba(96, 165, 250, .28),
+          rgba(168, 85, 247, .22)
         );
+    }
+
+    .btn-ghost {
+      background: transparent;
+    }
+
+    /* HERO */
+
+    .hero {
+      padding: 68px 0 26px;
+    }
+
+    .hero-grid {
+      display: grid;
+
+      grid-template-columns: 1.25fr .75fr;
+
+      gap: 26px;
+
+      align-items: stretch;
+    }
+
+    .hero-card {
+      border: 1px solid var(--border);
+
+      border-radius: var(--radius2);
+
+      background:
+        radial-gradient(
+          700px 350px at 15% 20%,
+          rgba(96, 165, 250, .18),
+          transparent 60%
+        ),
+        radial-gradient(
+          700px 350px at 80% 30%,
+          rgba(168, 85, 247, .14),
+          transparent 60%
+        ),
+        rgba(15, 26, 51, .55);
+
+      box-shadow: var(--shadow);
+
+      padding: 34px;
+
+      overflow: hidden;
 
       position: relative;
-      overflow: hidden;
-      box-shadow: 0 25px 60px rgba(26, 49, 34, 0.12);
     }
 
-    .sun {
-      position: absolute;
-      width: 90px;
-      height: 90px;
-      border-radius: 50%;
-      background: #f3d98a;
-      top: 45px;
-      right: 60px;
-      opacity: 0.85;
-    }
+    .kicker {
+      display: inline-flex;
 
-    .house {
-      position: absolute;
-      bottom: 105px;
-      right: 50px;
-      width: 250px;
-      height: 150px;
-      background: #e9e5dc;
-      border-radius: 3px;
-    }
-
-    .roof {
-      position: absolute;
-      bottom: 255px;
-      right: 28px;
-      width: 295px;
-      height: 90px;
-      background: #5b625d;
-      clip-path: polygon(50% 0, 100% 100%, 0 100%);
-    }
-
-    .window {
-      position: absolute;
-      width: 45px;
-      height: 55px;
-      background: #7e9a9c;
-      border: 5px solid #d5d1c8;
-      bottom: 155px;
-      right: 180px;
-    }
-
-    .door {
-      position: absolute;
-      width: 55px;
-      height: 90px;
-      background: #5b493b;
-      bottom: 105px;
-      right: 80px;
-    }
-
-    .fence-line {
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 80px;
-      height: 160px;
-      display: flex;
-      align-items: flex-end;
-      padding-left: 10px;
-    }
-
-    .fence-post {
-      width: 15px;
-      height: 160px;
-      background: #e6e1d5;
-      border-radius: 2px 2px 0 0;
-      margin-right: 4px;
-      box-shadow: inset -3px 0 rgba(0,0,0,0.05);
-    }
-
-    .fence-board {
-      position: absolute;
-      left: 0;
-      right: 0;
-      height: 13px;
-      background: #ded8ca;
-      box-shadow:
-        0 38px #ded8ca,
-        0 76px #ded8ca,
-        0 114px #ded8ca;
-    }
-
-    .fence-board {
-      bottom: 120px;
-    }
-
-    /* ------------------------------
-       TRUST STRIP
-    ------------------------------ */
-
-    .trust-strip {
-      background: #244a35;
-      color: white;
-      padding: 24px 0;
-    }
-
-    .trust-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-      text-align: center;
-    }
-
-    .trust-item strong {
-      display: block;
-      font-size: 1rem;
-      margin-bottom: 3px;
-    }
-
-    .trust-item span {
-      font-size: 0.86rem;
-      color: #d7e4db;
-    }
-
-    /* ------------------------------
-       SECTION
-    ------------------------------ */
-
-    section {
-      padding: 85px 0;
-    }
-
-    .section-heading {
-      max-width: 700px;
-      margin-bottom: 45px;
-    }
-
-    .section-heading h2 {
-      font-size: clamp(2rem, 4vw, 3rem);
-      line-height: 1.1;
-      letter-spacing: -0.04em;
-      margin-bottom: 15px;
-    }
-
-    .section-heading p {
-      color: #66736b;
-      font-size: 1.05rem;
-    }
-
-    /* ------------------------------
-       FENCE TYPES
-    ------------------------------ */
-
-    .types {
-      background: white;
-    }
-
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-
-    .card {
-      background: #f8faf8;
-      border: 1px solid #e3e9e4;
-      border-radius: 14px;
-      padding: 28px;
-      transition: 0.25s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 15px 35px rgba(30, 55, 39, 0.08);
-    }
-
-    .card-icon {
-      width: 48px;
-      height: 48px;
-      border-radius: 10px;
-      background: #e1ece3;
-      color: #244a35;
-      display: flex;
       align-items: center;
-      justify-content: center;
-      font-size: 1.35rem;
-      margin-bottom: 18px;
-    }
 
-    .card h3 {
-      margin-bottom: 9px;
-      font-size: 1.15rem;
-    }
-
-    .card p {
-      color: #66736b;
-      font-size: 0.93rem;
-    }
-
-    /* ------------------------------
-       ESTIMATE SECTION
-    ------------------------------ */
-
-    .estimate {
-      background: #edf3ee;
-    }
-
-    .estimate-grid {
-      display: grid;
-      grid-template-columns: 0.85fr 1.15fr;
-      gap: 50px;
-      align-items: start;
-    }
-
-    .estimate-copy h2 {
-      font-size: clamp(2.1rem, 4vw, 3.2rem);
-      line-height: 1.08;
-      letter-spacing: -0.045em;
-      margin-bottom: 18px;
-    }
-
-    .estimate-copy p {
-      color: #607067;
-      margin-bottom: 24px;
-    }
-
-    .check-list {
-      list-style: none;
-      display: grid;
-      gap: 13px;
-    }
-
-    .check-list li {
-      display: flex;
       gap: 10px;
-      align-items: flex-start;
-      color: #344139;
+
+      border: 1px solid var(--border);
+
+      background: rgba(255, 255, 255, .03);
+
+      color: var(--muted);
+
+      padding: 8px 12px;
+
+      border-radius: 999px;
+
+      font-size: 12px;
+
+      margin-bottom: 16px;
+
+      width: fit-content;
+    }
+
+    .dot {
+      width: 9px;
+      height: 9px;
+
+      border-radius: 50%;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--primary),
+          var(--primary2)
+        );
+
+      box-shadow:
+        0 0 0 4px rgba(96, 165, 250, .14);
+    }
+
+    h1 {
+      font-size: 44px;
+
+      line-height: 1.06;
+
+      letter-spacing: -1.2px;
+
+      margin-bottom: 14px;
+
+      background:
+        linear-gradient(
+          to right,
+          #EAF2FF,
+          #BFD7FF 35%,
+          #EEDCFF
+        );
+
+      -webkit-background-clip: text;
+
+      -webkit-text-fill-color: transparent;
+    }
+
+    .sub {
+      color: var(--muted);
+
+      font-size: 15px;
+
+      max-width: 62ch;
+
+      margin-bottom: 18px;
+    }
+
+    .hero-actions {
+      display: flex;
+
+      gap: 12px;
+
+      flex-wrap: wrap;
+
+      margin-top: 10px;
+    }
+
+    .mini {
+      margin-top: 18px;
+
+      display: flex;
+
+      flex-wrap: wrap;
+
+      gap: 10px;
+
+      color: var(--muted2);
+
+      font-size: 12px;
+    }
+
+    .pill {
+      border: 1px solid var(--border);
+
+      background: rgba(255, 255, 255, .02);
+
+      padding: 8px 10px;
+
+      border-radius: 999px;
+    }
+
+    /* SIDE CARD */
+
+    .side-card {
+      border: 1px solid var(--border);
+
+      border-radius: var(--radius2);
+
+      background: rgba(15, 26, 51, .45);
+
+      box-shadow: var(--shadow);
+
+      padding: 22px;
+
+      display: flex;
+
+      flex-direction: column;
+
+      gap: 14px;
+    }
+
+    .side-title {
+      font-size: 13px;
+
+      color: var(--muted);
+
+      text-transform: uppercase;
+
+      letter-spacing: .12em;
+    }
+
+    .side-strong {
+      font-size: 16px;
+
+      font-weight: 800;
+
+      letter-spacing: -.4px;
+    }
+
+    .side-list {
+      display: flex;
+
+      flex-direction: column;
+
+      gap: 10px;
+
+      margin-top: 4px;
     }
 
     .check {
-      color: #244a35;
+      display: flex;
+
+      gap: 10px;
+
+      align-items: flex-start;
+
+      color: var(--muted);
+
+      font-size: 13px;
+    }
+
+    .check b {
+      color: var(--text);
+
+      font-weight: 700;
+    }
+
+    .check .ic {
+      width: 20px;
+      height: 20px;
+
+      border-radius: 6px;
+
+      display: grid;
+
+      place-items: center;
+
+      background: rgba(34, 197, 94, .12);
+
+      border: 1px solid rgba(34, 197, 94, .25);
+
+      color: var(--success);
+
+      flex: 0 0 auto;
+
+      margin-top: 2px;
+
       font-weight: 900;
+
+      font-size: 13px;
     }
 
-    .form-card {
-      background: white;
-      border-radius: 18px;
-      padding: 32px;
-      box-shadow: 0 18px 45px rgba(34, 62, 44, 0.08);
-      border: 1px solid #e0e7e1;
+    /* GENERAL SECTIONS */
+
+    section {
+      padding: 54px 0;
     }
 
-    .form-card h3 {
-      font-size: 1.35rem;
-      margin-bottom: 8px;
-    }
+    .section-head {
+      display: flex;
 
-    .form-card > p {
-      color: #6b776f;
-      font-size: 0.92rem;
+      flex-direction: column;
+
+      align-items: center;
+
+      text-align: center;
+
+      gap: 10px;
+
       margin-bottom: 22px;
     }
 
-    .form-grid {
+    .h2 {
+      font-size: 28px;
+
+      letter-spacing: -.7px;
+    }
+
+    .lead {
+      color: var(--muted);
+
+      max-width: 78ch;
+
+      font-size: 14px;
+    }
+
+    .grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 15px;
-    }
 
-    .field {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-
-    .field.full {
-      grid-column: 1 / -1;
-    }
-
-    label {
-      font-size: 0.82rem;
-      font-weight: 700;
-      color: #39463e;
-    }
-
-    input,
-    select,
-    textarea {
-      width: 100%;
-      border: 1px solid #d4ddd6;
-      border-radius: 8px;
-      padding: 12px 13px;
-      font: inherit;
-      background: white;
-      color: #1d2921;
-      outline: none;
-    }
-
-    input:focus,
-    select:focus,
-    textarea:focus {
-      border-color: #6b9477;
-      box-shadow: 0 0 0 3px rgba(83, 124, 95, 0.1);
-    }
-
-    textarea {
-      min-height: 100px;
-      resize: vertical;
-    }
-
-    .form-submit {
-      margin-top: 18px;
-      width: 100%;
-    }
-
-    .form-disclaimer {
-      margin-top: 12px;
-      font-size: 0.75rem;
-      color: #7a857e;
-      text-align: center;
-    }
-
-    .success-message {
-      display: none;
-      margin-top: 15px;
-      padding: 13px;
-      border-radius: 8px;
-      background: #e7f3e9;
-      color: #285734;
-      font-size: 0.9rem;
-    }
-
-    /* ------------------------------
-       MATERIALS
-    ------------------------------ */
-
-    .materials {
-      background: white;
-    }
-
-    .material-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
-    }
-
-    .material {
-      padding: 26px;
-      border: 1px solid #e2e7e3;
-      border-radius: 13px;
-    }
-
-    .material h3 {
-      margin-bottom: 8px;
-    }
-
-    .material p {
-      color: #68746d;
-      font-size: 0.9rem;
-    }
-
-    /* ------------------------------
-       HOW IT WORKS
-    ------------------------------ */
-
-    .how {
-      background: #f7f8f6;
-    }
-
-    .steps {
-      display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 25px;
+
+      gap: 16px;
     }
 
-    .step {
+    .grid-4 {
+      display: grid;
+
+      grid-template-columns: repeat(4, 1fr);
+
+      gap: 16px;
+    }
+
+    .card {
+      border: 1px solid var(--border);
+
+      border-radius: var(--radius);
+
+      background: rgba(15, 26, 51, .45);
+
+      padding: 18px;
+
+      box-shadow:
+        0 10px 30px rgba(0, 0, 0, .25);
+
+      transition: .18s ease;
+
       position: relative;
-      padding: 28px;
-      background: white;
-      border: 1px solid #e4e9e5;
-      border-radius: 14px;
+
+      overflow: hidden;
     }
 
-    .step-number {
-      font-size: 0.78rem;
+    .card:hover {
+      transform: translateY(-2px);
+
+      background: rgba(15, 26, 51, .6);
+    }
+
+    .card h3 {
+      font-size: 16px;
+
+      margin-bottom: 8px;
+
+      letter-spacing: -.3px;
+    }
+
+    .card p {
+      color: var(--muted);
+
+      font-size: 13px;
+    }
+
+    .tag {
+      display: inline-flex;
+
+      gap: 8px;
+
+      align-items: center;
+
+      font-size: 12px;
+
+      color: var(--muted2);
+
+      border: 1px solid var(--border);
+
+      background: rgba(255, 255, 255, .02);
+
+      padding: 7px 10px;
+
+      border-radius: 999px;
+
+      margin-bottom: 10px;
+
+      width: fit-content;
+    }
+
+    /* DEMO */
+
+    .demo-section {
+      border: 1px solid rgba(96, 165, 250, .35);
+
+      border-radius: var(--radius2);
+
+      background:
+        radial-gradient(
+          700px 350px at 10% 30%,
+          rgba(96, 165, 250, .14),
+          transparent 60%
+        ),
+        radial-gradient(
+          700px 350px at 90% 70%,
+          rgba(168, 85, 247, .12),
+          transparent 60%
+        ),
+        rgba(15, 26, 51, .65);
+
+      box-shadow: var(--shadow);
+
+      padding: 34px;
+    }
+
+    .demo-inner {
+      display: grid;
+
+      grid-template-columns: 1fr 1fr;
+
+      gap: 32px;
+
+      align-items: center;
+    }
+
+    .demo-features {
+      display: flex;
+
+      flex-direction: column;
+
+      gap: 12px;
+
+      margin-top: 18px;
+    }
+
+    .demo-feature {
+      display: flex;
+
+      gap: 12px;
+
+      align-items: flex-start;
+
+      font-size: 13px;
+
+      color: var(--muted);
+    }
+
+    .demo-feature .ic {
+      width: 22px;
+      height: 22px;
+
+      border-radius: 6px;
+
+      display: grid;
+
+      place-items: center;
+
+      background: rgba(96, 165, 250, .14);
+
+      border: 1px solid rgba(96, 165, 250, .3);
+
+      color: #CFE3FF;
+
+      flex: 0 0 auto;
+
       font-weight: 900;
-      letter-spacing: 0.08em;
-      color: #527760;
+
+      font-size: 12px;
+
+      margin-top: 1px;
+    }
+
+    .demo-feature b {
+      color: var(--text);
+    }
+
+    .demo-video-wrap {
+      border-radius: 14px;
+
+      overflow: hidden;
+
+      border: 1px solid var(--border);
+
+      aspect-ratio: 16 / 9;
+
+      position: relative;
+
+      cursor: pointer;
+    }
+
+    .demo-video-wrap img {
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+
+      display: block;
+    }
+
+    .demo-play {
+      position: absolute;
+
+      inset: 0;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      background: rgba(7, 10, 18, .45);
+    }
+
+    .demo-play-btn {
+      width: 60px;
+      height: 60px;
+
+      border-radius: 50%;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(96,165,250,.9),
+          rgba(168,85,247,.9)
+        );
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      transition: transform .18s;
+    }
+
+    .demo-video-wrap:hover .demo-play-btn {
+      transform: scale(1.1);
+    }
+
+    .demo-play-btn svg {
+      width: 24px;
+      height: 24px;
+
+      fill: white;
+
+      margin-left: 3px;
+    }
+
+    .demo-link {
+      display: inline-flex;
+
+      align-items: center;
+
+      gap: 8px;
+
+      border: 1px solid rgba(96,165,250,.4);
+
+      background: rgba(96,165,250,.1);
+
+      color: #CFE3FF;
+
+      padding: 10px 18px;
+
+      border-radius: 999px;
+
+      font-size: 13px;
+
+      font-weight: 700;
+
+      margin-top: 18px;
+
+      transition: .18s ease;
+    }
+
+    .demo-link:hover {
+      background: rgba(96,165,250,.18);
+
+      transform: translateY(-1px);
+    }
+
+    /* PRICING */
+
+    .pricing-three {
+      display: grid;
+
+      grid-template-columns: repeat(3, 1fr);
+
+      gap: 16px;
+
+      align-items: stretch;
+    }
+
+    .price {
+      border: 1px solid rgba(96, 165, 250, .3);
+
+      border-radius: var(--radius2);
+
+      background:
+        radial-gradient(
+          600px 300px at 15% 20%,
+          rgba(96, 165, 250, .18),
+          transparent 60%
+        ),
+        rgba(15, 26, 51, .55);
+
+      box-shadow: var(--shadow);
+
+      padding: 22px;
+
+      position: relative;
+
+      overflow: hidden;
+    }
+
+    .price .badge {
+      position: absolute;
+
+      top: 16px;
+
+      right: 16px;
+
+      font-size: 11px;
+
+      font-weight: 800;
+
+      letter-spacing: .10em;
+
+      padding: 8px 10px;
+
+      border-radius: 999px;
+
+      border: 1px solid rgba(34, 197, 94, .25);
+
+      background: rgba(34, 197, 94, .12);
+
+      color: #BFF8D0;
+    }
+
+    .price h3 {
+      font-size: 18px;
+
+      letter-spacing: -.4px;
+    }
+
+    .money {
+      font-size: 40px;
+
+      font-weight: 900;
+
+      margin: 10px 0 6px;
+
+      letter-spacing: -1px;
+    }
+
+    .money span {
+      font-size: 13px;
+
+      color: var(--muted);
+
+      font-weight: 700;
+    }
+
+    .price ul {
+      list-style: none;
+
+      margin-top: 14px;
+
+      display: flex;
+
+      flex-direction: column;
+
+      gap: 10px;
+    }
+
+    .price li {
+      display: flex;
+
+      gap: 10px;
+
+      align-items: flex-start;
+
+      color: var(--muted);
+
+      font-size: 13px;
+    }
+
+    .price li .ic {
+      width: 20px;
+      height: 20px;
+
+      border-radius: 6px;
+
+      display: grid;
+
+      place-items: center;
+
+      background: rgba(96, 165, 250, .14);
+
+      border: 1px solid rgba(96, 165, 250, .25);
+
+      color: #CFE3FF;
+
+      flex: 0 0 auto;
+
+      margin-top: 2px;
+
+      font-weight: 900;
+
+      font-size: 13px;
+    }
+
+    .a-la-carte {
+      display: grid;
+
+      grid-template-columns: 1fr 1fr 1fr;
+
+      gap: 16px;
+
+      margin-top: 16px;
+    }
+
+    .aside {
+      border: 1px solid var(--border);
+
+      border-radius: var(--radius2);
+
+      background: rgba(15, 26, 51, .45);
+
+      box-shadow: var(--shadow);
+
+      padding: 22px;
+    }
+
+    .aside h4 {
+      font-size: 15px;
+
+      letter-spacing: -.2px;
+
+      margin-bottom: 10px;
+    }
+
+    .aside p {
+      color: var(--muted);
+
+      font-size: 13px;
+
       margin-bottom: 12px;
     }
 
-    .step h3 {
-      margin-bottom: 8px;
-    }
-
-    .step p {
-      color: #68746d;
-      font-size: 0.92rem;
-    }
-
-    /* ------------------------------
-       AI SECTION
-    ------------------------------ */
-
-    .ai-section {
-      background: #17251c;
-      color: white;
-      text-align: center;
-    }
-
-    .ai-section .eyebrow {
-      color: #a9c9b1;
-    }
-
-    .ai-section h2 {
-      font-size: clamp(2.2rem, 4vw, 3.5rem);
-      line-height: 1.08;
-      letter-spacing: -0.045em;
-      max-width: 800px;
-      margin: 0 auto 18px;
-    }
-
-    .ai-section > .container > p {
-      max-width: 670px;
-      margin: 0 auto 30px;
-      color: #c6d1c9;
-    }
-
-    .ai-features {
+    .two-col {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 15px;
-      margin: 45px 0;
+
+      grid-template-columns: 1fr 1fr;
+
+      gap: 12px;
+
+      margin-top: 14px;
     }
 
-    .ai-feature {
-      padding: 22px 15px;
-      border: 1px solid rgba(255,255,255,0.13);
-      border-radius: 12px;
-      background: rgba(255,255,255,0.04);
+    .mini-card {
+      border: 1px solid var(--border);
+
+      background: rgba(255, 255, 255, .02);
+
+      border-radius: 14px;
+
+      padding: 14px;
     }
 
-    .ai-feature strong {
+    .mini-card b {
       display: block;
+
       margin-bottom: 6px;
     }
 
-    .ai-feature span {
-      font-size: 0.82rem;
-      color: #bac7bf;
+    .mini-card span {
+      color: var(--muted);
+
+      font-size: 13px;
     }
 
-    .ai-button {
-      background: white;
-      color: #193322;
+    /* FAQ */
+
+    details {
+      border: 1px solid var(--border);
+
+      border-radius: 14px;
+
+      background: rgba(15, 26, 51, .4);
+
+      padding: 14px;
     }
 
-    .ai-button:hover {
-      background: #edf3ee;
-    }
+    summary {
+      cursor: pointer;
 
-    /* ------------------------------
-       TRY TO BREAK
-    ------------------------------ */
-
-    .test-section {
-      background: white;
-    }
-
-    .test-box {
-      background: #f3f6f3;
-      border: 1px solid #dce5de;
-      border-radius: 18px;
-      padding: 38px;
-    }
-
-    .test-box h2 {
-      font-size: 2rem;
-      letter-spacing: -0.035em;
-      margin-bottom: 10px;
-    }
-
-    .test-box > p {
-      color: #66736b;
-      max-width: 700px;
-      margin-bottom: 25px;
-    }
-
-    .test-list {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
       list-style: none;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      gap: 16px;
+
+      font-weight: 800;
+
+      font-size: 14px;
     }
 
-    .test-list li {
-      background: white;
-      border: 1px solid #e0e7e1;
-      padding: 15px;
-      border-radius: 9px;
-      font-size: 0.92rem;
+    summary::-webkit-details-marker {
+      display: none;
     }
 
-    .test-list li::before {
-      content: "“";
-      color: #527760;
-      font-size: 1.4rem;
-      font-weight: 900;
-      margin-right: 6px;
+    details p {
+      margin-top: 10px;
+
+      color: var(--muted);
+
+      font-size: 13px;
     }
 
-    /* ------------------------------
-       FINAL CTA
-    ------------------------------ */
+    .faq-grid {
+      display: grid;
 
-    .final-cta {
-      background: #e8efe9;
+      grid-template-columns: 1fr 1fr;
+
+      gap: 12px;
+    }
+
+    /* CONTACT */
+
+    .contact {
+      border: 1px solid var(--border);
+
+      border-radius: var(--radius2);
+
+      background:
+        radial-gradient(
+          700px 350px at 10% 20%,
+          rgba(168, 85, 247, .16),
+          transparent 60%
+        ),
+        radial-gradient(
+          700px 350px at 90% 30%,
+          rgba(96, 165, 250, .14),
+          transparent 60%
+        ),
+        rgba(15, 26, 51, .55);
+
+      box-shadow: var(--shadow);
+
+      padding: 22px;
+
+      display: grid;
+
+      grid-template-columns: 1.05fr .95fr;
+
+      gap: 16px;
+
+      align-items: start;
+    }
+
+    .contact h3 {
+      font-size: 18px;
+
+      letter-spacing: -.3px;
+    }
+
+    .contact p {
+      color: var(--muted);
+
+      font-size: 13px;
+
+      margin-top: 6px;
+    }
+
+    /* FORM */
+
+    .form-group {
+      display: flex;
+
+      flex-direction: column;
+
+      gap: 6px;
+    }
+
+    .form-group label {
+      font-size: 12px;
+
+      color: var(--muted);
+
+      font-weight: 600;
+
+      letter-spacing: .04em;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      background: rgba(255,255,255,.04);
+
+      border: 1px solid var(--border);
+
+      border-radius: 12px;
+
+      padding: 10px 14px;
+
+      color: var(--text);
+
+      font-family: inherit;
+
+      font-size: 13px;
+
+      outline: none;
+
+      transition: border-color .18s ease;
+
+      width: 100%;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: rgba(96,165,250,.5);
+    }
+
+    .form-group select option {
+      background: #0F1A33;
+
+      color: var(--text);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+
+      min-height: 90px;
+    }
+
+    .form-row {
+      display: grid;
+
+      grid-template-columns: 1fr 1fr;
+
+      gap: 12px;
+    }
+
+    .form-success {
+      display: none;
+
       text-align: center;
+
+      padding: 24px;
+
+      color: var(--success);
+
+      font-size: 15px;
+
+      font-weight: 700;
     }
 
-    .final-cta h2 {
-      font-size: clamp(2.1rem, 4vw, 3.4rem);
-      letter-spacing: -0.045em;
-      line-height: 1.08;
-      margin-bottom: 17px;
-    }
-
-    .final-cta p {
-      max-width: 650px;
-      margin: 0 auto 27px;
-      color: #637068;
-    }
-
-    /* ------------------------------
-       FOOTER
-    ------------------------------ */
+    /* FOOTER */
 
     footer {
-      background: #121b15;
-      color: #bfc9c2;
-      padding: 45px 0 28px;
+      border-top: 1px solid var(--border);
+
+      padding: 26px 0 42px;
+
+      color: rgba(167, 179, 199, .85);
+
+      font-size: 12px;
+
+      margin-top: 28px;
     }
 
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-      margin-bottom: 35px;
+    /* ANIMATION */
+
+    .fade-up {
+      opacity: 0;
+
+      transform: translateY(10px);
+
+      transition:
+        opacity .5s ease,
+        transform .5s ease;
     }
 
-    .footer-brand {
-      color: white;
-      font-weight: 800;
-      margin-bottom: 10px;
+    .fade-up.show {
+      opacity: 1;
+
+      transform: translateY(0);
     }
 
-    .footer-description {
-      max-width: 470px;
-      font-size: 0.88rem;
-      color: #99a69d;
+    /* VAPI WIDGET */
+
+    #vapi-widget-container {
+      position: fixed;
+
+      bottom: 28px;
+
+      right: 28px;
+
+      z-index: 9999;
+
+      display: flex;
+
+      flex-direction: column;
+
+      align-items: flex-end;
+
+      gap: 10px;
     }
 
-    .footer-right {
-      text-align: right;
+    #vapi-tooltip {
+      background: rgba(15, 26, 51, 0.95);
+
+      border: 1px solid rgba(96, 165, 250, .35);
+
+      color: #F8FAFC;
+
+      font-family: Inter, sans-serif;
+
+      font-size: 13px;
+
+      font-weight: 600;
+
+      padding: 10px 14px;
+
+      border-radius: 12px;
+
+      white-space: nowrap;
+
+      box-shadow: 0 8px 32px rgba(0,0,0,.4);
+
+      opacity: 0;
+
+      transform: translateY(4px);
+
+      transition:
+        opacity .25s ease,
+        transform .25s ease;
+
+      pointer-events: none;
     }
 
-    .footer-right strong {
-      display: block;
-      color: white;
-      margin-bottom: 8px;
+    #vapi-tooltip.visible {
+      opacity: 1;
+
+      transform: translateY(0);
     }
 
-    .footer-right span {
-      font-size: 0.85rem;
-      color: #99a69d;
+    #vapi-btn-custom {
+      width: 58px;
+      height: 58px;
+
+      border-radius: 50%;
+
+      border: none;
+
+      cursor: pointer;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      background:
+        linear-gradient(
+          135deg,
+          #60A5FA,
+          #A855F7
+        );
+
+      box-shadow:
+        0 4px 24px rgba(96,165,250,.45),
+        0 0 0 0 rgba(96,165,250,.3);
+
+      transition:
+        transform .18s ease,
+        box-shadow .18s ease;
+
+      animation:
+        pulse-ring 2.4s ease-out infinite;
+
+      position: relative;
     }
 
-    .footer-bottom {
-      border-top: 1px solid rgba(255,255,255,0.1);
-      padding-top: 22px;
-      font-size: 0.76rem;
-      color: #78847c;
+    #vapi-btn-custom:hover {
+      transform: scale(1.08);
     }
 
-    /* ------------------------------
-       RESPONSIVE
-    ------------------------------ */
+    #vapi-btn-custom svg {
+      width: 26px;
+      height: 26px;
 
-    @media (max-width: 900px) {
+      fill: white;
 
-      .hero-grid,
-      .estimate-grid {
+      pointer-events: none;
+    }
+
+    @keyframes pulse-ring {
+      0% {
+        box-shadow:
+          0 4px 24px rgba(96,165,250,.45),
+          0 0 0 0 rgba(96,165,250,.35);
+      }
+
+      60% {
+        box-shadow:
+          0 4px 24px rgba(96,165,250,.45),
+          0 0 0 14px rgba(96,165,250,.0);
+      }
+
+      100% {
+        box-shadow:
+          0 4px 24px rgba(96,165,250,.45),
+          0 0 0 0 rgba(96,165,250,.0);
+      }
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 980px) {
+
+      .hero-grid {
         grid-template-columns: 1fr;
       }
 
-      .hero-visual {
-        min-height: 360px;
-      }
-
-      .card-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .material-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .ai-features {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .trust-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 680px) {
-
-      nav a:not(.nav-cta) {
+      .nav-links {
         display: none;
       }
 
-      .nav {
-        min-height: 68px;
+      .nav-cta {
+        min-width: auto;
       }
 
-      .hero {
-        padding: 65px 0;
-      }
-
-      .hero-buttons {
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      .btn {
-        width: 100%;
-      }
-
-      .hero-visual {
-        min-height: 300px;
-      }
-
-      .card-grid,
-      .material-grid,
-      .steps,
-      .ai-features,
-      .test-list {
+      .grid {
         grid-template-columns: 1fr;
       }
 
-      .form-grid {
+      .grid-4 {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .pricing-three {
         grid-template-columns: 1fr;
       }
 
-      .field.full {
-        grid-column: auto;
-      }
-
-      .test-box {
-        padding: 25px;
-      }
-
-      .footer-grid {
+      .a-la-carte {
         grid-template-columns: 1fr;
       }
 
-      .footer-right {
-        text-align: left;
+      .faq-grid {
+        grid-template-columns: 1fr;
       }
 
-      section {
-        padding: 65px 0;
+      .contact {
+        grid-template-columns: 1fr;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .demo-inner {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 38px;
+      }
+
+      #vapi-widget-container {
+        bottom: 18px;
+        right: 18px;
       }
     }
-  
-    /* ==============================
-       CUSTOM VAPI VOICE DEMO
-    ============================== */
-    .custom-vapi-section { width: 100%; padding: 30px 20px; }
-    .custom-vapi-panel { max-width: 520px; margin: 0 auto; background: #17251c; border: 1px solid rgba(125,177,138,.2); border-radius: 22px; padding: 30px 22px 24px; text-align: center; color: #f4f7f5; box-shadow: 0 12px 35px rgba(0,0,0,.12); }
-    .custom-vapi-eyebrow { font-size: 12px; letter-spacing: .15em; text-transform: uppercase; color: #9ee6af; font-weight: 800; margin-bottom: 9px; }
-    .custom-vapi-panel h2 { margin: 0 0 22px; color: #f4f7f5; font-size: 26px; line-height: 1.2; }
-    .custom-vapi-ready { color: #9ee6af; font-size: 30px; line-height: 1.2; font-weight: 800; margin-bottom: 7px; }
-    .custom-vapi-instruction { color: #f4f7f5; font-size: 17px; line-height: 1.45; margin: 0 auto 5px; max-width: 390px; }
-    .custom-vapi-arrow { color: #9ee6af; font-size: 42px; line-height: 1; font-weight: 900; margin: 2px 0 15px; transition: opacity .2s ease; animation: customVapiBounce 1.5s ease-in-out infinite; }
-    .custom-vapi-button { width: 100%; min-height: 60px; border: 0; border-radius: 14px; background: #9ee6af; color: #102016; font-size: 17px; font-weight: 900; letter-spacing: .025em; padding: 14px 18px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; transition: filter .15s ease, transform .15s ease, opacity .15s ease; }
-    .custom-vapi-button:hover:not(:disabled) { filter: brightness(1.05); transform: translateY(-1px); }
-    .custom-vapi-button:focus-visible { outline: 3px solid rgba(158,230,175,.55); outline-offset: 3px; }
-    .custom-vapi-button:disabled { cursor: wait; opacity: .75; }
-    .custom-vapi-mic { font-size: 22px; line-height: 1; }
-    .custom-vapi-status { display: none; margin: 14px auto 0; padding: 10px 12px; border-radius: 10px; background: #203126; color: #d8e2db; font-size: 13px; line-height: 1.4; }
-    .custom-vapi-status.show { display: block; }
-    .custom-vapi-helper { color: #a1aea5; font-size: 11px; line-height: 1.45; margin: 12px auto 0; max-width: 340px; }
-    @keyframes customVapiBounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(5px); } }
-    @media (prefers-reduced-motion: reduce) { .custom-vapi-arrow { animation: none; } }
-</style>
+
+    @media (max-width: 420px) {
+
+      h1 {
+        font-size: 32px;
+      }
+
+      .hero-card {
+        padding: 22px;
+      }
+
+      .side-card {
+        padding: 18px;
+      }
+
+      .grid-4 {
+        grid-template-columns: 1fr;
+      }
+
+      .two-col {
+        grid-template-columns: 1fr;
+      }
+
+      .brand {
+        min-width: auto;
+      }
+
+      .brand-title span {
+        display: none;
+      }
+
+      .nav-cta .btn-ghost {
+        display: none;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-  <!-- ==============================
-       HEADER
-  =============================== -->
+  <!-- NAVIGATION -->
 
-  <header>
-    <div class="container nav">
+  <div class="nav">
 
-      <a href="#" class="logo">
-        <span class="logo-mark">CF</span>
-        <span>Carolina Fence & Outdoor</span>
-      </a>
+    <div class="container">
 
-      <nav>
-        <a href="#fences">Fences</a>
-        <a href="#materials">Materials</a>
-        <a href="#estimate">Get an Estimate</a>
+      <div class="nav-inner">
 
-        <a href="#ai" class="nav-cta">
-          Talk to Us
+        <a
+          class="brand"
+          href="#top"
+          aria-label="Valentine's Services home"
+        >
+
+          <div class="logo">V</div>
+
+          <div class="brand-title">
+            <strong>Valentine's Services</strong>
+            <span>Web • AI • Video • Digital Solutions</span>
+          </div>
+
         </a>
-      </nav>
+
+        <div
+          class="nav-links"
+          aria-label="Primary navigation"
+        >
+
+          <a href="#services">Services</a>
+
+          <a href="#demo">Live Demo</a>
+
+          <a href="#pricing">Pricing</a>
+
+          <a href="#faq">FAQ</a>
+
+<a href="agency-partners.html">Agency Partners</a>
+
+<a href="#contact">Contact</a>
+
+        </div>
+
+        <div class="nav-cta">
+
+          <a
+            class="btn btn-ghost"
+            href="#pricing"
+          >
+            View pricing
+          </a>
+
+          <a
+            class="btn btn-primary"
+            href="#contact"
+          >
+            Get a Quote
+          </a>
+
+        </div>
+
+      </div>
 
     </div>
-  </header>
+
+  </div>
 
 
-  <!-- ==============================
-       HERO
-  =============================== -->
+  <!-- HERO -->
 
-  <main>
+  <div
+    id="top"
+    class="hero"
+  >
 
-    <section class="hero">
+    <div class="container">
 
-      <div class="container hero-grid">
+      <div class="hero-grid">
 
-        <div>
+        <div class="hero-card fade-up">
 
-          <span class="eyebrow">
-            Fencing Solutions
-          </span>
+          <div class="kicker">
+
+            <span class="dot"></span>
+
+            Rock Hill, SC • Serving businesses anywhere
+
+          </div>
 
           <h1>
-            The right fence for your property, privacy, and peace of mind.
+            Practical digital solutions that help your business get noticed and capture more leads.
           </h1>
 
-          <p>
-            From backyard privacy to pet containment and property security,
-            Carolina Fence & Outdoor helps homeowners explore fencing options
-            and take the next step toward their project.
+          <p class="sub">
+
+            I build professional websites, lead-capture systems, talking website AI agents, phone receptionists, and video marketing assets for small businesses — using modern tools to deliver useful solutions without the overhead of a traditional agency.
+
           </p>
 
-          <div class="hero-buttons">
+          <div class="hero-actions">
 
             <a
-              href="#estimate"
-              class="btn btn-primary">
-              Request an Estimate
+              class="btn btn-primary"
+              href="#demo"
+            >
+              See a Live Demo
             </a>
 
             <a
-              href="#fences"
-              class="btn btn-secondary">
-              Explore Fence Options
+              class="btn btn-ghost"
+              href="#contact"
+            >
+              Get a Quote
             </a>
 
           </div>
 
-          <div class="hero-note">
-            Not sure what type of fence you need? We can help you start with
-            the basics.
-          </div>
+          <div
+            class="mini"
+            aria-label="Key services"
+          >
 
-        </div>
+            <div class="pill">
+              Websites
+            </div>
 
+            <div class="pill">
+              AI Voice
+            </div>
 
-        <!-- Decorative fence illustration -->
+            <div class="pill">
+              Lead Capture
+            </div>
 
-        <div class="hero-visual" aria-label="Decorative fencing illustration">
-
-          <div class="sun"></div>
-
-          <div class="roof"></div>
-          <div class="house"></div>
-
-          <div class="window"></div>
-          <div class="door"></div>
-
-          <div class="fence-line">
-
-            <div class="fence-board"></div>
-
-            <div class="fence-post"></div>
-            <div class="fence-post"></div>
-            <div class="fence-post"></div>
-            <div class="fence-post"></div>
-            <div class="fence-post"></div>
-            <div class="fence-post"></div>
-            <div class="fence-post"></div>
-            <div class="fence-post"></div>
-            <div class="fence-post"></div>
-            <div class="fence-post"></div>
-            <div class="fence-post"></div>
-            <div class="fence-post"></div>
-            <div class="fence-post"></div>
-            <div class="fence-post"></div>
-            <div class="fence-post"></div>
-            <div class="fence-post"></div>
+            <div class="pill">
+              Video Ads
+            </div>
 
           </div>
 
         </div>
 
-      </div>
 
-    </section>
+        <div
+          class="side-card fade-up"
+          style="transition-delay:.08s;"
+        >
+
+          <div class="side-title">
+            What I can help with
+          </div>
+
+          <div class="side-strong">
+            Professional digital tools without unnecessary complexity.
+          </div>
+
+          <div class="side-list">
+
+            <div class="check">
+
+              <div class="ic">✓</div>
+
+              <div>
+                <b>Professional Websites:</b>
+                Mobile-ready sites designed to make a strong first impression and generate inquiries.
+              </div>
+
+            </div>
+
+            <div class="check">
+
+              <div class="ic">✓</div>
+
+              <div>
+                <b>Lead Capture:</b>
+                Forms, estimate tools, and simple systems that help turn visitors into potential customers.
+              </div>
+
+            </div>
+
+            <div class="check">
+
+              <div class="ic">✓</div>
+
+              <div>
+                <b>AI Voice Solutions:</b>
+                Talking website agents and AI phone receptionists that can answer common questions and capture useful information.
+              </div>
+
+            </div>
+
+            <div class="check">
+
+              <div class="ic">✓</div>
+
+              <div>
+                <b>Video Advertising:</b>
+                AI-assisted promotional videos and commercials for social media and digital advertising.
+              </div>
+
+            </div>
+
+          </div>
 
 
-    <!-- ==============================
-         TRUST STRIP
-    =============================== -->
+          <div
+            style="
+              margin-top:10px;
+              border-top:1px solid var(--border);
+              padding-top:14px;
+            "
+          >
 
-    <div class="trust-strip">
+            <div class="side-title">
+              Quick contact
+            </div>
 
-      <div class="container trust-grid">
+            <div
+              class="check"
+              style="margin-top:10px;"
+            >
 
-        <div class="trust-item">
-          <strong>Privacy</strong>
-          <span>Create a more private outdoor space</span>
-        </div>
+              <div class="ic">
+                ✉
+              </div>
 
-        <div class="trust-item">
-          <strong>Security</strong>
-          <span>Define and protect your property</span>
-        </div>
+              <div>
 
-        <div class="trust-item">
-          <strong>Outdoor Living</strong>
-          <span>Make your yard work better for you</span>
+                <b>Email:</b>
+                valentinesservices@yahoo.com
+
+                <br />
+
+                <span
+                  style="
+                    color:var(--muted2);
+                    font-size:12px;
+                  "
+                >
+                  Reply usually within 24 hours
+                </span>
+
+              </div>
+
+            </div>
+
+          </div>
+
         </div>
 
       </div>
 
     </div>
 
+  </div>
 
-    <!-- ==============================
-         FENCE TYPES
-    =============================== -->
 
-    <section class="types" id="fences">
+  <!-- SERVICES -->
 
-      <div class="container">
+  <section id="services">
 
-        <div class="section-heading">
+    <div class="container">
 
-          <span class="eyebrow">
-            Find Your Fit
-          </span>
+      <div class="section-head fade-up">
 
-          <h2>
-            Fencing for the way you use your property.
-          </h2>
+        <div class="tag">
+          Services
+        </div>
+
+        <div class="h2">
+          Digital tools built around your business
+        </div>
+
+        <div class="lead">
+
+          I focus on practical solutions that look professional, save time, and make it easier for customers to take the next step.
+
+        </div>
+
+      </div>
+
+
+      <div class="grid-4">
+
+        <div class="card fade-up">
+
+          <div class="tag">
+            Web
+          </div>
+
+          <h3>
+            Professional Websites
+          </h3>
 
           <p>
-            Different properties have different needs. Start with what you
-            want your fence to accomplish.
+            Modern, mobile-ready websites designed to establish credibility and make it easy for customers to contact you.
           </p>
 
         </div>
 
 
-        <div class="card-grid">
+        <div
+          class="card fade-up"
+          style="transition-delay:.04s;"
+        >
 
-          <div class="card">
+          <div class="tag">
+            Leads
+          </div>
 
-            <div class="card-icon">◼</div>
+          <h3>
+            Lead &amp; Quote Systems
+          </h3>
 
-            <h3>Privacy Fencing</h3>
+          <p>
+            Smart forms, estimate tools, and lead-capture workflows that collect useful customer information and send it where you need it.
+          </p>
 
-            <p>
-              Create a more secluded backyard and reduce visibility into
-              your outdoor space.
-            </p>
+        </div>
+
+
+        <div
+          class="card fade-up"
+          style="transition-delay:.08s;"
+        >
+
+          <div class="tag">
+            AI
+          </div>
+
+          <h3>
+            AI Voice Solutions
+          </h3>
+
+          <p>
+            Talking website agents and AI phone receptionists that can answer common questions, explain services, and capture useful information.
+          </p>
+
+        </div>
+
+
+        <div
+          class="card fade-up"
+          style="transition-delay:.12s;"
+        >
+
+          <div class="tag">
+            Video
+          </div>
+
+          <h3>
+            AI Video Advertising
+          </h3>
+
+          <p>
+            Promotional videos, social ads, cinematic concepts, and digital-avatar videos created with modern AI-assisted production tools.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- LIVE DEMO -->
+
+  <section id="demo">
+
+    <div class="container">
+
+      <div class="section-head fade-up">
+
+        <div class="tag">
+          Live Demo
+        </div>
+
+        <div class="h2">
+          See an AI-powered business system in action
+        </div>
+
+        <div class="lead">
+
+          This isn't just a mockup. Try a working example of the type of lead-generation website and AI tools I can build for a local business.
+
+        </div>
+
+      </div>
+
+
+      <div class="demo-section fade-up">
+
+        <div class="demo-inner">
+
+          <div>
+
+            <div class="tag">
+              What's inside the demo
+            </div>
+
+            <div
+              class="h2"
+              style="
+                font-size:22px;
+                margin-top:10px;
+              "
+            >
+              A website designed to help a local business turn visitors into leads.
+            </div>
+
+
+            <div class="demo-features">
+
+              <div class="demo-feature">
+
+                <div class="ic">
+                  ✓
+                </div>
+
+                <div>
+                  <b>Talking website AI agent</b>
+                  — website visitors can speak with the assistant and ask questions.
+                </div>
+
+              </div>
+
+
+              <div class="demo-feature">
+
+                <div class="ic">
+                  ✓
+                </div>
+
+                <div>
+                  <b>Instant estimate tool</b>
+                  — gives visitors a useful starting point before they contact the business.
+                </div>
+
+              </div>
+
+
+              <div class="demo-feature">
+
+                <div class="ic">
+                  ✓
+                </div>
+
+                <div>
+                  <b>Lead capture</b>
+                  — collects customer information through a dedicated form.
+                </div>
+
+              </div>
+
+
+              <div class="demo-feature">
+
+                <div class="ic">
+                  ✓
+                </div>
+
+                <div>
+                  <b>AI commercial video</b>
+                  — demonstrates what modern AI-assisted advertising can look like.
+                </div>
+
+              </div>
+
+
+              <div class="demo-feature">
+
+                <div class="ic">
+                  ✓
+                </div>
+
+                <div>
+                  <b>Mobile-ready design</b>
+                  — built to work across phones, tablets, and computers.
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <a
+              class="demo-link"
+              href="https://rooferagent.netlify.app"
+              target="_blank"
+              rel="noopener"
+            >
+              → Try the Live Demo
+            </a>
+
+            <div
+              style="
+                margin-top:10px;
+                font-size:12px;
+                color:var(--muted2);
+              "
+            >
+              Currently set up as a roofing example. Similar systems can be adapted for HVAC, plumbing, electrical, real estate, contractors, and other businesses.
+            </div>
 
           </div>
 
 
-          <div class="card">
+          <div>
 
-            <div class="card-icon">◆</div>
+            <div
+              class="demo-video-wrap"
+              onclick="window.open(
+                'https://www.youtube.com/watch?v=6rIXzLxmSK4',
+                '_blank'
+              )"
+            >
 
-            <h3>Pet Fencing</h3>
+              <img
+                src="https://i.postimg.cc/QNWRVCm2/1.jpg"
+                alt="AI commercial demo video"
+              />
 
-            <p>
-              Create a defined outdoor area for dogs and other pets.
-            </p>
+              <div class="demo-play">
 
-          </div>
+                <div class="demo-play-btn">
 
+                  <svg viewBox="0 0 24 24">
 
-          <div class="card">
+                    <polygon points="5,3 19,12 5,21"/>
 
-            <div class="card-icon">◇</div>
+                  </svg>
 
-            <h3>Security Fencing</h3>
+                </div>
 
-            <p>
-              Establish clearer property boundaries and controlled access.
-            </p>
+              </div>
 
-          </div>
-
-
-          <div class="card">
-
-            <div class="card-icon">□</div>
-
-            <h3>Decorative Fencing</h3>
-
-            <p>
-              Add definition and visual appeal while complementing your
-              property's style.
-            </p>
-
-          </div>
+            </div>
 
 
-          <div class="card">
-
-            <div class="card-icon">△</div>
-
-            <h3>Pool Fencing</h3>
-
-            <p>
-              Create a defined barrier around pool areas while considering
-              applicable local requirements.
-            </p>
-
-          </div>
-
-
-          <div class="card">
-
-            <div class="card-icon">+</div>
-
-            <h3>Fence Replacement & Repair</h3>
-
-            <p>
-              Need an existing fence repaired, replaced, or updated?
-              Start by telling us about the project.
-            </p>
+            <div
+              style="
+                text-align:center;
+                margin-top:10px;
+                font-size:12px;
+                color:var(--muted2);
+              "
+            >
+              ▶ Watch the AI commercial
+            </div>
 
           </div>
 
@@ -1304,698 +2021,1175 @@
 
       </div>
 
-    </section>
+    </div>
+
+  </section>
 
 
-    <!-- ==============================
-         ESTIMATE
-    =============================== -->
+  <!-- HOW IT WORKS -->
 
-    <section class="estimate" id="estimate">
+  <section>
 
-      <div class="container estimate-grid">
+    <div class="container">
 
-        <div class="estimate-copy">
+      <div class="section-head fade-up">
 
-          <span class="eyebrow">
-            Start Your Project
-          </span>
+        <div class="tag">
+          How it works
+        </div>
 
-          <h2>
-            Tell us what you're looking to build.
-          </h2>
+        <div class="h2">
+          A straightforward process
+        </div>
+
+        <div class="lead">
+          No complicated process. We figure out what you need, build it, and get it working.
+        </div>
+
+      </div>
+
+
+      <div class="grid">
+
+        <div class="card fade-up">
+
+          <div class="tag">
+            1
+          </div>
+
+          <h3>
+            Tell Me What You Need
+          </h3>
 
           <p>
-            You don't need to know every measurement or have every detail
-            figured out. Start with the basics and provide whatever
-            information you have.
+            Tell me about your business, your goals, and what you'd like the website, system, or marketing asset to accomplish.
           </p>
 
-          <ul class="check-list">
+        </div>
+
+
+        <div
+          class="card fade-up"
+          style="transition-delay:.06s;"
+        >
+
+          <div class="tag">
+            2
+          </div>
+
+          <h3>
+            I Build It
+          </h3>
+
+          <p>
+            I create the website, configure the technology, develop the content, or build the marketing asset we agreed upon.
+          </p>
+
+        </div>
+
+
+        <div
+          class="card fade-up"
+          style="transition-delay:.12s;"
+        >
+
+          <div class="tag">
+            3
+          </div>
+
+          <h3>
+            Launch &amp; Improve
+          </h3>
+
+          <p>
+            Once everything is ready, we launch it. Ongoing services can be maintained and improved as your business needs change.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- PRICING -->
+
+  <section id="pricing">
+
+    <div class="container">
+
+      <div class="section-head fade-up">
+
+        <div class="tag">
+          Pricing
+        </div>
+
+        <div class="h2">
+          Straightforward pricing
+        </div>
+
+        <div class="lead">
+
+          These prices are starting points. More involved projects may receive a custom quote depending on the scope, complexity, and amount of production required.
+
+        </div>
+
+      </div>
+
+
+      <div class="pricing-three">
+
+
+        <!-- WEBSITE -->
+
+        <div class="price fade-up">
+
+          <h3>
+            Professional Website
+          </h3>
+
+          <div class="money">
+            $799
+            <span>
+              starting
+            </span>
+          </div>
+
+          <div
+            class="lead"
+            style="
+              text-align:left;
+              max-width:none;
+            "
+          >
+            A professional, mobile-ready website for businesses that need a strong online presence.
+          </div>
+
+          <ul>
 
             <li>
-              <span class="check">✓</span>
-              <span>Tell us what you want the fence to do.</span>
+              <span class="ic">✓</span>
+              Professional responsive design
             </li>
 
             <li>
-              <span class="check">✓</span>
-              <span>Choose a material if you already have one in mind.</span>
+              <span class="ic">✓</span>
+              Mobile-friendly layout
             </li>
 
             <li>
-              <span class="check">✓</span>
-              <span>Tell us about your property and project.</span>
+              <span class="ic">✓</span>
+              Contact / inquiry forms
             </li>
 
             <li>
-              <span class="check">✓</span>
-              <span>Let us know your preferred timeframe.</span>
+              <span class="ic">✓</span>
+              Basic SEO setup
+            </li>
+
+            <li>
+              <span class="ic">✓</span>
+              Launch assistance
             </li>
 
           </ul>
 
+          <div
+            class="hero-actions"
+            style="margin-top:16px;"
+          >
+
+            <a
+              class="btn btn-ghost"
+              style="width:100%"
+              href="#contact"
+            >
+              Get a Quote
+            </a>
+
+          </div>
+
         </div>
 
 
-        <div class="form-card">
+        <!-- AI WEBSITE -->
 
-          <h3>Request a Fence Estimate</h3>
+        <div
+          class="price fade-up"
+          style="
+            border-color:
+              rgba(168, 85, 247, 0.4);
+            transition-delay:.06s;
+          "
+        >
+
+          <div
+            class="badge"
+            style="
+              background:
+                rgba(168,85,247,0.15);
+              color:#EEDCFF;
+              border-color:
+                rgba(168,85,247,0.3);
+            "
+          >
+            POPULAR
+          </div>
+
+          <h3>
+            AI Lead-Generation Website
+          </h3>
+
+          <div class="money">
+            $999
+            <span>
+              setup
+            </span>
+          </div>
+
+          <div
+            class="lead"
+            style="
+              text-align:left;
+              max-width:none;
+              font-weight:700;
+              color:var(--text);
+            "
+          >
+            + $149/month
+          </div>
+
+          <div
+            class="lead"
+            style="
+              text-align:left;
+              max-width:none;
+              margin-top:8px;
+            "
+          >
+            A website combined with lead-capture tools and ongoing hosting and maintenance.
+          </div>
+
+          <ul>
+
+            <li>
+              <span class="ic">✓</span>
+              Professional mobile-ready website
+            </li>
+
+            <li>
+              <span class="ic">✓</span>
+              Lead capture forms
+            </li>
+
+            <li>
+              <span class="ic">✓</span>
+              Estimate / quote tools where appropriate
+            </li>
+
+            <li>
+              <span class="ic">✓</span>
+              Email lead notifications
+            </li>
+
+            <li>
+              <span class="ic">✓</span>
+              Hosting &amp; maintenance
+            </li>
+
+          </ul>
+
+          <div
+            class="hero-actions"
+            style="margin-top:16px;"
+          >
+
+            <a
+              class="btn btn-primary"
+              style="
+                width:100%;
+                justify-content:center;
+              "
+              href="#contact"
+            >
+              Build My Site
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <!-- AI VOICE -->
+
+        <div
+          class="price fade-up"
+          style="transition-delay:.12s;"
+        >
+
+          <h3>
+            AI Phone Receptionist
+          </h3>
+
+          <div class="money">
+            $1,497
+            <span>
+              setup
+            </span>
+          </div>
+
+          <div
+            class="lead"
+            style="
+              text-align:left;
+              max-width:none;
+              font-weight:700;
+              color:var(--text);
+            "
+          >
+            + $197/month
+          </div>
+
+          <div
+            class="lead"
+            style="
+              text-align:left;
+              max-width:none;
+              margin-top:8px;
+            "
+          >
+            A business-specific AI phone receptionist designed to answer incoming calls, assist customers, and capture useful information.
+          </div>
+
+          <ul>
+
+            <li>
+              <span class="ic">✓</span>
+              Custom AI assistant configuration
+            </li>
+
+            <li>
+              <span class="ic">✓</span>
+              Business-specific knowledge
+            </li>
+
+            <li>
+              <span class="ic">✓</span>
+              Lead qualification / information capture
+            </li>
+
+            <li>
+              <span class="ic">✓</span>
+              Phone system integration
+            </li>
+
+            <li>
+              <span class="ic">✓</span>
+              Ongoing maintenance &amp; support
+            </li>
+
+          </ul>
+
+          <div
+            class="hero-actions"
+            style="margin-top:16px;"
+          >
+
+            <a
+              class="btn btn-ghost"
+              style="width:100%"
+              href="#contact"
+            >
+              Ask About AI Voice
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- A LA CARTE -->
+
+      <div
+        class="a-la-carte fade-up"
+        style="transition-delay:.18s;"
+      >
+
+
+        <!-- SOCIAL -->
+
+        <div class="aside">
+
+          <h4>
+            Social Content
+          </h4>
 
           <p>
-            Provide some basic information about your project.
+            Consistent, professionally prepared social content for businesses that want to stay active without having to create every post themselves.
           </p>
 
-          <form id="estimateForm">
-
-            <div class="form-grid">
-
-              <div class="field">
-
-                <label for="name">
-                  Name
-                </label>
-
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  placeholder="Your name"
-                  required>
-
-              </div>
-
-
-              <div class="field">
-
-                <label for="phone">
-                  Phone
-                </label>
-
-                <input
-                  type="tel"
-                  id="phone"
-                  name="phone"
-                  placeholder="Best callback number"
-                  required>
-
-              </div>
-
-
-              <div class="field full">
-
-                <label for="address">
-                  Property Address
-                </label>
-
-                <input
-                  type="text"
-                  id="address"
-                  name="address"
-                  placeholder="Property address">
-
-              </div>
-
-
-              <div class="field">
-
-                <label for="purpose">
-                  Main Goal
-                </label>
-
-                <select id="purpose" name="purpose">
-
-                  <option value="">
-                    Select one
-                  </option>
-
-                  <option>
-                    Privacy
-                  </option>
-
-                  <option>
-                    Pet containment
-                  </option>
-
-                  <option>
-                    Security
-                  </option>
-
-                  <option>
-                    Pool
-                  </option>
-
-                  <option>
-                    Decorative
-                  </option>
-
-                  <option>
-                    Property boundary
-                  </option>
-
-                  <option>
-                    Repair / replacement
-                  </option>
-
-                  <option>
-                    Other
-                  </option>
-
-                </select>
-
-              </div>
-
-
-              <div class="field">
-
-                <label for="material">
-                  Material
-                </label>
-
-                <select id="material" name="material">
-
-                  <option value="">
-                    Not sure
-                  </option>
-
-                  <option>
-                    Wood
-                  </option>
-
-                  <option>
-                    Vinyl
-                  </option>
-
-                  <option>
-                    Aluminum
-                  </option>
-
-                  <option>
-                    Chain-link
-                  </option>
-
-                  <option>
-                    Steel
-                  </option>
-
-                  <option>
-                    Composite
-                  </option>
-
-                </select>
-
-              </div>
-
-
-              <div class="field">
-
-                <label for="size">
-                  Approximate Size
-                </label>
-
-                <input
-                  type="text"
-                  id="size"
-                  name="size"
-                  placeholder="Optional — e.g. 200 ft">
-
-              </div>
-
-
-              <div class="field">
-
-                <label for="timeline">
-                  Preferred Timeframe
-                </label>
-
-                <select id="timeline" name="timeline">
-
-                  <option value="">
-                    Select one
-                  </option>
-
-                  <option>
-                    As soon as possible
-                  </option>
-
-                  <option>
-                    Within a few weeks
-                  </option>
-
-                  <option>
-                    Within a few months
-                  </option>
-
-                  <option>
-                    Just researching
-                  </option>
-
-                </select>
-
-              </div>
-
-
-              <div class="field full">
-
-                <label for="details">
-                  Tell us about your project
-                </label>
-
-                <textarea
-                  id="details"
-                  name="details"
-                  placeholder="Tell us anything else that would be helpful."></textarea>
-
-              </div>
+          <div style="margin-top:14px;">
+
+            <div
+              class="mini-card"
+              style="width:100%;"
+            >
+
+              <b>
+                $249 / month
+              </b>
+
+              <span>
+                Content planning, creation, scheduling, and posting. Exact platforms and volume depend on the plan and business needs.
+              </span>
 
             </div>
 
+          </div>
 
-            <button
-              type="submit"
-              class="btn btn-primary form-submit">
-              Submit Estimate Request
-            </button>
+        </div>
 
-            <div class="form-disclaimer">
-              Demonstration form — submissions are used to demonstrate
-              the lead-capture experience.
+
+        <!-- CONTENT + VIDEO -->
+
+        <div class="aside">
+
+          <h4>
+            Content + Video
+          </h4>
+
+          <p>
+            A recurring package combining social content with professionally produced AI-assisted video assets.
+          </p>
+
+          <div style="margin-top:14px;">
+
+            <div
+              class="mini-card"
+              style="width:100%;"
+            >
+
+              <b>
+                $599 / month
+              </b>
+
+              <span>
+                Social content plus up to 2 short-form AI-assisted videos per month. Additional or more complex production quoted separately.
+              </span>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- VIDEO -->
+
+        <div class="aside">
+
+          <h4>
+            AI Video Advertising
+          </h4>
+
+          <p>
+            Promotional videos for social media, websites, campaigns, sales events, and other business purposes.
+          </p>
+
+          <div class="two-col">
+
+            <div class="mini-card">
+
+              <b>
+                AI Video Ad
+              </b>
+
+              <span>
+                From $299<br />
+                Short promotional video
+              </span>
+
+            </div>
+
+            <div class="mini-card">
+
+              <b>
+                Premium Video
+              </b>
+
+              <span>
+                From $499<br />
+                More complex cinematic production
+              </span>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- SECONDARY SERVICES -->
+
+      <div
+        class="a-la-carte fade-up"
+        style="transition-delay:.22s;"
+      >
+
+
+        <div class="aside">
+
+          <h4>
+            Digital Avatar Video
+          </h4>
+
+          <p>
+            Professional spokesperson-style videos using digital avatar technology.
+          </p>
+
+          <div style="margin-top:14px;">
+
+            <div
+              class="mini-card"
+              style="width:100%;"
+            >
+
+              <b>
+                From $299 / video
+              </b>
+
+              <span>
+                Final pricing depends on length, script, avatar requirements, revisions, and production complexity.
+              </span>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="aside">
+
+          <h4>
+            Talking Website AI Agent
+          </h4>
+
+          <p>
+            Already have a website? Add a conversational AI voice agent that lets website visitors speak naturally with your business without rebuilding everything.
+          </p>
+
+          <div style="margin-top:14px;">
+
+            <div
+              class="mini-card"
+              style="width:100%;"
+            >
+
+              <b>
+                From $149 / month
+              </b>
+
+              <span>
+                Customized website voice assistant, configuration, integration, and ongoing support. Higher usage or more complex requirements may be quoted separately.
+              </span>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="aside">
+
+          <h4>
+            Custom Projects
+          </h4>
+
+          <p>
+            Need something that doesn't fit one of the packages above? That's okay.
+          </p>
+
+          <div style="margin-top:14px;">
+
+            <div
+              class="mini-card"
+              style="width:100%;"
+            >
+
+              <b>
+                Custom Quote
+              </b>
+
+              <span>
+                I'll look at what you're trying to accomplish and provide a clear scope and price before work begins.
+              </span>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- FAQ -->
+
+  <section id="faq">
+
+    <div class="container">
+
+      <div class="section-head fade-up">
+
+        <div class="tag">
+          FAQ
+        </div>
+
+        <div class="h2">
+          Quick answers
+        </div>
+
+        <div class="lead">
+          Have a question that isn't answered here? Just ask.
+        </div>
+
+      </div>
+
+
+      <div class="faq-grid">
+
+
+        <details class="fade-up">
+
+          <summary>
+            What's the difference between the Talking Website AI Agent and the AI Phone Receptionist?
+
+            <span style="color:var(--muted2)">
+              +
+            </span>
+
+          </summary>
+
+          <p>
+
+            The Talking Website AI Agent is designed for conversations with website visitors. The AI Phone Receptionist is designed to answer incoming business phone calls. Both can answer common questions, explain services, collect information, and direct people toward the appropriate next step, depending on the setup.
+
+          </p>
+
+        </details>
+
+
+        <details
+          class="fade-up"
+          style="transition-delay:.06s;"
+        >
+
+          <summary>
+            Can the AI Phone Receptionist answer my business phone calls?
+
+            <span style="color:var(--muted2)">
+              +
+            </span>
+
+          </summary>
+
+          <p>
+            Yes. Valentine's Services can configure an AI Phone Receptionist to answer incoming business calls, handle common questions, collect customer information, and capture inquiries. The exact phone-system setup and capabilities depend on the project.
+          </p>
+
+        </details>
+
+
+        <details
+          class="fade-up"
+          style="transition-delay:.12s;"
+        >
+
+          <summary>
+
+            Will I know when someone submits a lead?
+
+            <span style="color:var(--muted2)">
+              +
+            </span>
+
+          </summary>
+
+          <p>
+
+            Lead notifications can be configured to send the business the information collected through its website or lead-capture system. The exact notification method depends on the project and integrations being used.
+
+          </p>
+
+        </details>
+
+
+        <details
+          class="fade-up"
+          style="transition-delay:.12s;"
+        >
+
+          <summary>
+
+            What is an AI video advertisement?
+
+            <span style="color:var(--muted2)">
+              +
+            </span>
+
+          </summary>
+
+          <p>
+
+            I use modern AI-assisted production tools to create promotional videos, cinematic visuals, voiceovers, digital-avatar presentations, and other advertising assets. The appropriate tools depend on the project.
+
+          </p>
+
+        </details>
+
+
+        <details
+          class="fade-up"
+          style="transition-delay:.18s;"
+        >
+
+          <summary>
+
+            Do I own my website?
+
+            <span style="color:var(--muted2)">
+              +
+            </span>
+
+          </summary>
+
+          <p>
+
+            Website ownership and ongoing hosting arrangements depend on the package selected. Before work begins, I'll clearly explain what is included, what is hosted by me, and what happens if you decide to move the site later.
+
+          </p>
+
+        </details>
+
+
+        <details
+          class="fade-up"
+          style="transition-delay:.24s;"
+        >
+
+          <summary>
+
+            How much does a project cost?
+
+            <span style="color:var(--muted2)">
+              +
+            </span>
+
+          </summary>
+
+          <p>
+
+            Starting prices are shown above. More complicated projects may cost more depending on the amount of development, AI usage, video production, integrations, revisions, and other requirements. I'll provide the scope and price before beginning paid work.
+
+          </p>
+
+        </details>
+
+
+        <details
+          class="fade-up"
+          style="transition-delay:.30s;"
+        >
+
+          <summary>
+
+            How long does a video take?
+
+            <span style="color:var(--muted2)">
+              +
+            </span>
+
+          </summary>
+
+          <p>
+
+            Production time varies depending on the concept, number of scenes, generation requirements, revisions, and final length. I'll provide an estimated delivery timeframe when quoting the project.
+
+          </p>
+
+        </details>
+
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- CONTACT -->
+
+  <section id="contact">
+
+    <div class="container">
+
+      <div class="contact fade-up">
+
+
+        <div>
+
+          <div class="tag">
+            Contact
+          </div>
+
+          <h3>
+            Tell me what you're trying to accomplish.
+          </h3>
+
+          <p>
+
+            Whether you need a website, lead-capture system, AI assistant, video advertisement, social content, or something custom, tell me a little about your business and I'll help determine the best next step.
+
+          </p>
+
+
+          <div
+            class="mini"
+            style="margin-top:16px;"
+          >
+
+            <div class="pill">
+              📍 Rock Hill, SC
+            </div>
+
+            <div class="pill">
+              ⚡ Reply within 24 hrs
+            </div>
+
+            <div class="pill">
+              💬 Clear pricing
+            </div>
+
+          </div>
+
+
+          <div
+            style="
+              margin-top:20px;
+              padding:16px;
+              border:1px solid rgba(96,165,250,.25);
+              border-radius:14px;
+              background:rgba(96,165,250,.06);
+            "
+          >
+
+            <div
+              style="
+                font-size:13px;
+                font-weight:700;
+                margin-bottom:6px;
+              "
+            >
+              Want to see an example first?
             </div>
 
             <div
-              class="success-message"
-              id="successMessage">
-              Thanks! Your demonstration estimate request has been received.
+              style="
+                font-size:13px;
+                color:var(--muted);
+              "
+            >
+
+              Try the live demo:
+
+              <a
+                href="https://rooferagent.netlify.app"
+                target="_blank"
+                rel="noopener"
+                style="color:#CFE3FF;"
+              >
+                rooferagent.netlify.app
+              </a>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div>
+
+          <form
+            name="contact"
+            method="POST"
+            data-netlify="true"
+            netlify-honeypot="bot-field"
+            id="contactForm"
+          >
+
+            <input
+              type="hidden"
+              name="form-name"
+              value="contact"
+            />
+
+            <p style="display:none;">
+
+              <label>
+                Don't fill this out:
+
+                <input name="bot-field" />
+
+              </label>
+
+            </p>
+
+
+            <div
+              style="
+                display:flex;
+                flex-direction:column;
+                gap:12px;
+              "
+            >
+
+
+              <div class="form-row">
+
+                <div class="form-group">
+
+                  <label for="fname">
+                    Your Name *
+                  </label>
+
+                  <input
+                    type="text"
+                    id="fname"
+                    name="name"
+                    placeholder="Jane Smith"
+                    required
+                  />
+
+                </div>
+
+
+                <div class="form-group">
+
+                  <label for="femail">
+                    Email Address *
+                  </label>
+
+                  <input
+                    type="email"
+                    id="femail"
+                    name="email"
+                    placeholder="jane@yourbusiness.com"
+                    required
+                  />
+
+                </div>
+
+              </div>
+
+
+              <div class="form-row">
+
+                <div class="form-group">
+
+                  <label for="fbusiness">
+                    Business Name
+                  </label>
+
+                  <input
+                    type="text"
+                    id="fbusiness"
+                    name="business"
+                    placeholder="Smith Roofing LLC"
+                  />
+
+                </div>
+
+
+                <div class="form-group">
+
+                  <label for="fwebsite">
+                    Current Website
+                  </label>
+
+                  <input
+                    type="text"
+                    id="fwebsite"
+                    name="website"
+                    placeholder="www.yourbusiness.com (or none)"
+                  />
+
+                </div>
+
+              </div>
+
+
+              <div class="form-group">
+
+                <label for="fservice">
+                  What are you interested in? *
+                </label>
+
+                <select
+                  id="fservice"
+                  name="service"
+                  required
+                >
+
+                  <option
+                    value=""
+                    disabled
+                    selected
+                  >
+                    Select a service...
+                  </option>
+
+                  <option value="Professional Website">
+                    Professional Website — From $799
+                  </option>
+
+                  <option value="AI Lead Generation Website">
+                    AI Lead-Generation Website — $999 + $149/mo
+                  </option>
+
+                  <option value="AI Phone Receptionist">
+                    AI Phone Receptionist — $1,497 + $197/mo
+                  </option>
+
+                  <option value="Talking Website AI Agent">
+                    Talking Website AI Agent — From $149/mo
+                  </option>
+
+                  <option value="Social Content">
+                    Social Content — $249/mo
+                  </option>
+
+                  <option value="Content + Video">
+                    Content + Video — $599/mo
+                  </option>
+
+                  <option value="AI Video Ad">
+                    AI Video Ad — From $299
+                  </option>
+
+                  <option value="Premium Video">
+                    Premium Cinematic Video — From $499
+                  </option>
+
+                  <option value="Digital Avatar Video">
+                    Digital Avatar Video — From $299
+                  </option>
+
+                  <option value="Custom Project">
+                    Custom Project / Not Sure
+                  </option>
+
+                </select>
+
+              </div>
+
+
+              <div class="form-group">
+
+                <label for="fmessage">
+                  What do you need? *
+                </label>
+
+                <textarea
+                  id="fmessage"
+                  name="message"
+                  placeholder="Tell me about your business, what you're trying to accomplish, and anything else that would be helpful..."
+                  required
+                ></textarea>
+
+              </div>
+
+
+              <button
+                type="submit"
+                class="btn btn-primary"
+                style="
+                  width:100%;
+                  justify-content:center;
+                  padding:14px;
+                "
+              >
+
+                Send My Request &rarr;
+
+              </button>
+
+
             </div>
 
           </form>
 
-        </div>
 
-      </div>
-
-    </section>
-
-
-    <!-- ==============================
-         MATERIALS
-    =============================== -->
-
-    <section class="materials" id="materials">
-
-      <div class="container">
-
-        <div class="section-heading">
-
-          <span class="eyebrow">
-            Materials
-          </span>
-
-          <h2>
-            Common fencing options.
-          </h2>
-
-          <p>
-            The right material depends on your goals, property, appearance,
-            maintenance preferences, and budget.
-          </p>
-
-        </div>
-
-
-        <div class="material-grid">
-
-          <div class="material">
-
-            <h3>Wood</h3>
-
-            <p>
-              A traditional choice with a wide variety of privacy and
-              decorative styles.
-            </p>
-
-          </div>
-
-
-          <div class="material">
-
-            <h3>Vinyl</h3>
-
-            <p>
-              A popular low-maintenance option available in privacy and
-              decorative designs.
-            </p>
-
-          </div>
-
-
-          <div class="material">
-
-            <h3>Aluminum</h3>
-
-            <p>
-              A decorative option commonly used for boundaries and
-              residential applications.
-            </p>
-
-          </div>
-
-
-          <div class="material">
-
-            <h3>Chain-Link</h3>
-
-            <p>
-              A practical option commonly used for pets, boundaries,
-              security, and utility areas.
-            </p>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- ==============================
-         HOW IT WORKS
-    =============================== -->
-
-    <section class="how">
-
-      <div class="container">
-
-        <div class="section-heading">
-
-          <span class="eyebrow">
-            Simple Process
-          </span>
-
-          <h2>
-            From idea to estimate.
-          </h2>
-
-          <p>
-            Getting started doesn't have to be complicated.
-          </p>
-
-        </div>
-
-
-        <div class="steps">
-
-          <div class="step">
-
-            <div class="step-number">
-              STEP 01
-            </div>
-
-            <h3>
-              Tell us what you need
-            </h3>
-
-            <p>
-              Tell us about your property, your goals, and the type of
-              fencing you're considering.
-            </p>
-
-          </div>
-
-
-          <div class="step">
-
-            <div class="step-number">
-              STEP 02
-            </div>
-
-            <h3>
-              Discuss your options
-            </h3>
-
-            <p>
-              Explore materials, styles, gates, project size, and other
-              details relevant to your project.
-            </p>
-
-          </div>
-
-
-          <div class="step">
-
-            <div class="step-number">
-              STEP 03
-            </div>
-
-            <h3>
-              Move toward an estimate
-            </h3>
-
-            <p>
-              Provide your contact and project information so the next
-              appropriate step can be arranged.
-            </p>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- ==============================
-         AI RECEPTIONIST
-    =============================== -->
-
-    <section class="ai-section" id="ai">
-
-      <div class="container">
-
-        <span class="eyebrow">
-          Customer Support
-        </span>
-
-        <h2>
-          Have a question about your fencing project?
-        </h2>
-
-        <p>
-          Talk with our AI receptionist. Ask about fencing, describe your
-          project, request an estimate, or simply see how the experience
-          works.
-        </p>
-
-
-        <div class="ai-features">
-
-          <div class="ai-feature">
-
-            <strong>Ask Questions</strong>
-
-            <span>
-              Get answers to common fencing questions.
-            </span>
-
-          </div>
-
-
-          <div class="ai-feature">
-
-            <strong>Describe Your Project</strong>
-
-            <span>
-              Explain what you're looking to build.
-            </span>
-
-          </div>
-
-
-          <div class="ai-feature">
-
-            <strong>Request Service</strong>
-
-            <span>
-              Provide information for an estimate request.
-            </span>
-
-          </div>
-
-
-          <div class="ai-feature">
-
-            <strong>Call After Hours</strong>
-
-            <span>
-              See how an AI receptionist can capture inquiries when you're unavailable.
-            </span>
-
-          </div>
-
-        </div>
-
-
-        <button
-          class="btn ai-button"
+          <div
+            class="form-success"
+            id="formSuccess"
           >
-          Talk to the AI Receptionist
-        </button>
 
-      </div>
+            &#10003;
 
-    </section>
+            Message received!
 
+            I'll be in touch within 24 hours.
 
-    <!-- ==============================
-         TEST IT
-    =============================== -->
-
-    <section class="test-section">
-
-      <div class="container">
-
-        <div class="test-box">
-
-          <span class="eyebrow">
-            Want to Test It?
-          </span>
-
-          <h2>
-            Ask the questions a real customer would ask.
-          </h2>
-
-          <p>
-            If you're exploring the site, try different situations and
-            see how the receptionist responds.
-          </p>
-
-
-          <ul class="test-list">
-
-            <li>
-              I need a privacy fence for my backyard.
-            </li>
-
-            <li>
-              I have a dog and need to fence in my yard.
-            </li>
-
-            <li>
-              How much does a wood fence cost?
-            </li>
-
-            <li>
-              I don't know how many feet of fence I need.
-            </li>
-
-            <li>
-              Can you replace my existing fence?
-            </li>
-
-            <li>
-              I need a gate for my driveway.
-            </li>
-
-            <li>
-              Do you install vinyl fencing?
-            </li>
-
-            <li>
-              I'm just starting to research my options.
-            </li>
-
-          </ul>
+          </div>
 
         </div>
 
       </div>
 
-    </section>
+    </div>
+
+  </section>
 
 
-    <!-- ==============================
-         FINAL CTA
-    =============================== -->
-
-    <section class="final-cta">
-
-      <div class="container">
-
-        <span class="eyebrow">
-          Start Your Project
-        </span>
-
-        <h2>
-          Let's talk about your fence.
-        </h2>
-
-        <p>
-          Tell us what you're looking to accomplish and we'll start with
-          the information you have.
-        </p>
-
-        <a
-          href="#estimate"
-          class="btn btn-primary">
-          Request an Estimate
-        </a>
-
-      </div>
-
-    </section>
-
-  </main>
-
-
-  <!-- ==============================
-       FOOTER
-  =============================== -->
+  <!-- FOOTER -->
 
   <footer>
 
     <div class="container">
 
-      <div class="footer-grid">
+      <div
+        style="
+          display:flex;
+          justify-content:space-between;
+          gap:12px;
+          flex-wrap:wrap;
+        "
+      >
 
         <div>
-
-          <div class="footer-brand">
-            Carolina Fence & Outdoor
-          </div>
-
-          <div class="footer-description">
-            Fencing solutions for privacy, security, pets, outdoor living,
-            and property boundaries.
-          </div>
-
+          © 2026 Valentine's Services • Rock Hill, SC
         </div>
 
-
-        <div class="footer-right">
-
-          <strong>
-            Questions?
-          </strong>
-
-          <span>
-            Talk with our AI receptionist using the button on this page.
-          </span>
-
+        <div
+          style="
+            color:rgba(167,179,199,.75)
+          "
+        >
+          Web • AI • Video • Digital Solutions
         </div>
-
-      </div>
-
-
-      <div class="footer-bottom">
-
-        Carolina Fence & Outdoor is a fictional company used for
-        demonstration purposes. This website demonstrates how a real
-        fencing company could use AI-powered customer service and
-        lead-capture tools. Business information, pricing, services,
-        availability, and policies would be customized for an actual
-        company before deployment.
 
       </div>
 
@@ -2003,71 +3197,395 @@
 
   </footer>
 
-  <!-- ==============================
-       CUSTOM VAPI VOICE INTERFACE
-  ============================== -->
 
-  <section id="custom-vapi-demo" class="custom-vapi-section" aria-label="AI receptionist voice demo">
-    <div class="custom-vapi-panel">
-      <div class="custom-vapi-eyebrow">LIVE VOICE DEMO</div>
-      <h2>Talk to Our AI Receptionist</h2>
+  <!-- VAPI STICKY WIDGET -->
 
-      <div class="custom-vapi-ready">Ready to try it?</div>
-      <p class="custom-vapi-instruction">Tap the button below to start a live conversation.</p>
-      <div id="customVapiArrow" class="custom-vapi-arrow" aria-hidden="true">↓</div>
+  <div id="vapi-widget-container">
 
-      <button id="customVapiButton" class="custom-vapi-button" type="button">
-        <span class="custom-vapi-mic" aria-hidden="true">🎙</span>
-        <span>CLICK HERE to TALK</span>
-      </button>
-
-      <div id="customVapiStatus" class="custom-vapi-status" aria-live="polite"></div>
-      <div id="customVapiHelper" class="custom-vapi-helper">You'll be asked to allow microphone access when the call starts.</div>
+    <div id="vapi-tooltip">
+      Talk to Val — AI Assistant 🎙️
     </div>
-  </section>
-<!-- ==============================
-       DEMO FORM JAVASCRIPT
-  =============================== -->
+
+
+    <button
+      id="vapi-btn-custom"
+      aria-label="Talk to Val, AI assistant"
+    >
+
+      <svg
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+
+        <path
+          d="
+            M12 1a4 4 0 0 1 4 4v7a4 4 0 0 1-8 0V5a4 4 0 0 1 4-4zm-1.5 4v7a1.5 1.5 0 0 0 3 0V5a1.5 1.5 0 0 0-3 0z
+            M5 11a1 1 0 0 1 1 1 6 6 0 0 0 12 0 1 1 0 1 1 2 0 8 8 0 0 1-7 7.938V22h2a1 1 0 1 1 0 2H9a1 1 0 1 1 0-2h2v-2.062A8 8 0 0 1 4 12a1 1 0 0 1 1-1z
+          "
+        />
+
+      </svg>
+
+    </button>
+
+  </div>
+
 
   <script>
 
-    const estimateForm =
-      document.getElementById("estimateForm");
+    /* FADE-IN ANIMATION */
 
-    const successMessage =
-      document.getElementById("successMessage");
+    const els =
+      document.querySelectorAll('.fade-up');
+
+    const io =
+      new IntersectionObserver(
+        (entries) => {
+
+          entries.forEach(
+            e => {
+
+              if (e.isIntersecting) {
+
+                e.target.classList.add('show');
+
+              }
+
+            }
+          );
+
+        },
+        {
+          threshold: 0.10
+        }
+      );
+
+    els.forEach(
+      el => io.observe(el)
+    );
 
 
-    estimateForm.addEventListener("submit", function(event) {
+    /* NETLIFY CONTACT FORM */
 
-      event.preventDefault();
+    const form =
+      document.getElementById('contactForm');
 
-      /*
-        This is currently a front-end demonstration form.
+    const successMsg =
+      document.getElementById('formSuccess');
 
-        It does NOT send data to a real CRM or email address.
+    form?.addEventListener(
+      'submit',
+      async (e) => {
 
-        When you're ready, this can be connected to:
-        • Google Sheets
-        • Email
-        • Telegram
-        • CRM
-        • Webhook
-        • Form service
-        • Custom backend
-      */
+        e.preventDefault();
 
-      successMessage.style.display = "block";
+        const data =
+          new FormData(form);
 
-      estimateForm.reset();
+        try {
 
-      successMessage.scrollIntoView({
-        behavior: "smooth",
-        block: "nearest"
-      });
+          await fetch(
+            '/',
+            {
+              method: 'POST',
 
-    });
+              headers: {
+                'Content-Type':
+                  'application/x-www-form-urlencoded'
+              },
 
+              body:
+                new URLSearchParams(data).toString()
+            }
+          );
+
+          form.style.display =
+            'none';
+
+          successMsg.style.display =
+            'block';
+
+        } catch (err) {
+
+          alert(
+            'Something went wrong. Please email me directly at valentinesservices@yahoo.com or try again.'
+          );
+
+        }
+
+      }
+    );
+
+
+    /* VAPI */
+
+    /*
+      IMPORTANT:
+      This is the PUBLIC Vapi API key.
+      Never place a PRIVATE Vapi API key in this file.
+    */
+
+    const VAPI_PUBLIC_KEY =
+      "2d50143b-0c3b-4a09-aa1a-faaf09714bc5";
+
+    const VAPI_ASSISTANT_ID =
+      "6ac7a447-64bc-4eb6-a38b-1d1ec67bd4ce";
+
+
+    let vapi = null;
+
+    let isCallActive = false;
+
+
+    const vapiBtn =
+      document.getElementById(
+        'vapi-btn-custom'
+      );
+
+    const tooltip =
+      document.getElementById(
+        'vapi-tooltip'
+      );
+
+
+    vapiBtn.addEventListener(
+      'mouseenter',
+      () => {
+
+        tooltip.classList.add(
+          'visible'
+        );
+
+      }
+    );
+
+
+    vapiBtn.addEventListener(
+      'mouseleave',
+      () => {
+
+        if (!isCallActive) {
+
+          tooltip.classList.remove(
+            'visible'
+          );
+
+        }
+
+      }
+    );
+
+
+    const vapiScript =
+      document.createElement(
+        'script'
+      );
+
+    vapiScript.src =
+      "https://cdn.jsdelivr.net/gh/VapiAI/html-script-tag@latest/dist/assets/index.js";
+
+    vapiScript.async = true;
+
+
+    vapiScript.onload =
+      function() {
+
+        try {
+
+          if (window.vapiSDK) {
+
+            vapi =
+              window.vapiSDK.run(
+                {
+                  apiKey:
+                    VAPI_PUBLIC_KEY,
+
+                  assistant:
+                    VAPI_ASSISTANT_ID,
+
+                  config:
+                    {
+                      hideButton: true
+                    }
+                }
+              );
+
+          } else if (window.Vapi) {
+
+            vapi =
+              new window.Vapi(
+                VAPI_PUBLIC_KEY
+              );
+
+          }
+
+
+          if (!vapi) {
+
+            return;
+
+          }
+
+
+          setTimeout(
+            () => {
+
+              document
+                .querySelectorAll(
+                  '[id*="vapi"], [class*="vapi-btn"], [class*="vapi-support"]'
+                )
+                .forEach(
+                  el => {
+
+                    if (
+                      el.id !==
+                        'vapi-widget-container'
+                      &&
+                      el.id !==
+                        'vapi-btn-custom'
+                      &&
+                      el.id !==
+                        'vapi-tooltip'
+                    ) {
+
+                      el.style.setProperty(
+                        'display',
+                        'none',
+                        'important'
+                      );
+
+                    }
+
+                  }
+                );
+
+            },
+            1500
+          );
+
+
+          vapi.on(
+            'call-start',
+            () => {
+
+              isCallActive =
+                true;
+
+              vapiBtn.style.background =
+                'linear-gradient(135deg, #ef4444, #dc2626)';
+
+              vapiBtn.style.animation =
+                'none';
+
+              tooltip.textContent =
+                'Click to end call';
+
+              tooltip.classList.add(
+                'visible'
+              );
+
+            }
+          );
+
+
+          vapi.on(
+            'call-end',
+            () => {
+
+              isCallActive =
+                false;
+
+              vapiBtn.style.background =
+                'linear-gradient(135deg, #60A5FA, #A855F7)';
+
+              vapiBtn.style.animation =
+                'pulse-ring 2.4s ease-out infinite';
+
+              tooltip.textContent =
+                'Talk to Val — AI Assistant 🎙️';
+
+              tooltip.classList.remove(
+                'visible'
+              );
+
+            }
+          );
+
+
+          vapi.on(
+            'error',
+            () => {
+
+              isCallActive =
+                false;
+
+              vapiBtn.style.background =
+                'linear-gradient(135deg, #60A5FA, #A855F7)';
+
+              vapiBtn.style.animation =
+                'pulse-ring 2.4s ease-out infinite';
+
+            }
+          );
+
+
+        } catch (err) {
+
+          console.error(
+            'Vapi initialization error:',
+            err
+          );
+
+        }
+
+      };
+
+
+    document.body.appendChild(
+      vapiScript
+    );
+
+
+    vapiBtn.addEventListener(
+      'click',
+      () => {
+
+        if (!vapi) {
+
+          alert(
+            'Voice assistant is loading, please try again in a moment.'
+          );
+
+          return;
+
+        }
+
+
+        if (isCallActive) {
+
+          vapi.stop();
+
+        } else {
+
+          try {
+
+            vapi.start(
+              VAPI_ASSISTANT_ID
+            );
+
+          } catch (err) {
+
+            console.error(
+              'Could not start call:',
+              err
+            );
+
+          }
+
+        }
+
+      }
+    );
 
   </script>
 
