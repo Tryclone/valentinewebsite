@@ -7,11 +7,16 @@
 
     <title>Agency Partners | Valentine's Services</title>
 
-    <meta name="description" content="Partner with Valentine's Services to offer professional websites, AI solutions, lead capture systems, automation, and more to your clients.">
+    <meta name="description"
+        content="Partner with Valentine's Services to offer professional websites, AI receptionists, lead capture systems, estimate tools, automation, and digital solutions to your clients.">
 
     <style>
         * {
             box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
@@ -23,31 +28,135 @@
         }
 
         .container {
-            max-width: 850px;
-            margin: 60px auto;
-            padding: 50px 30px;
-            background: white;
-            border-radius: 16px;
-            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+            max-width: 1050px;
+            margin: 35px auto;
+            padding: 45px 35px;
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .top-link {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .top-link a {
+            color: #555;
+            text-decoration: none;
+            font-size: 0.95rem;
+        }
+
+        .top-link a:hover {
+            text-decoration: underline;
         }
 
         h1 {
-            margin-top: 0;
-            font-size: 2.4rem;
+            margin: 0;
+            font-size: 2.7rem;
             text-align: center;
+            color: #111;
         }
 
         .intro {
             text-align: center;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             color: #555;
-            max-width: 700px;
-            margin: 0 auto 40px;
+            max-width: 760px;
+            margin: 15px auto 45px;
         }
 
         h2 {
-            margin-top: 35px;
-            font-size: 1.5rem;
+            margin-top: 45px;
+            margin-bottom: 15px;
+            font-size: 1.65rem;
+            color: #111;
+        }
+
+        p {
+            margin-bottom: 18px;
+        }
+
+        /* Demo Section */
+
+        .demo-intro {
+            text-align: center;
+            max-width: 750px;
+            margin: 0 auto 30px;
+            color: #555;
+        }
+
+        .demo-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 22px;
+            margin-top: 25px;
+        }
+
+        .demo-card {
+            border: 1px solid #ddd;
+            border-radius: 14px;
+            padding: 25px;
+            background: #fff;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .demo-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 22px rgba(0, 0, 0, 0.09);
+        }
+
+        .demo-icon {
+            font-size: 2.2rem;
+            margin-bottom: 8px;
+        }
+
+        .demo-card h3 {
+            margin: 5px 0 10px;
+            font-size: 1.35rem;
+        }
+
+        .demo-card p {
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .demo-features {
+            padding-left: 20px;
+            margin-bottom: 22px;
+        }
+
+        .demo-features li {
+            margin-bottom: 6px;
+        }
+
+        .demo-btn {
+            display: inline-block;
+            background: #000;
+            color: #fff;
+            padding: 12px 20px;
+            border-radius: 7px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.2s ease;
+        }
+
+        .demo-btn:hover {
+            background: #333;
+        }
+
+        /* Highlight */
+
+        .highlight {
+            background: #f0f0f0;
+            padding: 28px;
+            border-radius: 14px;
+            margin: 35px 0;
+        }
+
+        .highlight h2 {
+            margin-top: 0;
         }
 
         ul {
@@ -55,52 +164,122 @@
         }
 
         li {
-            margin-bottom: 12px;
+            margin-bottom: 11px;
         }
 
-        .highlight {
-            background: #f0f0f0;
-            padding: 25px;
-            border-radius: 12px;
-            margin: 30px 0;
+        /* Partner Benefits */
+
+        .benefits {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px 30px;
+            margin-top: 20px;
         }
 
-        .button-container {
+        .benefit {
+            padding: 18px;
+            background: #fafafa;
+            border-radius: 10px;
+            border: 1px solid #eee;
+        }
+
+        .benefit strong {
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        /* CTA */
+
+        .cta {
+            margin-top: 50px;
+            padding: 40px 25px;
+            background: #111;
+            color: white;
+            border-radius: 15px;
             text-align: center;
-            margin-top: 40px;
+        }
+
+        .cta h2 {
+            color: white;
+            margin-top: 0;
+            font-size: 2rem;
+        }
+
+        .cta p {
+            color: #ddd;
+            max-width: 700px;
+            margin: 0 auto 25px;
         }
 
         .btn {
             display: inline-block;
-            background: #000;
-            color: #fff;
-            padding: 16px 32px;
+            background: white;
+            color: #111;
+            padding: 15px 30px;
             text-decoration: none;
             border-radius: 8px;
             font-weight: bold;
             font-size: 1rem;
-            transition: background 0.2s ease;
+            transition: background 0.2s ease, transform 0.2s ease;
         }
 
         .btn:hover {
-            background: #333;
+            background: #eee;
+            transform: translateY(-1px);
+        }
+
+        .secondary-btn {
+            display: inline-block;
+            margin-left: 10px;
+            padding: 14px 28px;
+            border: 1px solid #aaa;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        .secondary-btn:hover {
+            background: #222;
         }
 
         .note {
             text-align: center;
-            margin-top: 20px;
+            margin-top: 22px;
             font-size: 0.9rem;
             color: #777;
         }
 
-        @media (max-width: 600px) {
+        .footer {
+            text-align: center;
+            margin-top: 35px;
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 750px) {
+
             .container {
-                margin: 20px;
-                padding: 35px 20px;
+                margin: 15px;
+                padding: 30px 20px;
             }
 
             h1 {
-                font-size: 2rem;
+                font-size: 2.2rem;
+            }
+
+            .intro {
+                font-size: 1.05rem;
+            }
+
+            .demo-grid,
+            .benefits {
+                grid-template-columns: 1fr;
+            }
+
+            .secondary-btn {
+                display: block;
+                margin: 12px 0 0;
             }
         }
     </style>
@@ -110,64 +289,325 @@
 
     <div class="container">
 
+        <div class="top-link">
+            <a href="https://valentinesservices.com">
+                ← Back to Valentine's Services
+            </a>
+        </div>
+
         <h1>Agency Partner Program</h1>
 
         <p class="intro">
-            Expand what you can offer your clients without having to build and maintain
-            every solution yourself.
+            Give your clients access to powerful websites, AI tools, lead-capture
+            systems, and digital solutions without having to build everything yourself.
         </p>
+
+
+        <!-- LIVE DEMOS -->
+
+        <h2>See What We Can Build</h2>
+
+        <p class="demo-intro">
+            Explore working demonstrations of the kinds of digital systems
+            Valentine's Services can create for your clients.
+        </p>
+
+        <div class="demo-grid">
+
+            <!-- Roofing -->
+
+            <div class="demo-card">
+
+                <div class="demo-icon">🏠</div>
+
+                <h3>Roofing Demo</h3>
+
+                <p>
+                    A complete lead-generation experience combining an interactive
+                    website, instant estimate tool, quote request system, appointment
+                    functionality, and AI receptionist.
+                </p>
+
+                <ul class="demo-features">
+                    <li>AI voice receptionist</li>
+                    <li>Instant estimate experience</li>
+                    <li>Lead / quote capture</li>
+                    <li>Appointment requests</li>
+                </ul>
+
+                <a
+                    href="https://rooferagent.netlify.app"
+                    class="demo-btn"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    View Roofing Demo →
+                </a>
+
+            </div>
+
+
+            <!-- HVAC -->
+
+            <div class="demo-card">
+
+                <div class="demo-icon">❄️</div>
+
+                <h3>HVAC Demo</h3>
+
+                <p>
+                    An AI receptionist demonstration designed to help HVAC companies
+                    answer questions, handle service requests, and capture potential
+                    customers even when staff are busy.
+                </p>
+
+                <ul class="demo-features">
+                    <li>AI voice receptionist</li>
+                    <li>Customer questions</li>
+                    <li>Service requests</li>
+                    <li>After-hours inquiries</li>
+                </ul>
+
+                <a
+                    href="https://profound-pika-0ae566.netlify.app"
+                    class="demo-btn"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    View HVAC Demo →
+                </a>
+
+            </div>
+
+
+            <!-- Fencing -->
+
+            <div class="demo-card">
+
+                <div class="demo-icon">🔨</div>
+
+                <h3>Fencing Demo</h3>
+
+                <p>
+                    A customer-focused fencing website that combines project
+                    information, estimate requests, lead capture, and an AI
+                    receptionist.
+                </p>
+
+                <ul class="demo-features">
+                    <li>Estimate request system</li>
+                    <li>Lead capture</li>
+                    <li>Project information</li>
+                    <li>AI receptionist</li>
+                </ul>
+
+                <a
+                    href="https://comforting-mermaid-f7a7d6.netlify.app"
+                    class="demo-btn"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    View Fencing Demo →
+                </a>
+
+            </div>
+
+
+            <!-- Pest Control -->
+
+            <div class="demo-card">
+
+                <div class="demo-icon">🐜</div>
+
+                <h3>Pest Control Demo</h3>
+
+                <p>
+                    A pest-control example featuring a live AI receptionist,
+                    customer questions, lead capture, and service-request
+                    functionality.
+                </p>
+
+                <ul class="demo-features">
+                    <li>Live AI receptionist</li>
+                    <li>Lead capture</li>
+                    <li>Service requests</li>
+                    <li>After-hours assistance</li>
+                </ul>
+
+                <a
+                    href="https://carolina-pest-defense-demo.netlify.app"
+                    class="demo-btn"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    View Pest Control Demo →
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- PARTNER INTRO -->
 
         <h2>Partner With Valentine's Services</h2>
 
         <p>
-            Valentine's Services works with agencies, consultants, marketers, and other
-            client-service businesses that need reliable digital solutions for their clients.
+            Valentine's Services works with agencies, consultants, marketers,
+            and other client-service businesses that need reliable digital
+            solutions for their clients.
         </p>
 
         <p>
-            You can bring us into projects when you need additional technical or creative
-            capabilities, while maintaining your relationship with your client.
+            You can bring us into projects when you need additional technical,
+            AI, web, automation, or creative capabilities while maintaining
+            your relationship with your client.
         </p>
+
+
+        <!-- SERVICES -->
 
         <div class="highlight">
 
             <h2>What We Can Help You Deliver</h2>
 
             <ul>
-                <li>Professional website design and redesign</li>
-                <li>AI-powered talking websites</li>
-                <li>AI lead capture systems</li>
-                <li>Quote and estimate systems</li>
-                <li>AI messaging and lead follow-up</li>
-                <li>Voice-agent and AI receptionist solutions</li>
-                <li>Business automation</li>
-                <li>AI-generated video advertising and creative content</li>
-                <li>Other custom digital solutions based on your client's needs</li>
+
+                <li>
+                    <strong>Professional websites and redesigns</strong>
+                </li>
+
+                <li>
+                    <strong>AI-powered talking websites</strong>
+                </li>
+
+                <li>
+                    <strong>AI voice receptionists</strong>
+                </li>
+
+                <li>
+                    <strong>Lead-capture systems</strong>
+                </li>
+
+                <li>
+                    <strong>Quote and estimate systems</strong>
+                </li>
+
+                <li>
+                    <strong>Instant lead notifications</strong>
+                </li>
+
+                <li>
+                    <strong>AI messaging and lead follow-up</strong>
+                </li>
+
+                <li>
+                    <strong>Business automation</strong>
+                </li>
+
+                <li>
+                    <strong>AI-generated video advertising and creative content</strong>
+                </li>
+
+                <li>
+                    <strong>Custom digital solutions based on your client's needs</strong>
+                </li>
+
             </ul>
 
         </div>
 
+
+        <!-- BENEFITS -->
+
         <h2>Why Become a Partner?</h2>
 
-        <ul>
-            <li><strong>Expand your services</strong> without having to build everything in-house.</li>
-            <li><strong>Save time</strong> by having a technical production partner handle implementation.</li>
-            <li><strong>Serve more clients</strong> with a broader range of solutions.</li>
-            <li><strong>Keep the client relationship</strong> while we help with the behind-the-scenes work.</li>
-            <li><strong>Access agency-focused pricing</strong> on eligible services after approval.</li>
-        </ul>
+        <div class="benefits">
+
+            <div class="benefit">
+                <strong>Expand Your Services</strong>
+                Offer more solutions without having to build everything in-house.
+            </div>
+
+            <div class="benefit">
+                <strong>Save Time</strong>
+                Have a production partner handle implementation and technical work.
+            </div>
+
+            <div class="benefit">
+                <strong>Serve More Clients</strong>
+                Give clients access to capabilities your agency may not currently offer.
+            </div>
+
+            <div class="benefit">
+                <strong>Keep the Client Relationship</strong>
+                You remain the client's primary agency while we handle the agreed-upon work.
+            </div>
+
+            <div class="benefit">
+                <strong>Flexible Solutions</strong>
+                Start with the solution a client actually needs instead of forcing a one-size-fits-all package.
+            </div>
+
+            <div class="benefit">
+                <strong>Agency-Focused Pricing</strong>
+                Approved partners can receive partner pricing on eligible services.
+            </div>
+
+        </div>
+
+
+        <!-- HOW IT WORKS -->
 
         <h2>How It Works</h2>
 
         <ol>
-            <li>Submit an Agency Partner application.</li>
-            <li>We review your agency and the types of projects you handle.</li>
-            <li>Once approved, you'll receive access to partner resources and pricing.</li>
-            <li>Bring us into projects when you need the services we provide.</li>
-            <li>We handle the agreed-upon production and technical work.</li>
+
+            <li>
+                <strong>You identify an opportunity.</strong>
+                A client needs a website, AI receptionist, lead system,
+                estimate tool, automation, or another digital solution.
+            </li>
+
+            <li>
+                <strong>We discuss the project.</strong>
+                We determine what the client actually needs and establish
+                the scope and pricing.
+            </li>
+
+            <li>
+                <strong>We build the solution.</strong>
+                Valentine's Services handles the agreed-upon technical
+                and production work.
+            </li>
+
+            <li>
+                <strong>You maintain the client relationship.</strong>
+                We can work behind the scenes or coordinate directly
+                with the client depending on the arrangement.
+            </li>
+
+            <li>
+                <strong>The client gets a working solution.</strong>
+                The project is launched and ongoing support can be arranged
+                when appropriate.
+            </li>
+
         </ol>
 
-        <div class="button-container">
+
+        <!-- CTA -->
+
+        <div class="cta">
+
+            <h2>Have a Client Who Needs Something?</h2>
+
+            <p>
+                Let's talk about the project. Whether your client needs a
+                website, AI receptionist, lead-capture system, estimate tool,
+                automation, or something custom, we can determine the best
+                approach together.
+            </p>
 
             <a
                 href="https://docs.google.com/forms/d/e/1FAIpQLSeU5byZyDlP5hhAm0BlN30Nq6zEB2gbWprbX_Z-XiDwjMs9yg/viewform?usp=sharing&ouid=117750863618735695694"
@@ -175,15 +615,28 @@
                 target="_blank"
                 rel="noopener noreferrer"
             >
-                Apply to Become an Agency Partner
+                Become an Agency Partner
+            </a>
+
+            <a
+                href="mailto:valentinesservices@yahoo.com?subject=Agency%20Partnership%20Inquiry"
+                class="secondary-btn"
+            >
+                Contact Valentine's Services
             </a>
 
         </div>
 
+
         <p class="note">
             Agency pricing is not displayed publicly. Approved partners receive
-            additional information after their application has been reviewed.
+            additional information based on the services and project scope.
         </p>
+
+
+        <div class="footer">
+            Valentine's Services • Rock Hill, SC • Serving businesses anywhere
+        </div>
 
     </div>
 
